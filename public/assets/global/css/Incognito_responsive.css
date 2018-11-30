@@ -1,0 +1,30 @@
+.nim-menu.navbar.navbar-default.navbar-fixed-top {
+    height: auto !important;
+}
+
+@media (max-width: 767px) {
+
+.main-heading-title {
+    font-size: 28px;
+}
+
+img.img-responsive {
+    width: 100%;
+}
+
+.recent-works .port-item {
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.work-desc h3 a {
+    font-size: 20px;
+}
+.work-desc span {
+    font-size: 14px;
+}
+.nim-service .nim-service-detail p {
+    min-height: auto;
+}
+
+}

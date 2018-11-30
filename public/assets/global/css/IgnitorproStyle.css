@@ -1,0 +1,92 @@
+.detailbox:hover {
+    box-shadow: none;
+}
+
+.aboutus>.container {
+    padding-bottom: 0;
+}
+
+.footer-links a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer-links a {
+    margin: 0;
+}
+.site-footer small {margin: 15px 0;}
+
+.site-footer small, .footer-links a {
+    font-size: 14px;
+}
+
+.footer-links, .site-footer small {
+    margin: 20px 0 15px;
+}
+
+.social li a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.social li a:hover .fa:before {
+    color: #fff;
+}
+
+ul.social {
+    margin-top: 7px;
+}
+h3.title {
+    line-height: normal;
+}
+///
+
+.contactus-section>p {
+    float: none !important;
+    text-align: left;
+}
+
+.contactus-section {
+    margin-top: 0;
+}
+
+h3.title {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+h3.title:after {
+    left: 0;
+    margin-left: 0;
+}
+
+.contactus-section h4 {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.black>h4+ul {
+    padding: 10px 0 20px;
+    list-style-position: inside;
+}
+.medica-appointment-card {
+    margin-top: 50px;
+}
+.medica-appointment-card {
+    margin-top: 50px;
+}
+
+.medica-appointment-card h5 {
+    line-height: normal;
+}
+
+input#resume {
+    display: inline-block;
+    width: auto;
+}
+
+.submitBtnDiv {
+    text-align: left;
+}
