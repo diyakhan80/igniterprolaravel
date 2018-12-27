@@ -42,11 +42,21 @@ class Validate
 			'course' 	        => ['required','string'],
 			'location' 	        => ['required','string'],
 			'comments' 	        => ['required','string'],
+			'password'          => ['required','string','max:50'],
 
 		];
 		return $validation[$key];
 	}
+	public function login(){
+        $validations = [
+            'username' 		       => $this->validation('email'),
+			'password'       	   => $this->validation('password')
+			
+    	];
 
+        $validator = \Validator::make($this->data->all(), $validations,[]);
+        return $validator;		
+	}
 	public function createEnquiry($action='add'){
         $validations = [
             'name' 		        => $this->validation('name'),
@@ -106,21 +116,6 @@ public function createCareer($action='add'){
 
     	]);
 
-
-       /* if(!empty($this->data->resume)){
-			        $validator->after(function ($validator) {
-				        $allowedMimeTypes = ['image/jpeg','image/png','image/bmp'];
-				        $v = Validator::make($this->data->resume, array( 'profile_picture' => 'mimes:jpeg,jpg,png' ));
-						if(!$allowedMimeTypes){
-						   $validator->errors()->add('resume', 'The Resume field should be in a jpeg/png/bmp format');
-						}
-				           
-		    		});
-
-		    	
-		        }else{
-		        		$validator->errors()->add('resume', 'The Resume field is required.');
-		}*/
         return $validator;		
 	}
 
@@ -146,6 +141,19 @@ public function createCareer($action='add'){
     		
 
     	]);
+        return $validator;		
+	}
+
+	public function createAgent($action='add'){
+        $validations = [
+            'name' 		        => $this->validation('name'),
+			'email'  			=> array_merge($this->validation('req_email'),[Rule::unique('users')->ignore('trashed','status')]),
+			'phone_code'		=> $this->validation('phone_code'),
+			'mobile_number'  	=> $this->validation('req_mobile_number'),
+			
+    	];
+
+        $validator = \Validator::make($this->data->all(), $validations,[]);
         return $validator;		
 	}
 	

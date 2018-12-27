@@ -41,7 +41,7 @@ class Controller extends BaseController
     protected function populateresponse(){
         if(empty($this->status)){
             $data['status']     = $this->status;
-            $response = new Response($this->message);
+            $response = new App\Perks\Response($this->message);
             if($this->ajax == 'api'){
                 $data['errors']     = $response->api_error_response();
                 $data = json_decode(json_encode($data),true);
