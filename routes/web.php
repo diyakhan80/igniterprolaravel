@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 	});
 	Route::resource('agent', 'AgentController');
 	Route::group(['prefix' => 'agent'],function(){
-		Route::post('/status', 'AgentController@changeStatus');
+		Route::post('/status', 'AgentController@changeStatus'); 
 	});
 
 	Route::resource('subject', 'SubjectController');

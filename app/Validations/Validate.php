@@ -155,8 +155,14 @@ public function createCareer($action='add'){
 
     	if($action == 'edit'){
 			$validations['name']			= $this->validation('name');
-			$validations['email']			= array_merge($this->validation('req_email'),[Rule::unique('agent')->ignore('trashed','status')]);
-	        $validations['mobile_number'] 	= array_merge($this->validation('req_mobile_number'),[Rule::unique('agent')->ignore('trashed','status')]);
+			$validations['email'] 			= array_merge($this->validation('req_email'),[Rule::unique('agent')->ignore('trashed','status')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+			$validations['mobile_number'] 	= array_merge($this->validation('req_mobile_number'),[Rule::unique('agent')->ignore('trashed','status')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
 		}
 
         $validator = \Validator::make($this->data->all(), $validations,[

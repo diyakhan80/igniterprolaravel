@@ -39,8 +39,7 @@ class Agent extends Model
 
      public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
                 
-        $table_course = self::select($keys)
-        ->where('status','active');
+        $table_course = self::select($keys);
         if($where){
             $table_course->whereRaw($where);
         }

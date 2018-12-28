@@ -40,6 +40,12 @@
 					<span class="title">Batches</span>
 				</a>
 			</li>
+			<li>
+				<a href="{{url('admin/projects')}}">
+					<i class="fa fa-user-md"></i>
+					<span class="title">Projects</span>
+				</a>
+			</li>
 			
 		</ul>
 		<!-- END SIDEBAR MENU -->

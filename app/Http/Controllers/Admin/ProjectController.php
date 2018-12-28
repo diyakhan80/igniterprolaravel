@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class AgentController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
