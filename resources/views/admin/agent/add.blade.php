@@ -4,10 +4,9 @@
 			<!-- BEGIN FORM-->
 			<form role="add-agent" action="{{url('admin/agent')}}" method="POST" class="horizontal-form">
 				<div class="form-body">
-
+						{{csrf_field()}}
 					<h3 class="form-section">Add Agent</h3>
 					<div class="row">
-						{{csrf_field()}}
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Name</label>
