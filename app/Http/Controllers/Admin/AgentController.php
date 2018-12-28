@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use File;
+use App\Models\Agent;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
-use App\Models\Agent;
-require '../vendor/autoload.php';
-use File;
-// import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;
 
 class AgentController extends Controller
@@ -100,13 +99,13 @@ class AgentController extends Controller
             $data['name']               =!empty($request->name)?$request->name:'';
             $data['email']              =!empty($request->email)?$request->email:'';
             $data['mobile_number']      =!empty($request->mobile_number)?$request->mobile_number:'';
-            $data['phone_code']         =!empty($request->phone_code)?$request->phone_code:'';
+            $data['phone_code']         ='+91';
             $data['status']             = 'active';
             $data['updated_at']         =date('Y-m-d H:i:s');
             $data['created_at']         =date('Y-m-d H:i:s');
 
          
-            $inserId = Course::add($data);
+            $inserId = Agent::add($data);
             if($inserId){
                 $this->status = true;
                 $this->modal  = true;
