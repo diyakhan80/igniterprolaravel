@@ -37,7 +37,7 @@ class Agent extends Model
         }   
     }       
 
-     public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
+    public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
                 
         $table_course = self::select($keys);
         if($where){

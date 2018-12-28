@@ -41,7 +41,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{url('admin/projects')}}">
+				<a href="{{url('admin/project')}}">
 					<i class="fa fa-user-md"></i>
 					<span class="title">Projects</span>
 				</a>

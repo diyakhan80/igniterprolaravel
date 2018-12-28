@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 <meta charset="utf-8"/>
-<title>{{env('APP_NAME', 'SBStudyCenter').' | '.$site_title}}</title>
+<title>{{env('APP_NAME', 'Igniterpro').' | '.$site_title}}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="_token" content="{{ csrf_token() }}">

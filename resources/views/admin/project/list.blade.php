@@ -27,7 +27,7 @@
 		<div class="page-head">
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">
-				<h1>agent <small> MANAGE</small></h1>
+				<h1>Project <small> MANAGE</small></h1>
 			</div>
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PAGE TOOLBAR -->
@@ -136,10 +136,10 @@
 							<span class="caption-subject font-green-sharp bold uppercase">{{$page_title}}</span>
 						</div>
 						<div class="actions">
-							<a href="{{url('admin/agent/create')}}" class="btn btn-default btn-circle">
+							<a href="{{url('admin/project/create')}}" class="btn btn-default btn-circle">
 							<i class="fa fa-plus"></i>
 							<span class="hidden-480">
-							Add Agents</span>
+							Add Project</span>
 							</a>
 						</div>
 					</div>

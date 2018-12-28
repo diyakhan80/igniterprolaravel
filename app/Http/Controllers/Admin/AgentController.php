@@ -85,7 +85,7 @@ class AgentController extends Controller
      * @return \Illuminate\Http\Response
      /**/
      public function create(Request $request){
-        $data['site_title'] = $data['page_title'] = 'Create Course';
+        $data['site_title'] = $data['page_title'] = 'Create Agent';
         $data['view'] = 'admin/agent/add';
         return view('admin.home',$data);
     }

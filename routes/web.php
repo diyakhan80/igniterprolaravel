@@ -57,9 +57,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 	Route::group(['prefix' => 'courses'],function(){
 		Route::post('/status', 'CourseController@changeStatus');
 	});
+
 	Route::resource('agent', 'AgentController');
 	Route::group(['prefix' => 'agent'],function(){
 		Route::post('/status', 'AgentController@changeStatus'); 
+	});
+
+	Route::resource('project', 'ProjectController');
+	Route::group(['prefix' => 'project'],function(){
+		Route::post('/status', 'ProjectController@changeStatus');
 	});
 
 	Route::resource('subject', 'SubjectController');

@@ -43,6 +43,8 @@ class Validate
 			'location' 	        => ['required','string'],
 			'comments' 	        => ['required','string'],
 			'password'          => ['required','string','max:50'],
+			'price'				=> ['required','numeric'],
+			'start_from'		=> ['required'],
 
 		];
 		return $validation[$key];
@@ -173,4 +175,26 @@ public function createCareer($action='add'){
 		]);
         return $validator;		
 	}
+
+	public function createProject($action='add'){
+		$validations = [
+            'project_name' 		        => $this->validation('name'),
+            'project_type'				=> $this->validation('type'),
+            'project_price'				=> $this->validation('price'),
+			'project_duration'			=> $this->validation('price'),
+			'project_start_from'		=> $this->validation('start_from'),
+			'project_agent_id'			=> $this->validation('name'),
+			'agent_commission'			=> $this->validation('price'),
+    	];
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'project_name.required' 		=>  'Project Name is required',
+    		'project_type.required'   		=>  'Project Type is required',
+    		'project_price.email'			=>  'Project Price is required',
+    		'project_duration.required'   	=>  'Project Duration is required',
+    		'project_start_from.numeric'    =>  'Project Start Date is required',
+    		'project_agent_id.required'   	=>  'Agent ID is required',
+    		'agent_commission.required'   	=>  'Agent Commmision is required',
+    	]);
+        return $validator;
+    }
 }
