@@ -139,8 +139,7 @@ class AgentController extends Controller
         $data['site_title'] = $data['page_title'] = 'Edit Course';
         $data['view'] = 'admin.agent.edit';
         $id = ___decrypt($id);
-        $data['course'] = _arefy(Course::list('single',$id));
-        //dd($data['course']);
+        $data['agent'] = _arefy(Agent::list('single','id='.$id));
         return view('admin.home',$data);
     }
 
@@ -155,41 +154,25 @@ class AgentController extends Controller
     public function update(Request $request, $id)
     {   
         $validation = new Validations($request);
-        $validator  = $validation->createCourse('edit');
+        $validator  = $validation->createAgent('edit');
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
             $data['name']               =!empty($request->name)?$request->name:'';
-            $data['description']        =!empty($request->description)?$request->description:'';
-            if(!empty($request->course_picture)){
-             $image = $request->file('course_picture');
-               $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-               $path = public_path().'/uploads/course';
-                if(!File::exists($path)) {
-                    File::makeDirectory($path, $mode = 0777, true);
-                }
-
-               $destinationPath = public_path('uploads/course');
-               $img = Image::make($image->getRealPath());
-               $img->resize(264, 337, function ($constraint) {
-                   $constraint->aspectRatio();
-               })->save($destinationPath . '/' . $input['imagename']);
-
-               $destinationPath = public_path('images/image');
-               $image->move($destinationPath, $input['imagename']);
-               $data['course_picture'] = $input['imagename'];
-            }
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['mobile_number']      =!empty($request->mobile_number)?$request->mobile_number:'';
+            $data['phone_code']         ='+91';
             $data['status']             = 'active';
             $data['updated_at']         =date('Y-m-d H:i:s');
             $data['created_at']         =date('Y-m-d H:i:s');
 
          
-            $inserId = Course::change(___decrypt($id),$data);
+            $inserId = Agent::change(___decrypt($id),$data);
             if($inserId){
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
-                $this->message  = "Course has been updated successfully.";
+                $this->message  = "Agent has been updated successfully.";
                 $this->redirect = url('admin/agent');
             } 
         } 
@@ -208,14 +191,8 @@ class AgentController extends Controller
     }*/
 
     public function changeStatus(Request $request){
-        $validation = new Validations($request);
-        $validator = $validation->changeStatus();
-
-        if($validator->fails()){
-            $this->message = $validator->errors();
-        }else{
             $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
-            $isUpdated               = Course::change($request->id,$userData);
+            $isUpdated               = Agent::change($request->id,$userData);
 
             if($isUpdated){
                 if($request->status == 'trashed'){
@@ -227,7 +204,5 @@ class AgentController extends Controller
                 $this->redirect = true;
                 $this->jsondata = [];
             }
-        }
-       return $this->populateresponse();
     }
 }

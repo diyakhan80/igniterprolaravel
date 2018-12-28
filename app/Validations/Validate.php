@@ -153,6 +153,12 @@ public function createCareer($action='add'){
 			
     	];
 
+    	if($action == 'edit'){
+			$validations['name']			= $this->validation('name');
+			$validations['email']			= array_merge($this->validation('req_email'),[Rule::unique('agent')->ignore('trashed','status')]);
+	        $validations['mobile_number'] 	= array_merge($this->validation('req_mobile_number'),[Rule::unique('agent')->ignore('trashed','status')]);
+		}
+
         $validator = \Validator::make($this->data->all(), $validations,[
 			'name.required' 						=>  'Agent Name is required.',
 			'email.required' 						=>  'E-mail is required.',

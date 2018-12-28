@@ -67,10 +67,10 @@ class Agent extends Model
 
     public static function change($userID,$data){
         $isUpdated = false;
-        $table_course = \DB::table('course');
+        $table_agent = \DB::table('agent');
         if(!empty($data)){
-            $table_course->where('id','=',$userID);
-            $isUpdated = $table_course->update($data); 
+            $table_agent->where('id','=',$userID);
+            $isUpdated = $table_agent->update($data); 
         }
                 
         return (bool)$isUpdated;

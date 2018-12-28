@@ -12,20 +12,20 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Name</label>
-								<input type="text" required id="name" name="name" class="form-control" placeholder="Enter Name">
+								<input type="text" required id="name" name="name" class="form-control" value="{{$agent['name']}}" placeholder="Enter Name">
 								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Email</label>
-								<input type="text" required id="name" name="email" class="form-control" placeholder="Enter Email">
+								<input type="text" required id="name" name="email" class="form-control" value="{{$agent['email']}}" placeholder="Enter Email">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Mobile Number</label>
-								<input type="text" required id="name" name="mobile_number" class="form-control" placeholder="Enter Mobile Number">
+								<input type="text" required id="name" name="mobile_number" class="form-control" value="{{$agent['mobile_number']}}" placeholder="Enter Mobile Number">
 							</div>
 						</div>
 					</div>
