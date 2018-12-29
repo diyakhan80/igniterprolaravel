@@ -37,6 +37,7 @@ class ProjectController extends Controller
             return DataTables::of($project)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/project/projectpayment/%s',___encrypt($item['id']))).'"  title="Payment"><i class="fa fa-cc-visa"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s',___encrypt($item['id']))).'"  title="View Detail"><i class="fa fa-eye"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
                 if($item['status'] == 'active'){
@@ -163,9 +164,10 @@ class ProjectController extends Controller
         $data['site_title'] = $data['page_title'] = 'View Project';
         $data['view'] = 'admin.project.view';
         $id = ___decrypt($id);
-        $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
+        // $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
         $data['project'] = _arefy(Project::list('single','id='.$id));
-        $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
+        // dd($data['project']);
+        // $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
         return view('admin.home',$data);
     }
 

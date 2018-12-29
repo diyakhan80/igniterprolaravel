@@ -3,7 +3,7 @@
 	<div class="page-content">
 		<div class="portlet-body form">
 			<!-- BEGIN FORM-->
-			<form role="edit-project" action="{{url('admin/project/'.___encrypt($project['id']))}}" method="POST" class="horizontal-form">
+			<form role="edit-project" data-request="enable-enter" action="{{url('admin/project/'.___encrypt($project['id']))}}" method="POST" class="horizontal-form">
 				{{csrf_field()}}
 				<input type="hidden" value="PUT" name="_method">
 				<div class="form-body">
@@ -13,7 +13,6 @@
 							<div class="form-group">
 								<label class="control-label required">User</label>
 								<select class="form-control" name="user_client_id">
-									<option value="">Select User</option>
                                         @if($user)
 											@foreach($user as $users)
 	                                            <option  
@@ -116,7 +115,7 @@
 				</div>
 				<div class="form-actions right">
 					<a href="{{url('admin/project')}}" class="btn default">Cancel</a>
-					<button type="button" data-request="ajax-submit" data-target='[role="edit-project"]' class="btn blue"><i class="fa fa-check"></i> Save</button>
+					<button type="button" data-request="ajax-submit" data-target='[role="edit-project"]' class="btn blue edit_project"><i class="fa fa-check"></i> Save</button>
 				</div>
 			</form>
 			<!-- END FORM-->
@@ -124,4 +123,15 @@
 	</div>
 </div>
 @section('requirejs')
+<script type="text/javascript">
+    setTimeout(function(){
+    $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+    e.preventDefault();
+    if (e.which == 13) {
+    $('[data-request="enable-enter"]').find('.edit_project').trigger('click');
+    return false;    //<---- Add this line
+    }
+    }); 
+    },100);
+</script>
 @endsection

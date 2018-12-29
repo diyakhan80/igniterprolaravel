@@ -8,7 +8,6 @@ use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use Validations\Validate as Validations;
 use App\Models\Course;
-require '../vendor/autoload.php';
 use File;
 // import the Intervention Image Manager Class
 use Intervention\Image\ImageManagerStatic as Image;

@@ -91,5 +91,4 @@ class Users extends Model
             return $table_user->limit($limit)->get();
         }
     }
-
 }

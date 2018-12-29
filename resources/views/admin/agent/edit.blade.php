@@ -3,7 +3,7 @@
 	<div class="page-content">
 		<div class="portlet-body form">
 			<!-- BEGIN FORM-->
-			<form role="edit-agent" action="{{url('admin/agent/'.___encrypt($agent['id']))}}" method="POST" class="horizontal-form">
+			<form role="edit-agent" data-request="enable-enter" action="{{url('admin/agent/'.___encrypt($agent['id']))}}" method="POST" class="horizontal-form">
 						{{csrf_field()}}
 				<input type="hidden" value="PUT" name="_method">
 				<div class="form-body">
@@ -39,7 +39,7 @@
 				</div>
 				<div class="form-actions right">
 					<a href="{{url('admin/agent')}}" class="btn default">Cancel</a>
-					<button type="button" data-request="ajax-submit" data-target='[role="edit-agent"]' class="btn blue"><i class="fa fa-check"></i> Save</button>
+					<button type="button" data-request="ajax-submit" data-target='[role="edit-agent"]' class="btn blue edit_agent"><i class="fa fa-check"></i> Save</button>
 				</div>
 			</form>
 			<!-- END FORM-->
@@ -47,4 +47,15 @@
 	</div>
 </div>
 @section('requirejs')
+<script type="text/javascript">
+    setTimeout(function(){
+    $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+    e.preventDefault();
+    if (e.which == 13) {
+    $('[data-request="enable-enter"]').find('.edit_agent').trigger('click');
+    return false;    //<---- Add this line
+    }
+    }); 
+    },100);
+</script>
 @endsection

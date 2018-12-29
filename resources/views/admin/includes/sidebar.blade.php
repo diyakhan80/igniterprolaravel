@@ -12,13 +12,13 @@
 			</li>
 			<li>
 				<a href="{{url('admin/courses')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-book"></i>
 					<span class="title">Courses</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url('admin/agent')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-users"></i>
 					<span class="title">Agent</span>
 				</a>
 			</li>

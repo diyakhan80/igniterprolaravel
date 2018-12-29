@@ -23,13 +23,13 @@ class Project extends Model
         'updated_at',
     ];
 
-    public function users(){
-        return $this->hasOne('\Models\Users','id','user_client_id');
+    public function user(){
+        return $this->hasOne('App\Models\Users','id','user_client_id');
     }
 
     public function agent()
     {
-        return $this->hasMany('\Models\Agent','id','project_agent_id');   
+        return $this->hasOne('App\Models\Agent','id','project_agent_id');   
     }
 
     public static function add($data){
@@ -44,7 +44,7 @@ class Project extends Model
                 
         $table_project = self::select($keys)
         ->with([
-            'users' => function($q){
+            'user' => function($q){
                 $q->select('id','name');
             },
             'agent' => function($q){

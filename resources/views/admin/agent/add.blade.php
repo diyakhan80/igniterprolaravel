@@ -2,7 +2,7 @@
 	<div class="page-content">
 		<div class="portlet-body form">
 			<!-- BEGIN FORM-->
-			<form role="add-agent" action="{{url('admin/agent')}}" method="POST" class="horizontal-form">
+			<form role="add-agent" action="{{url('admin/agent')}}" data-request="enable-enter" method="POST" class="horizontal-form">
 				<div class="form-body">
 						{{csrf_field()}}
 					<h3 class="form-section">Add Agent</h3>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="form-actions right">
 					<a href="{{url('admin/agent')}}" class="btn default">Cancel</a>
-					<button type="button" data-request="ajax-submit" data-target='[role="add-agent"]' class="btn blue"><i class="fa fa-check"></i> Save</button>
+					<button type="button" data-request="ajax-submit" data-target='[role="add-agent"]' class="btn blue add_agent"><i class="fa fa-check"></i> Save</button>
 				</div>
 			</form>
 			<!-- END FORM-->
@@ -53,4 +53,15 @@
 	</div>
 </div>
 @section('requirejs')
+<script type="text/javascript">
+    setTimeout(function(){
+    $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+    e.preventDefault();
+    if (e.which == 13) {
+    $('[data-request="enable-enter"]').find('.add_agent').trigger('click');
+    return false;    //<---- Add this line
+    }
+    }); 
+    },100);
+</script>
 @endsection

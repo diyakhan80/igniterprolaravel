@@ -68,6 +68,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'ProjectController@changeStatus');
 	});
 
+	Route::resource('projectpayment', 'ProjectPaymentController');
+	Route::group(['prefix' => 'projectpayment'],function(){
+		Route::post('/status', 'ProjectPaymentController@changeStatus');
+	});
+
 	Route::resource('subject', 'SubjectController');
 	Route::group(['prefix' => 'subject'],function(){
 		Route::post('/status', 'SubjectController@changeStatus');

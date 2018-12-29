@@ -2,9 +2,6 @@
 <div class="page-content-wrapper">
     <div class="page-content">
         <div class="portlet-body form">
-            <!-- BEGIN FORM-->
-            <form role="view-project" action="{{url('admin/project/'.___encrypt($project['id']))}}" method="POST" class="horizontal-form">
-                {{csrf_field()}}
                 <input type="hidden" value="PUT" name="_method">
                 <div class="form-body">
                     <h3 class="form-section">View Project</h3>
@@ -13,7 +10,7 @@
                             <tbody>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>User Name:</strong></td>
-                                <td></td>
+                                <td>{{$project['user']['name']}}</td>
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Name:</strong></td>
@@ -25,11 +22,11 @@
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Price:</strong></td>
-                                <td>{{$project['project_price']}}</td>
+                                <td><i class="fa fa-inr" style="font-size:14px;"></i>{{' '.$project['project_price']}}</td>
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Duration:</strong></td>
-                                <td>{{$project['project_duration']}}</td>
+                                <td>{{$project['project_duration']. ' ' .'days'}}</td>
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Start Date:</strong></td>
@@ -37,15 +34,15 @@
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Agent Name:</strong></td>
-                                <td></td>
+                                <td>{{$project['agent']['name']}}</td>
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Agent Commission:</strong></td>
-                                <td>{{$project['agent_commission']}}</td>
+                                <td><i class="fa fa-inr" style="font-size:14px;"></i>{{' '.$project['agent_commission']}}</td>
                             </tr>
                             <tr>
                                 <td width="30%"></td>
-                                <td><a href="#" class="btn btn-primary"><i class="fa fa-print"></i> Print</a>
+                                <td><a href="#" class="btn btn-primary print-window"><i class="fa fa-print"></i> Print</a>
                                 </td>
                             </tr>
 
@@ -53,11 +50,13 @@
                         </table>
                     </div>
                 </div>
-                
-            </form>
-            <!-- END FORM-->
         </div>      
     </div>
 </div>
 @section('requirejs')
+<script type="text/javascript">
+    $('.print-window').click(function() {
+    window.print();
+});
+</script>
 @endsection
