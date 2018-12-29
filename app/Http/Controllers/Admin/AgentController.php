@@ -27,7 +27,7 @@ class AgentController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['site_title'] = $data['page_title'] = 'Agent List';
-        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">agent</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
+        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Agent</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.agent.list';
         
         $agent  = _arefy(Agent::where('status','!=','trashed')->get());

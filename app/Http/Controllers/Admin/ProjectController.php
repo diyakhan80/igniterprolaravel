@@ -29,7 +29,7 @@ class ProjectController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['site_title'] = $data['page_title'] = 'Projects List';
-        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">project</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
+        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Projects</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.project.list';
         
         $project  = _arefy(Project::where('status','!=','trashed')->get());
@@ -37,6 +37,7 @@ class ProjectController extends Controller
             return DataTables::of($project)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/project/%s/view',___encrypt($item['id']))).'"  title="View Detail"><i class="fa fa-eye"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
                 if($item['status'] == 'active'){
                     $html   .= '<a href="javascript:void(0);" 
