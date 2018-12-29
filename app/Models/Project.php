@@ -43,14 +43,14 @@ class Project extends Model
             $order = explode('-', $order);
             $table_project->orderBy($order[0],$order[1]);
         }
-        if($fetch === 'array'){
+        if($fetch == 'array'){
             $list = $table_project->get();
             return json_decode(json_encode($list ), true );
-        }else if($fetch === 'obj'){
+        }else if($fetch ==='obj'){
             return $table_project->limit($limit)->get();                
-        }else if($fetch === 'single'){
+        }else if($fetch == 'single'){
             return $table_project->get()->first();
-        }else if($fetch === 'count'){
+        }else if($fetch == 'count'){
             return $table_project->get()->count();
         }else{
             return $table_project->limit($limit)->get();
@@ -59,7 +59,7 @@ class Project extends Model
 
     public static function change($userID,$data){
         $isUpdated = false;
-        $table_project = \DB::table('agent');
+        $table_project = \DB::table('project');
         if(!empty($data)){
             $table_project->where('id','=',$userID);
             $isUpdated = $table_project->update($data); 

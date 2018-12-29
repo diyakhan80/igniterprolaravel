@@ -14,13 +14,13 @@
 								<label class="control-label required">User</label>
 								<select class="form-control" name="user_client_id">
 									<option value="">Select User</option>
-										@foreach($project as $projects)
-                                            @if($projects->id)
-                                                <option value="{{$projects['id']}}" selected>{{$projects['name']}}</option>
-                                            @else
-                                                <option value="{{$projects['id']}}">{{$projects['name']}}</option>
-                                            @endif
-                                        @endforeach
+                                        @if($user['id'])
+											@foreach($user as $users)
+	                                            <option value="{{$users['id']}}" selected>{{$users['name']}}</option>
+	                                        @endforeach
+	                                        @else
+	                                            <option value="">No User Found</option>
+                                        @endif
 								</select>
 							</div>
 						</div>
@@ -34,28 +34,28 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Type</label>
-								<input type="text" required id="type" name="project_type" class="form-control" placeholder="Enter Project Type">
+								<input type="text" required id="type" name="project_type" class="form-control" value="{{$project['project_type']}}" placeholder="Enter Project Type">
 								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Price</label>
-								<input type="text" required id="price" name="project_price" class="form-control" placeholder="Enter Project Price">
+								<input type="text" required id="price" name="project_price" class="form-control" value="{{$project['project_price']}}"placeholder="Enter Project Price">
 								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Duration</label>
-								<input type="text" required id="duration" name="project_duration" class="form-control" placeholder="Enter Project Duration">
+								<input type="text" required id="duration" name="project_duration" class="form-control" value="{{$project['project_duration']}}" placeholder="Enter Project Duration">
 								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Start Date</label>
-								<input type="text" required id="start_date" name="project_start_from" class="form-control" placeholder="Enter Project Duration">
+								<input type="text" required id="start_date" name="project_start_from" class="form-control" value="{{$project['project_start_from']}}" placeholder="Enter Project Duration">
 								
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Agent Commission</label>
-								<input type="text" required id="commission" name="agent_commission" class="form-control" placeholder="Enter Project Duration">
+								<input type="text" required id="commission" name="agent_commission" class="form-control" value="{{$project['agent_commission']}}" placeholder="Enter Project Duration">
 								
 							</div>
 						</div>

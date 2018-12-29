@@ -67,6 +67,9 @@ class ProjectController extends Controller
              ->editColumn('name',function($item){
                 return ucfirst($item['project_name']);
             })
+              ->editColumn('project_duration',function($item){
+                return ucfirst($item['project_duration']).' days';
+            })
             ->rawColumns(['action'])
             ->make(true);
         }
@@ -144,12 +147,15 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {  
         $data['site_title'] = $data['page_title'] = 'Edit Project';
         $data['view'] = 'admin.project.edit';
+        // $this->project = Project::findOrFail($id);
         $id = ___decrypt($id);
+        $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
+        // dd($data['user']);
         $data['project'] = _arefy(Project::list('single','id='.$id));
-        // dd($data['project']);
+       // dd($data['project']); 
         return view('admin.home',$data);
     }
 
