@@ -10,6 +10,7 @@ class Project extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'user_client_id',
         'project_name',
         'project_type',
         'project_price',

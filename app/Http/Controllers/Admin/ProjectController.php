@@ -150,12 +150,11 @@ class ProjectController extends Controller
     {  
         $data['site_title'] = $data['page_title'] = 'Edit Project';
         $data['view'] = 'admin.project.edit';
-        // $this->project = Project::findOrFail($id);
         $id = ___decrypt($id);
         $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
-        // dd($data['user']);
         $data['project'] = _arefy(Project::list('single','id='.$id));
-       // dd($data['project']); 
+        $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
+       // dd($data['agent']);
         return view('admin.home',$data);
     }
 
@@ -191,7 +190,7 @@ class ProjectController extends Controller
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Project has been updated successfully.";
-                $this->redirect = url('admin/agent');
+                $this->redirect = url('admin/project');
             } 
         } 
         return $this->populateresponse();

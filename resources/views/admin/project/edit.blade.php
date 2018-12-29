@@ -14,9 +14,18 @@
 								<label class="control-label required">User</label>
 								<select class="form-control" name="user_client_id">
 									<option value="">Select User</option>
-                                        @if($user['id'])
+                                        @if($user)
 											@foreach($user as $users)
-	                                            <option value="{{$users['id']}}" selected>{{$users['name']}}</option>
+	                                            <option  
+	                                            @php 
+	                                           
+	                                            if( $users['id'] == $project['user_client_id']){
+
+	                                            	echo 'selected="selected"'; 
+	                                        	} 
+	                                            @endphp
+	                                            value="{{$users['id']}}"
+	                                            >{{$users['name']}}</option>
 	                                        @endforeach
 	                                        @else
 	                                            <option value="">No User Found</option>
@@ -27,7 +36,7 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Name</label>
-								<input type="text" required id="name" name="project_name" class="form-control" placeholder="Enter Project Name">
+								<input type="text" required id="name" name="project_name" class="form-control" value="{{$project['project_name']}}" placeholder="Enter Project Name">
 								
 							</div>
 						</div>
@@ -55,15 +64,32 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Start Date</label>
-								<input type="text" required id="start_date" name="project_start_from" class="form-control" value="{{$project['project_start_from']}}" placeholder="Enter Project Duration">
+								<input type="text" required id="start_date" name="project_start_from" class="form-control date" value="{{$project['project_start_from']}}" placeholder="Enter Project Duration">
 								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="control-label required">Project Agent ID</label>
-								<input type="text" required id="agent_id" name="project_agent_id" class="form-control" placeholder="Enter Project Duration">
-								
+								<label class="control-label required">Project Agent Name</label>
+								<select class="form-control" name="project_agent_id">
+									<option value="">Select Project Agent</option>
+                                        @if($agent)
+											@foreach($agent as $agents)
+	                                            <option  
+	                                            @php 
+	                                           
+	                                            if( $agents['id'] == $project['project_agent_id']){
+
+	                                            	echo 'selected="selected"'; 
+	                                        	} 
+	                                            @endphp
+	                                            value="{{$agents['id']}}"
+	                                            >{{$agents['name']}}</option>
+	                                        @endforeach
+	                                        @else
+	                                            <option value="">No User Found</option>
+                                        @endif
+								</select>
 							</div>
 						</div>
 						<div class="col-md-12">
