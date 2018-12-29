@@ -23,6 +23,15 @@ class Project extends Model
         'updated_at',
     ];
 
+    public function users(){
+        return $this->hasOne('\Models\Users','id','user_client_id');
+    }
+
+    public function agent()
+    {
+        return $this->hasMany('\Models\Agent','id','project_agent_id');   
+    }
+
     public static function add($data){
         if(!empty($data)){
             return self::insertGetId($data);
@@ -33,7 +42,16 @@ class Project extends Model
 
     public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
                 
-        $table_project = self::select($keys);
+        $table_project = self::select($keys)
+        ->with([
+            'users' => function($q){
+                $q->select('id','name');
+            },
+            'agent' => function($q){
+                $q->select('id','name');
+            }
+        ]);
+       
         if($where){
             $table_project->whereRaw($where);
         }
