@@ -46,6 +46,12 @@
 					<span class="title">Projects</span>
 				</a>
 			</li>
+			<li>
+				<a href="{{url('admin/project-payment/create')}}">
+					<i class="fa fa-cc-visa"></i>
+					<span class="title">Project Payment</span>
+				</a>
+			</li>
 			
 		</ul>
 		<!-- END SIDEBAR MENU -->

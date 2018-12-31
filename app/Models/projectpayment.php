@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class projectpayment extends Model
+class Projectpayment extends Model
 {
     protected $table = 'project_payment';
     protected $primaryKey = 'id';
@@ -20,7 +20,6 @@ class projectpayment extends Model
         'created_at',
         'updated_at',
     ];
-    
 
     public static function add($data){
         if(!empty($data)){

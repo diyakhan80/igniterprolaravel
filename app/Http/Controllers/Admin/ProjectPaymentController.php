@@ -6,6 +6,7 @@ use File;
 use App\Models\Users;
 use App\Models\Agent;
 use App\Models\Project;
+use App\Models\Projectpayment;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -30,7 +31,6 @@ class ProjectPaymentController extends Controller
 
     public function index()
     {
-
     }
 
     /**
@@ -42,8 +42,9 @@ class ProjectPaymentController extends Controller
     {
         $data['site_title'] = $data['page_title'] = 'Project Payment';
         $data['view'] = 'admin/project/projectpayment';
-        // $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
-        // $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
+        $status = '"ongoing"';
+        $data['project'] = _arefy(Project::list('array','status='.$status));
+        // dd($data['project']);
         return view('admin.home',$data);
     }
 
@@ -55,7 +56,7 @@ class ProjectPaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

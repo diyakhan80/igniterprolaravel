@@ -2,16 +2,32 @@
 	<div class="page-content">
 		<div class="portlet-body form">
 			<!-- BEGIN FORM-->
-			<form role="project-paymant" action="{{url('admin/project')}}" method="POST" class="horizontal-form">
+			<form role="project-payment" action="{{url('admin/project-payment')}}" method="POST" class="horizontal-form">
 				<div class="form-body">
 						{{csrf_field()}}
-					<h3 class="form-section">Add Project</h3>
+					<h3 class="form-section">Projects Payment</h3>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="control-label required">Project Name</label>
-								<input type="text" required id="name" name="project_name" class="form-control" placeholder="Enter Project Name">
-								
+								<label class="control-label required">All Project's</label>
+								<select class="form-control" name="id">
+									@if($project)
+											@foreach($project as $projects)
+	                                            <option  
+	                                            @php 
+	                                           
+	                                            if( $projects['id']){
+
+	                                            	echo 'selected="selected"'; 
+	                                        	} 
+	                                            @endphp
+	                                            value="{{$projects['id']}}"
+	                                            >{{$projects['project_name']}}</option>
+	                                        @endforeach
+	                                        @else
+	                                            <option value="">No Project Found</option>
+                                        @endif
+								</select>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -66,8 +82,8 @@
 
 				</div>
 				<div class="form-actions right">
-					<a href="{{url('admin/project')}}" class="btn default">Cancel</a>
-					<button type="button" data-request="ajax-submit" data-target='[role="project-paymant"]' class="btn blue"><i class="fa fa-check"></i> Save</button>
+					<a href="{{url('admin/project-payment')}}" class="btn default">Cancel</a>
+					<button type="button" data-request="ajax-submit" data-target='[role="project-payment"]' class="btn blue"><i class="fa fa-check"></i> Save</button>
 				</div>
 			</form>
 			<!-- END FORM-->

@@ -184,6 +184,10 @@ public function createCareer($action='add'){
             'project_price'				=> $this->validation('price'),
 			'project_duration'			=> $this->validation('price'),
 			'project_start_from'		=> $this->validation('start_from'),
+			'recieved_payment'			=> $this->validation('price'),
+			'payment_method'			=> $this->validation('name'),
+			'next_payment'				=> $this->validation('start_from'),
+			'next_delivery'				=> $this->validation('start_from'),
 			'project_agent_id'			=> $this->validation('name'),
 			'agent_commission'			=> $this->validation('price'),
     	];
@@ -194,6 +198,10 @@ public function createCareer($action='add'){
 				$validations['project_price']				= $this->validation('price');
 				$validations['project_duration']			= $this->validation('price');
 				$validations['project_start_from']			= $this->validation('start_from');
+				$validations['recieved_payment']			= $this->validation('price');
+				$validations['payment_method']				= $this->validation('name');
+				$validations['next_payment']				= $this->validation('start_from');
+				$validations['next_delivery']				= $this->validation('start_from');
 				$validations['agent_commission']			= $this->validation('price');
 		}
 
@@ -204,6 +212,10 @@ public function createCareer($action='add'){
     		'project_price.email'			=>  'Project Price is required.',
     		'project_duration.required'   	=>  'Project Duration is required.',
     		'project_start_from.numeric'    =>  'Project Start Date is required.',
+    		'recieved_payment.required'		=>  'Projects Initial Payment is required',
+    		'payment_method.required'		=>  'Payment Method is required',
+    		'next_payment.required'			=>  'Next Payment date is required',
+    		'next_delivery.required'		=>  'Next Delivery date is required',
     		'project_agent_id.required'   	=>  'Agent ID is required.',
     		'agent_commission.required'   	=>  'Agent Commmision is required.',
     	]);

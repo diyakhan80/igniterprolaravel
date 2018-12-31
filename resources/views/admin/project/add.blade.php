@@ -22,35 +22,59 @@
 							<div class="form-group">
 								<label class="control-label required">Project Name</label>
 								<input type="text" required id="name" name="project_name" class="form-control" placeholder="Enter Project Name">
-								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Type</label>
 								<input type="text" required id="type" name="project_type" class="form-control" placeholder="Enter Project Type">
-								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Price</label>
 								<input type="text" required id="price" name="project_price" class="form-control" placeholder="Enter Project Price">
-								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Duration</label>
 								<input type="text" required id="duration" name="project_duration" class="form-control" placeholder="Enter Project Duration">
-								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Project Start Date</label>
 								<input type="text" required id="start_date" name="project_start_from" class="form-control date" placeholder="Enter Project Duration">
-								
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project Initial Payment</label>
+								<input type="text" required id="initial_payment" name="recieved_payment" class="form-control" placeholder="Enter Project Initial Payment">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project Payment Method</label>
+								<select class="form-control" name="payment_method">
+									<option value="">Select Project Payment Method</option>
+	                                        <option value="cash">Cash</option>
+	                                        <option value="check">Cheque</option>
+	                                        <option value="online_transaction">Online Banking</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project's Next Payment Date</label>
+								<input type="text" required id="next_payment" name="next_payment" class="form-control date" placeholder="Enter Projects next Payment Date">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project's Next Delivery Date</label>
+								<input type="text" required id="next_payment" name="next_delivery" class="form-control date" placeholder="Enter Projects next Delivery Date">
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -62,13 +86,12 @@
 	                                        <option value="{{$agents['id']}}">{{$agents['name']}}</option>
                                     @endforeach
 								</select>
-								
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Agent's Commission</label>
-								<input type="text" required id="commission" name="agent_commission" class="form-control" placeholder="Enter Project Duration">
+								<input type="text" required id="commission" name="agent_commission" class="form-control" placeholder="Enter Agent Commission">
 								
 							</div>
 						</div>

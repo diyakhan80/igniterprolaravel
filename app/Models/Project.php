@@ -10,6 +10,7 @@ class Project extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'id',
         'user_client_id',
         'project_name',
         'project_type',
@@ -31,6 +32,10 @@ class Project extends Model
     {
         return $this->hasOne('App\Models\Agent','id','project_agent_id');   
     }
+    public function payment()
+    {
+        return $this->hasOne('App\Models\Projectpayment','project_id','id');   
+    }
 
     public static function add($data){
         if(!empty($data)){
@@ -49,7 +54,10 @@ class Project extends Model
             },
             'agent' => function($q){
                 $q->select('id','name');
-            }
+            },
+            'payment' => function($q){
+                $q->select('project_id','recieved_payment','payment_method','next_payment','next_delivery');
+            },
         ]);
        
         if($where){

@@ -69,6 +69,45 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
+								<label class="control-label required">Project Initial Payment</label>
+								<input type="text" required id="initial_payment" name="recieved_payment" class="form-control" value="{{$project['payment']['recieved_payment']}}" placeholder="Enter Project Initial Payment">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project Payment Method</label>
+								<select class="form-control" name="payment_method">
+									<option value="">Select Payment Method</option>
+	                                        <option value="cash" @php if($project['payment']['payment_method']=='cash'){
+	                                        	echo 'selected="selected"'; 
+	                                    	}
+	                                    	@endphp>Cash</option>
+	                                        <option value="check" @php if($project['payment']['payment_method']=='check'){
+	                                        	echo 'selected="selected"'; 
+	                                    	}
+	                                    	@endphp>Cheque</option>
+	                                        <option value="online_transaction" @php if($project['payment']['payment_method']=='online_transaction'){
+	                                        	echo 'selected="selected"'; 
+	                                    	}
+	                                    	@endphp>Online Banking</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project's Next Payment Date</label>
+								<input type="text" required id="next_payment" name="next_payment" class="form-control date" value="{{$project['payment']['next_payment']}}" placeholder="Enter Projects next Payment Date">
+								
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Project's Next Delivery Date</label>
+								<input type="text" required id="next_payment" name="next_delivery" class="form-control date" value="{{$project['payment']['next_delivery']}}" placeholder="Enter Projects next Delivery Date">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
 								<label class="control-label required">Project Agent Name</label>
 								<select class="form-control" name="project_agent_id">
 									<option value="">Select Project Agent</option>

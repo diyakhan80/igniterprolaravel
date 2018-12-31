@@ -33,6 +33,10 @@
                                 <td>{{$project['project_start_from']}}</td>
                             </tr>
                             <tr>
+                                <td width="30%" style="text-align: right;"><strong>Project Initial Payment:</strong></td>
+                                <td>{{$project['payment']['recieved_payment']}}</td>
+                            </tr>
+                            <tr>
                                 <td width="30%" style="text-align: right;"><strong>Project Agent Name:</strong></td>
                                 <td>{{$project['agent']['name']}}</td>
                             </tr>

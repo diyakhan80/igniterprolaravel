@@ -6,6 +6,7 @@ use File;
 use App\Models\Users;
 use App\Models\Agent;
 use App\Models\Project;
+use App\Models\Projectpayment;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -37,27 +38,27 @@ class ProjectController extends Controller
             return DataTables::of($project)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/project/projectpayment/%s',___encrypt($item['id']))).'"  title="Payment"><i class="fa fa-cc-visa"></i></a> | ';
+                // $html   .= '<a href="'.url(sprintf('admin/project/%s',___encrypt($item['id']))).'"  title="Project Payment"><i class="fa fa-cc-visa"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s',___encrypt($item['id']))).'"  title="View Detail"><i class="fa fa-eye"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
-                if($item['status'] == 'active'){
+                if($item['status'] == 'ongoing'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/project/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['project_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
-                }elseif($item['status'] == 'inactive'){
+                        data-ask="Would you like to change '.$item['project_name'].' status from ongoing to completed?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                }elseif($item['status'] == 'completed'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/project/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['project_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['project_name'].' status from completed to delay?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }elseif($item['status'] == 'pending'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/project/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['project_name'].' status from pending to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['project_name'].' status from pending to ongoing?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -114,11 +115,26 @@ class ProjectController extends Controller
             $data['project_start_from']         = !empty($request->project_start_from)?$request->project_start_from:'';
             $data['project_agent_id']         	= !empty($request->project_agent_id)?$request->project_agent_id:'';
             $data['agent_commission']         	= !empty($request->agent_commission)?$request->agent_commission:'';
-            $data['status']						= 'pending';
+            // $data['status']						= 'pending';
             $data['created_at']     	    	=date('Y-m-d H:i:s');
             $data['updated_at']         		=date('Y-m-d H:i:s');
-
+            if ($request->recieved_payment > 0) {
+                $data['status'] = 'ongoing';
+            }else {
+                $data['status'] = 'pending';
+            }
             $inserId = Project::add($data);
+            $payment['project_id']              = $inserId;
+            $payment['recieved_payment']        = !empty($request->recieved_payment)?$request->recieved_payment:'';
+            $payment['payment_method']          = !empty($request->payment_method)?$request->payment_method:'';
+            $payment['next_payment']            = !empty($request->next_payment)?$request->next_payment:'';
+            $payment['next_delivery']           = !empty($request->next_delivery)?$request->next_delivery:'';
+            $payment['agent_commission']        = !empty($request->agent_commission)?$request->agent_commission:'';
+            $payment['status']                  = 'paid';
+            $payment['created_at']              = date('Y-m-d H:i:s');
+            $payment['updated_at']              = date('Y-m-d H:i:s');
+
+            $paymentstore = Projectpayment::add($payment);
          
             if($inserId){
                 $this->status = true;
@@ -150,12 +166,12 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {  
-        $data['site_title'] = $data['page_title'] = 'Edit Project';
-        $data['view'] = 'admin.project.edit';
+        $data['site_title']      = $data['page_title'] = 'Edit Project';
+        $data['view']            = 'admin.project.edit';
         $id = ___decrypt($id);
-        $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
-        $data['project'] = _arefy(Project::list('single','id='.$id));
-        $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
+        $data['user']            = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
+        $data['project']         = _arefy(Project::list('single','id='.$id));
+        $data['agent']           = _arefy(Agent::where('status','!=','trashed')->get());
         return view('admin.home',$data);
     }
 
@@ -164,10 +180,7 @@ class ProjectController extends Controller
         $data['site_title'] = $data['page_title'] = 'View Project';
         $data['view'] = 'admin.project.view';
         $id = ___decrypt($id);
-        // $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
         $data['project'] = _arefy(Project::list('single','id='.$id));
-        // dd($data['project']);
-        // $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
         return view('admin.home',$data);
     }
 
