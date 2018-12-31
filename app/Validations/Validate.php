@@ -98,7 +98,7 @@ class Validate
 	
 
 
-public function createCareer($action='add'){
+	public function createCareer($action='add'){
         $validations = [
             'career_name' 		        => $this->validation('name'),
 			'career_email'  			=> $this->validation('req_email'),
@@ -220,5 +220,27 @@ public function createCareer($action='add'){
     		'agent_commission.required'   	=>  'Agent Commmision is required.',
     	]);
         return $validator;
+    }
+
+    public function createProjectPayment()
+    {
+    	$validations = [
+			'recieved_payment'			=> $this->validation('price'),
+            'payment_method' 		    => $this->validation('name'),
+            'next_payment'				=> $this->validation('start_from'),
+            'next_delivery'				=> $this->validation('start_from'),
+            'agent_commission'			=> $this->validation('price'),
+            'status'					=> $this->validation('name'),
+    	];
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'recieved_payment.required' 	=>  'Projects Payment is required',
+    		'payment_method.required' 		=>  'Payment Method is required',
+    		'next_payment.required'   		=>  'Next Payment date is required',
+    		'next_delivery.required'		=>  'Next Delivery date is required',
+    		'agent_commission.required'		=>  'Agents Commission date is required',
+    		'status.required'				=>  'Status is required',
+    	]);
+    	return $validator;
     }
 }

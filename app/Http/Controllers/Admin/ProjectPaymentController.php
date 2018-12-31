@@ -42,9 +42,8 @@ class ProjectPaymentController extends Controller
     {
         $data['site_title'] = $data['page_title'] = 'Project Payment';
         $data['view'] = 'admin/project/projectpayment';
-        $status = '"ongoing"';
-        $data['project'] = _arefy(Project::list('array','status='.$status));
-        // dd($data['project']);
+        $where =  "status IN ('pending','delay','ongoing')"; 
+        $data['project'] = _arefy(Project::list('array',$where));
         return view('admin.home',$data);
     }
 
@@ -54,9 +53,33 @@ class ProjectPaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+        $validation = new Validations($request);
+        $validator  = $validation->createProjectPayment();
+        if($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data['project_id']                 = !empty($request->project_id)?$request->project_id:'';
+            $data['recieved_payment']           = !empty($request->recieved_payment)?$request->recieved_payment:'';
+            $data['payment_method']             = !empty($request->payment_method)?$request->payment_method:'';
+            $data['next_payment']               = !empty($request->next_payment)?$request->next_payment:'';
+            $data['next_delivery']              = !empty($request->next_delivery)?$request->next_delivery:'';
+            $data['agent_commission']           = !empty($request->agent_commission)?$request->agent_commission:'';
+            $data['status']                     = !empty($request->status)?$request->status:'';
+            $data['created_at']                 =  date('Y-m-d H:i:s');
+            $data['updated_at']                 =  date('Y-m-d H:i:s');
+            
+            $projectpayment = Projectpayment::add($data);
         
+        if($projectpayment){
+                $this->status = true;
+                $this->modal  = true;
+                $this->alert    = true;
+                $this->message  = "Project Payment has been added successfully.";
+                $this->redirect = url('admin/project');
+            }
+        }
+        return $this->populateresponse();
     }
 
     /**
