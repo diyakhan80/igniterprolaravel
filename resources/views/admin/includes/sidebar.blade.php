@@ -52,6 +52,12 @@
 					<span class="title">Project Payment</span>
 				</a>
 			</li>
+			<li>
+				<a href="{{url('admin/contact-us')}}">
+					<i class="fa fa-phone"></i>
+					<span class="title">Contact-Us</span>
+				</a>
+			</li>
 			
 		</ul>
 		<!-- END SIDEBAR MENU -->

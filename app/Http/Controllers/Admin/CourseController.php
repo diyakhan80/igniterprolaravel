@@ -41,19 +41,19 @@ class CourseController extends Controller
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }elseif($item['status'] == 'pending'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['name'].' status from pending to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from pending to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
                 }
                 $html   .= '</div>';
                                 
@@ -62,8 +62,8 @@ class CourseController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('name',function($item){
-                return ucfirst($item['name']);
+             ->editColumn('course_name',function($item){
+                return ucfirst($item['course_name']);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -73,7 +73,8 @@ class CourseController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'course_name', 'name' => 'course_name','title' => 'Course Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'description', 'name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
@@ -96,8 +97,9 @@ class CourseController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['course_name']        =!empty($request->course_name)?$request->course_name:'';
             $data['description']        =!empty($request->description)?$request->description:'';
+            
             if(!empty($request->course_picture)){
              $image = $request->file('course_picture');
                $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
@@ -116,12 +118,20 @@ class CourseController extends Controller
                $image->move($destinationPath, $input['imagename']);
                $data['course_picture'] = $input['imagename'];
             }
-            $data['status']             = 'active';
+
+            // if ($file = $request->file('course_picture')){
+            //     $photo_name = time().$request->file('course_picture')->getClientOriginalName();
+            //     $file->move('uploads/course',$photo_name);
+            //     $data['course_picture'] = $photo_name;
+            // }
+
+            $data['status']             = 'pending';
             $data['updated_at']         =date('Y-m-d H:i:s');
             $data['created_at']         =date('Y-m-d H:i:s');
 
          
             $inserId = Course::add($data);
+
             if($inserId){
                 $this->status = true;
                 $this->modal  = true;
@@ -156,7 +166,7 @@ class CourseController extends Controller
         $data['view'] = 'admin.courses.edit';
         $id = ___decrypt($id);
         $data['course'] = _arefy(Course::list('single',$id));
-        //dd($data['course']);
+        // dd($data['course']);
         return view('admin.home',$data);
     }
 
@@ -175,7 +185,7 @@ class CourseController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['course_name']        =!empty($request->course_name)?$request->course_name:'';
             $data['description']        =!empty($request->description)?$request->description:'';
             if(!empty($request->course_picture)){
              $image = $request->file('course_picture');
@@ -195,9 +205,8 @@ class CourseController extends Controller
                $image->move($destinationPath, $input['imagename']);
                $data['course_picture'] = $input['imagename'];
             }
-            $data['status']             = 'active';
-            $data['updated_at']         =date('Y-m-d H:i:s');
-            $data['created_at']         =date('Y-m-d H:i:s');
+            $data['updated_at']         = date('Y-m-d H:i:s');
+            $data['created_at']         = date('Y-m-d H:i:s');
 
          
             $inserId = Course::change(___decrypt($id),$data);
@@ -224,12 +233,6 @@ class CourseController extends Controller
     }*/
 
     public function changeStatus(Request $request){
-        $validation = new Validations($request);
-        $validator = $validation->changeStatus();
-
-        if($validator->fails()){
-            $this->message = $validator->errors();
-        }else{
             $userData                = ['status' => $request->status, 'updated_at' => date('Y-m-d H:i:s')];
             $isUpdated               = Course::change($request->id,$userData);
 
@@ -243,7 +246,6 @@ class CourseController extends Controller
                 $this->redirect = true;
                 $this->jsondata = [];
             }
-        }
        return $this->populateresponse();
     }
 }

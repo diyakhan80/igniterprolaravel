@@ -43,6 +43,7 @@ Route::post('register','HomeController@submitRegistration');
 /***********************Admin-Section****************************/
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/login','Admin\LoginController@authentication');
+Route::get('admin/contact-us','Admin\AdminController@contact');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAuth'],function(){
 	Route::get('logout','LoginController@logout');
 	

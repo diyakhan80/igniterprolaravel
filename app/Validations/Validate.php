@@ -45,6 +45,8 @@ class Validate
 			'password'          => ['required','string','max:50'],
 			'price'				=> ['required','numeric'],
 			'start_from'		=> ['required'],
+			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
+			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 
 		];
 		return $validation[$key];
@@ -116,6 +118,28 @@ class Validate
     		'career_position.required'  =>  'Job Position is required',
     		'resume.required'           =>  'Resume is required'
 
+    	]);
+
+        return $validator;		
+	}
+
+	public function createCourse($action='add'){
+        $validations = [
+            'course_name' 		        => $this->validation('name'),
+			'course_picture'  			=> $this->validation('photo'),
+			'description'				=> $this->validation('name'),
+    	];
+
+    	if($action == 'edit'){
+				$validations['course_name']				= $this->validation('name');
+				$validations['course_picture']			= $this->validation('photomimes');
+				$validations['description']				= $this->validation('name');
+		}
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+    		'course_name.required' 		=>  'Course Name is required',
+    		'course_picture.required'   =>  'Course Image is required',
+    		'description.email'			=>  'Course Description is required',
     	]);
 
         return $validator;		

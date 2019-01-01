@@ -34,6 +34,4 @@ class Enquiry extends Model
             return false;
         }   
     }       
-
-  
 }

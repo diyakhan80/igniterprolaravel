@@ -1,9 +1,14 @@
-AdminController.php<?php
+<?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Models\Enquiry;
 use Illuminate\Http\Request;
-use Validations\Doctor as Validations;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Html\Builder;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Validations\Validate as Validations;
 class AdminController extends Controller
 {
     /**
@@ -28,16 +33,44 @@ class AdminController extends Controller
         $data['site_title'] = $data['page_title'] = 'Home';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li></ul>';
         $data['doctors']  = _arefy(\Models\Doctors::where('status','!=','trashed')->get());
+        // $data['enquiry']  = _arefy(\Models\Enquiry::where('status','!=','trashed')->get());
         $data['hospitals']  = _arefy(\Models\Hospitals::where('status','!=','trashed')->get());
         return view('front_home',$data);
     }
 
-     public function contact()
+     public function contact(Request $request, Builder $builder)
     {
-        $data['view'] = 'front/contact';
-        $data['site_title'] = $data['page_title'] = 'Home';
+        $data['view'] = 'admin/contact-us';
+        $data['site_title'] = $data['page_title'] = 'Contact-Us';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li></ul>';
-        return view('front_home',$data);
+
+        $enquiry  = _arefy(\Models\Enquiry::get());
+        if ($request->ajax()) {
+            return DataTables::of($enquiry)
+            ->editColumn('action',function($item){
+                $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/agent/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '</div>';
+                return $html;
+            })
+             ->editColumn('name',function($item){
+                return ucfirst($item['name']);
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
+
+        $data['html'] = $builder
+            ->parameters([
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
+            ])
+            ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'email','name' => 'email','title' => 'Email','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'phone','name' => 'phone','title' => 'Mobile Number','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'course','name' => 'course','title' => 'Course','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'location','name' => 'location','title' => 'Course','orderable' => false, 'width' => 120])
+            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+        return view('admin.home',$data);
     }
 
     public function aboutUs()
