@@ -24,26 +24,32 @@
 			</li>
 			<li>
 				<a href="{{url('admin/subject')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-book"></i>
 					<span class="title">Subject</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url('admin/topics')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-comments"></i>
 					<span class="title">Topics</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url('admin/batches')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-tasks"></i>
 					<span class="title">Batches</span>
 				</a>
 			</li>
 			<li>
 				<a href="{{url('admin/project')}}">
-					<i class="fa fa-user-md"></i>
+					<i class="fa fa-users"></i>
 					<span class="title">Projects</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/training')}}">
+					<i class="fa fa-graduation-cap"></i>
+					<span class="title">Training</span>
 				</a>
 			</li>
 			<li>

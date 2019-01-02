@@ -44,6 +44,8 @@ Route::post('register','HomeController@submitRegistration');
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/login','Admin\LoginController@authentication');
 Route::get('admin/contact-us','Admin\AdminController@contact');
+Route::get('admin/contact-us/{id}/contact-us-view','Admin\AdminController@contactusview');
+Route::get('admin/contact-us/{id}/contact-us-reply','Admin\AdminController@contactusreply');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAuth'],function(){
 	Route::get('logout','LoginController@logout');
 	
@@ -67,6 +69,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 	Route::resource('project', 'ProjectController');
 	Route::group(['prefix' => 'project'],function(){
 		Route::post('/status', 'ProjectController@changeStatus');
+	});
+
+	Route::resource('training', 'TrainingController');
+	Route::group(['prefix' => 'training'],function(){
+		Route::post('/status', 'TrainingController@changeStatus');
 	});
 
 	Route::resource('project-payment', 'ProjectPaymentController');

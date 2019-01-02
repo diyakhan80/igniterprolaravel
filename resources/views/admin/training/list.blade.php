@@ -27,7 +27,7 @@
 		<div class="page-head">
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">
-				<h1>Contact-Us <small> MANAGE</small></h1>
+				<h1>Training <small> MANAGE</small></h1>
 			</div>
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PAGE TOOLBAR -->
@@ -128,7 +128,12 @@
 		<!-- BEGIN PAGE CONTENT-->
 		<div class="row">
 			<div class="col-md-12">
-				
+				<!-- <div class="note note-danger note-shadow">
+					<p>
+						 NOTE: The below datatable is not connected to a real database so the filter and sorting is just simulated for demo purposes only.
+					</p>
+				</div> -->
+				<!-- Begin: life time stats -->
 				<div class="portlet light">
 					<div class="portlet-title">
 						<div class="caption">
@@ -136,17 +141,13 @@
 							<span class="caption-subject font-green-sharp bold uppercase">{{$page_title}}</span>
 						</div>
 						<div class="actions">
-							<!-- <a href="{{url('admin/contact-us')}}" class="btn btn-default btn-circle"> -->
-							<!-- <i class="fa fa-plus"></i>
-							<span class="hidden-480">
-							Contact-Us</span>
-							</a> -->
 						</div>
 					</div>
 					<div class="portlet-body">
 						<div class="table-container">
 							<table class="table table-striped table-bordered table-hover" id="datatable_ajax">
 								{!! $html->table() !!}
+								
 							</table>
 						</div>
 					</div>

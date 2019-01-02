@@ -49,7 +49,8 @@ class AdminController extends Controller
             return DataTables::of($enquiry)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
-                $html   .= '<a href="'.url(sprintf('admin/agent/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
+                $html   .= '<a href="'.url(sprintf('admin/contact-us/%s/contact-us-view',___encrypt($item['id']))).'"  title="View Detail"><i class="fa fa-eye"></i></a> | ';
+                $html   .= '<a href="'.url(sprintf('admin/contact-us/%s/contact-us-reply',___encrypt($item['id']))).'"  title="Reply"><i class="fa fa-reply"></i></a> ';
                 $html   .= '</div>';
                 return $html;
             })
@@ -70,6 +71,24 @@ class AdminController extends Controller
             ->addColumn(['data' => 'course','name' => 'course','title' => 'Course','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'location','name' => 'location','title' => 'Course','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+        return view('admin.home',$data);
+    }
+
+    public function contactusview($id)
+    {
+        $data['view'] = 'admin/contact-us-view';
+        $data['site_title'] = $data['page_title'] = 'Contact-Us';
+        $id = ___decrypt($id);
+        $data['enquiry']  = _arefy(\Models\Enquiry::where('id','=',$id)->first());
+        return view('admin.home',$data);
+    }
+
+    public function contactusreply($id)
+    {
+        $data['view'] = 'admin/contact-us-reply';
+        $data['site_title'] = $data['page_title'] = 'Contact-Us';
+        $id = ___decrypt($id);
+        $data['enquiry']  = _arefy(\Models\Enquiry::where('id','=',$id)->first());
         return view('admin.home',$data);
     }
 

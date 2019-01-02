@@ -41,19 +41,19 @@ class CourseController extends Controller
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=inactive',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/inactive-user.png').'"
-                        data-ask="Would you like to change '.$item['course_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from active to inactive?" title="Update Status"><i class="fa fa-fw fa-ban"></i></a> ';
                 }elseif($item['status'] == 'inactive'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['course_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from inactive to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a> ';
                 }elseif($item['status'] == 'pending'){
                     $html   .= '<a href="javascript:void(0);" 
                         data-url="'.url(sprintf('admin/courses/status/?id=%s&status=active',$item['id'])).'" 
                         data-request="ajax-confirm"
                         data-ask_image="'.url('/images/active-user.png').'"
-                        data-ask="Would you like to change '.$item['course_name'].' status from pending to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a>';
+                        data-ask="Would you like to change '.$item['course_name'].' status from pending to active?" title="Update Status"><i class="fa fa-fw fa-check"></i></a> ';
                 }
                 $html   .= '</div>';
                                 
@@ -160,13 +160,12 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request,$id)
     {   
         $data['site_title'] = $data['page_title'] = 'Edit Course';
         $data['view'] = 'admin.courses.edit';
         $id = ___decrypt($id);
-        $data['course'] = _arefy(Course::list('single',$id));
-        // dd($data['course']);
+        $data['course'] = _arefy(Course::list('single','id='.$id));
         return view('admin.home',$data);
     }
 
