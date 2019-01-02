@@ -65,7 +65,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({{url('login/images/bg-01.jpg')}});">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form role="login" action="{{url('admin/login')}}" method="POST" class="login100-form validate-form">
+				<form role="login" action="{{url('admin/login')}}" data-request="enable-enter" method="POST" class="login100-form validate-form">
 					<span class="login100-form-title p-b-49">
 						Login
 					</span>
@@ -94,7 +94,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="login100-form-btn">
+							<button type="button" data-request="ajax-submit" data-target='[role="login"]' class="login100-form-btn login">
 								Login
 							</button>
 						</div>
@@ -162,6 +162,16 @@
 <script src="{{ asset('assets/admin/pages/scripts/index3.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/admin/pages/scripts/tasks.js') }}" type="text/javascript"></script>
 <script src="{{asset('assets/global/js/script.js')}}"></script>
-
+<script type="text/javascript">
+    setTimeout(function(){
+    $('[data-request="enable-enter"]').on('keyup','input',function (e) {
+    e.preventDefault();
+    if (e.which == 13) {
+    $('[data-request="enable-enter"]').find('.login').trigger('click');
+    return false;    //<---- Add this line
+    }
+    }); 
+    },100);
+</script>
 </body>
 </html>

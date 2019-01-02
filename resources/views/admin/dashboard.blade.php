@@ -8,8 +8,8 @@
 						<div class="table-container">
 							<table class="table table-striped table-bordered table-hover" id="datatable_ajax">
 							<tr><th>No. Of Student</th><td>()</td></tr>
-							<tr><th>No. Of Projects</th><td>()</td></tr>
-							<tr><th>No. Of Agent</th><td>()</td></tr>
+							<tr><th>No. Of Projects</th><td>({{ \App\Models\Project::count() }})</td></tr>
+							<tr><th>No. Of Agent</th><td>({{ \App\Models\Agent::count() }})</td></tr>
 							<tr><th>No. Of Employee</th><td>()</td></tr>
 								
 							</table>
