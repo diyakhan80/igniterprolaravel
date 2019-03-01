@@ -9,11 +9,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="control-label required">User</label>
-								<select class="form-control" name="user_client_id">
-									<option value="">Select User</option>
-									@foreach($user as $users)
-	                                        <option value="{{$users['id']}}">{{$users['name']}}</option>
+								<label class="control-label required">Clients</label>
+								<select class="form-control" name="client_id">
+									<option value="">Select Client</option>
+									@foreach($clients as $client)
+	                                        <option value="{{$client['id']}}">{{$client['name']}}</option>
                                     @endforeach
 								</select>
 							</div>

@@ -1795,3 +1795,58 @@ Page Loading
   display: none;
   transition: all 2s;
 }
+.invoiceWrap {
+    background: #0f578a;
+    padding: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    height: 150px;
+}
+.invoiceHead .col-md-3 h3 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 30px;
+}
+.invoice-detail{
+    margin-bottom: 10px;    
+}
+.productOrdered{
+    margin-top: 20px;
+}
+.invoiceInfo {
+    border-bottom: 2px solid #ca9345;
+    padding-bottom:10px;
+}
+.invoice-total {
+    float: right;
+}
+.invoiceTotal span{
+    color: #ca9345;
+}
+.invoiceTotal ~ ul>li{
+    color: #000;
+}
+.invoiceTotal ~ ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+.invoiceList{
+    list-style-type: none;
+    padding-left: 0;
+    float: right;
+}
+.invoiceList li{
+    display: inline-block;
+}
+.invoicesubList{
+    list-style-type: none;
+    padding-left: 0
+}
+.invoicesubList li{
+    display: block;
+    padding: 0 20px;
+}
+.logo{
+    width: 160px;
+    
+}

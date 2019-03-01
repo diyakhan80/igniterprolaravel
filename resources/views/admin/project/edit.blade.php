@@ -11,23 +11,23 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label class="control-label required">User</label>
-								<select class="form-control" name="user_client_id">
-                                        @if($user)
-											@foreach($user as $users)
+								<label class="control-label required">Client</label>
+								<select class="form-control" name="client_id">
+                                        @if($client)
+											@foreach($client as $clients)
 	                                            <option  
 	                                            @php 
 	                                           
-	                                            if( $users['id'] == $project['user_client_id']){
+	                                            if( $clients['id'] == $project['client_id']){
 
 	                                            	echo 'selected="selected"'; 
 	                                        	} 
 	                                            @endphp
-	                                            value="{{$users['id']}}"
-	                                            >{{$users['name']}}</option>
+	                                            value="{{$clients['id']}}"
+	                                            >{{$clients['name']}}</option>
 	                                        @endforeach
 	                                        @else
-	                                            <option value="">No User Found</option>
+	                                            <option value="">No client Found</option>
                                         @endif
 								</select>
 							</div>

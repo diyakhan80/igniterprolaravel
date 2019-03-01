@@ -11,7 +11,7 @@ class Project extends Model
 
     protected $fillable = [
         'id',
-        'user_client_id',
+        'client_id',
         'project_name',
         'project_type',
         'project_price',
@@ -24,8 +24,8 @@ class Project extends Model
         'updated_at',
     ];
 
-    public function user(){
-        return $this->hasOne('App\Models\Users','id','user_client_id');
+    public function client(){
+        return $this->hasOne('App\Models\Client','id','client_id');
     }
 
     public function agent()
@@ -50,8 +50,8 @@ class Project extends Model
                 
         $table_project = self::select($keys)
         ->with([
-            'user' => function($q){
-                $q->select('id','name');
+            'client' => function($q){
+                $q->select('id','name','email','phone_code','mobile_number');
             },
             'agent' => function($q){
                 $q->select('id','name');

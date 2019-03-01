@@ -23,6 +23,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('admin/clients')}}">
+					<i class="fa fa-users"></i>
+					<span class="title">Clients</span>
+				</a>
+			</li>
+			<li>
 				<a href="{{url('admin/subject')}}">
 					<i class="fa fa-book"></i>
 					<span class="title">Subject</span>

@@ -48,7 +48,7 @@
     var asset_url = "{{ url('/') }}";
     var base_url  = "{{ url('/') }}";
 </script>
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="{{url('images/igniterpro-logo2.png')}}"/>
 </head>
 <body class="page-md page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
     <div id="app">
