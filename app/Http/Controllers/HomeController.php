@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Validations\Validate as Validations;
 use App\Http\Controllers\Controller;
-use App\Helpers\apphelper;
 use Redirect;
-use Auth;
 require '../vendor/autoload.php';
 
 class HomeController extends Controller

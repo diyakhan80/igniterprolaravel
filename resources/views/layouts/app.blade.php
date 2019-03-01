@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -12,7 +12,7 @@
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-       {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+      
         <meta charset="utf-8"/>
         <title>IgniterPro</title>
         
@@ -39,8 +39,6 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
-
-
     </head>
     <body class="page-md login">
         <div class="preloader">

@@ -42,3 +42,78 @@ Route::get('recentworks','HomeController@recentWorks');
 Route::get('registration','HomeController@register');
 Route::post('register','HomeController@submitRegistration');
 
+/***********************Admin-Section****************************/
+Route::get('admin/login','Admin\LoginController@login');
+Route::post('admin/login','Admin\LoginController@authentication');
+Route::get('admin/contact-us','Admin\AdminController@contact');
+Route::get('admin/contact-us/{id}/contact-us-view','Admin\AdminController@contactusview');
+Route::get('admin/contact-us/{id}/contact-us-reply','Admin\AdminController@contactusreply');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAuth'],function(){
+	Route::get('logout','LoginController@logout');
+	
+	Route::get('/home', 'DashboardController@index')->name('home');
+	
+	
+	Route::group(['prefix' => 'ajax'],function(){
+		Route::get('/associate', 'AssociateController@ajaxList');
+	});
+
+	Route::resource('courses', 'CourseController');
+	Route::group(['prefix' => 'courses'],function(){
+		Route::post('/status', 'CourseController@changeStatus');
+	});
+
+	Route::resource('agent', 'AgentController');
+	Route::group(['prefix' => 'agent'],function(){
+		Route::post('/status', 'AgentController@changeStatus'); 
+	});
+
+	Route::resource('project', 'ProjectController');
+	Route::group(['prefix' => 'project'],function(){
+		Route::post('/status', 'ProjectController@changeStatus');
+	});
+
+	Route::resource('training', 'TrainingController');
+	Route::group(['prefix' => 'training'],function(){
+		Route::post('/status', 'TrainingController@changeStatus');
+	});
+
+	Route::resource('project-payment', 'ProjectPaymentController');
+	Route::group(['prefix' => 'project-payment'],function(){
+		Route::post('/status', 'ProjectPaymentController@changeStatus');
+	});
+
+	Route::resource('subject', 'SubjectController');
+	Route::group(['prefix' => 'subject'],function(){
+		Route::post('/status', 'SubjectController@changeStatus');
+	});
+
+
+	Route::resource('batches', 'BatchController');
+	Route::group(['prefix' => 'batches'],function(){
+		Route::post('/status', 'BatchController@changeStatus');
+	});
+
+	Route::group(['prefix' => 'topics'],function(){
+		Route::post('/status', 'TopicsController@changeStatus');
+		Route::get('/course-list', 'TopicsController@courseList');
+		Route::get('/subjectlist', 'TopicsController@subjectList');
+	});
+	Route::resource('topics', 'TopicsController');
+
+	Route::resource('hospitals', 'HospitalController');
+	Route::group(['prefix' => 'hospitals'],function(){
+		Route::post('/status', 'HospitalController@changeStatus');
+	});
+
+	Route::resource('services', 'ServiceController');
+	Route::group(['prefix' => 'services'],function(){
+		Route::post('/status', 'ServiceController@changeStatus');
+	});
+
+	Route::resource('appointments', 'AppointmentController');
+	Route::group(['prefix' => 'appointment'],function(){
+		Route::post('/delete', 'AppointmentController@delete');
+		//Route::resource('/', 'InvestorController');
+	});
+});

@@ -4,11 +4,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center black">
 			<h3 class="title">ABOUT <span class="themecolor">US</span></h3>
-			<p class="a-slog"><!--The general purpose of IgniterPro is to develop and promote advanced information technologies for multi-user operation.
-
-			IgniterPro's business philosophy is to assure the highest quality product, total client satisfaction, timely delivery of solutions and the best quality/price ratio found in the industry. 
-
-			Our emphasis is on offering a high degree of product user friendliness through a positive, creative and focused company staff.-->
+			<p class="a-slog">
 			At IgniterPro we deliver two intertwined Solutions .. Training and Development:
 </br>
 Keeping in mind the ever changing software industry we make sure that we only offer the latest trends in the market to make our customers stay ahead in the curve.

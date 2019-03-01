@@ -34,7 +34,8 @@ class Enquiry extends Model
             return false;
         }   
     }       
-public static function list($fetch='array',$where='',$order='id-desc'){
+
+    public static function list($fetch='array',$where='',$order='id-desc'){
                 
         $table_review = self::select(['*']);
         
@@ -62,4 +63,5 @@ public static function list($fetch='array',$where='',$order='id-desc'){
         }
     }
   
+
 }
