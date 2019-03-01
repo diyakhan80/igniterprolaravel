@@ -30,11 +30,12 @@ class Project extends Model
 
     public function agent()
     {
-        return $this->hasOne('App\Models\Agent','id','project_agent_id');   
+        return $this->hasOne('App\Models\Agent','id','project_agent_id');  
     }
+
     public function payment()
     {
-        return $this->hasOne('App\Models\Projectpayment','project_id','id');   
+        return $this->hasOne('App\Models\Projectpayment','project_id','id');  
     }
 
     public static function add($data){
