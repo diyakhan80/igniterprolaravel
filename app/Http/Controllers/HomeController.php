@@ -47,6 +47,14 @@ class HomeController extends Controller
             
     }
 
+    public function enquiryList(Request $request)
+    {
+        $data['view'] = 'enquiry_list';
+        $data['enquiries'] = \Models\Enquiry::list('array');
+        return view('front_home',$data);
+            
+    }
+
      public function register(Request $request)
     {
         $data['view'] = 'registration';

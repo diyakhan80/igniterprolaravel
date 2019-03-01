@@ -27,6 +27,8 @@ Route::get('/', function () {
    
 });*/
 Route::get('/','HomeController@index');
+Route::get('/admin/viewEnquiryDetails','HomeController@enquiryList');
+
 Route::get('courses/{course}','HomeController@course');
 Route::get('services/{service}','HomeController@service');
 Route::post('enquirysubmission','HomeController@submitEnquiry');
