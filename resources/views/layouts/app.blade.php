@@ -10,7 +10,7 @@
         
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
       
         <meta charset="utf-8"/>
@@ -82,7 +82,10 @@
                   var userRating = this.value;
                   $('.rate').val(userRating);
                  
-              }); 
+              });
+              // $('body').scroll(function(){
+              //   $(".headerbtm").addClass(" navbar-fixed-top");
+              // });
           });
     
     </script>  
