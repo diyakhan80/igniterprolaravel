@@ -1499,6 +1499,13 @@ select.form-control:not([size]):not([multiple]) {
     margin: 10px 0;
 
 }
+.sendenquiry{
+  background-color: #282626;
+  border-radius: 20px;
+}
+.sendenquiry:hover{
+  color:#0f578a;
+}
 .email-detailsection {
 
     text-align: center;

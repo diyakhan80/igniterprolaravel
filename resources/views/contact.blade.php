@@ -72,7 +72,7 @@
                                 <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments" required >
                             </div>  
                             <div class="submitBtnDiv">
-                            <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn btn-primary">Save</button>
+                            <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
                                                     
                               
                             </div>       
