@@ -440,6 +440,22 @@ div.preloader {
         /*font-size:0.8em;*/
        /*text-shadow:1px 0px rgba(0,0,0,0.5);*/
 }
+.nim-menu.navbar-default .navbar-nav > li > a:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    opacity: 0;
+    bottom: 5px;
+    border-bottom:2px solid #3eafe6;
+    transition: .3s
+}
+.nim-menu.navbar-default .navbar-nav > li > a:hover:after {
+    left: 0;
+    right: 0;
+    opacity: 1;
+    border-bottom:2px solid #3eafe6;
+}
 .nim-menu.navbar-default .navbar-nav > li > a:hover{
   color:#3eafe6 !important;
 }
