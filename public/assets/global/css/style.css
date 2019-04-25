@@ -508,7 +508,7 @@ div.preloader {
 
 .main-heading
 {
-   background: url(../../../images/main.jpg) center center no-repeat;
+   background: url(../../../images/main2.jpg) center center no-repeat;
   background-size:cover;
   background-attachment: fixed;
   color: #cfcfcf;
@@ -519,8 +519,8 @@ div.preloader {
     //background-attachment: fixed;
     height:auto;
     height:100%;
-    background: rgba(0,0,0);
-    opacity: .3;
+    /*background: rgba(0,0,0);*/
+    /*opacity: .3;*/
     position:relative;
 }
 .nav > li > a:hover, .nav > li > a:focus {
