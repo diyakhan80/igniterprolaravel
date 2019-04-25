@@ -574,7 +574,9 @@ p.lead {
   text-align: center;
   margin: 0 auto;
 }
-
+.aboutBottom{
+  padding-bottom: 40px;
+}
 .main-heading-title span {
   margin-left: 6px;
 }
@@ -586,7 +588,12 @@ p.lead {
   -o-animation: blink .6s infinite;
   animation: blink .6s infinite;
 }
-
+.bannergifimg{
+  box-shadow: 0px 7px 13px 0 rgba(78, 131, 187, 0.2);
+  -moz-box-shadow: 0px 7px 13px 0 rgba(78, 131, 187, 0.2);
+  -webkit-box-shadow: 0px 7px 13px 0 rgba(78, 131, 187, 0.2);
+  border-radius: 40px; 
+}
 /*----------------ABOUT US
 
 -------------------------------------------------------*/
@@ -749,7 +756,66 @@ span.jsnn-counter-label {
 .detailbox:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-
+/*----------------------Solutions------------------------------------*/
+.back_gray {
+    padding: 60px 0;
+}
+.provided_head{
+  margin-bottom: 30px;
+}
+.sectionWrap{
+  padding-top: 122px;
+}
+.igniter_img {
+    margin-bottom: 20px;
+}
+.solution_img {
+    position: relative;
+    box-shadow:-14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
+    overflow: hidden;
+}
+.solution_img img {
+    height: 220px;
+    width: 100%;
+}
+.solution_img > img + div {
+    position: absolute;
+}
+.ingiter_text {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0;
+    top: calc(100% - 44px);
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in 0s;
+    -webkit-transition: 0.2s ease-in 0s;
+    -moz-transition: 0.2s ease-in 0s;
+    -ms-transition: 0.2s ease-in 0s;
+}
+.solution_img:hover .ingiter_text{
+  height:100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 8px;
+  top: 0;
+  padding: 30px 20px;
+}
+.ingiter_text h4 {
+    
+    font-size: 18px;
+}
+.ingiter_text a{
+  color: #fff;
+}
 /*----------------OUR WORKS
 
 -------------------------------------------------------*/
@@ -768,7 +834,7 @@ span.jsnn-counter-label {
 }
 .recent-works>.container
 {
-    padding:70px 0px;
+    padding:40px 0px;
 }
 
 .item-img-wrap{
@@ -983,7 +1049,7 @@ span.jsnn-counter-label {
 ----------------------------------------------------------------------------- */
 .services >.container
 {
-    padding:60px;
+    padding:60px 40px 40px;
 }
 .nim-service{
   text-align: center;
@@ -1149,7 +1215,7 @@ label {
   background-image: linear-gradient(to bottom, #e6f1f0, #c8dedc);
 }
 .contactsection{
-  padding: 40px 0;
+  padding: 60px 0;
 }
 /*-----------------------End Contact Section-------------------------------------*/
 /*----------------SITE FOOTER
@@ -1444,18 +1510,46 @@ select.form-control:not([size]):not([multiple]) {
     left:0px;
     opacity:0;
 }
+.right-review p{
+  font-size: 15px!important;
+  font-family: inherit;
+}
+.left-review img {
+    border-radius: 50%;
+    padding: 7px;
+    border: 1px solid #ddd;
+}
+.igniter-review {
+    display: flex;
+    min-height: 220px;
+}
+.pt-btn{
+  padding-bottom: 20px;
+}
+.left-review h4{
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.left-review {
+    min-width: 100px;
+    text-align: center;
+}
+.right-review {
+    padding-left: 10px;
+}
 .rating span label {
-    display:inline-block;
-    width:30px;
-    height:30px;
-    text-align:center;
-    color:#FFF;
-    background:#ccc;
-    font-size:30px;
-    margin-right:2px;
-    line-height:30px;
-    border-radius:50%;
-    -webkit-border-radius:50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    /* color: #FFF; */
+    /* background: #ccc; */
+    font-size: 30px;
+    margin-right: 2px;
+    line-height: 18px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
 }
 .rating span:hover ~ span label,
 .rating span:hover label,
@@ -1470,6 +1564,7 @@ select.form-control:not([size]):not([multiple]) {
 /* additiona changes*/
 .submitReview{
   text-align: center;
+  color:#000 !important;
 }
 .btnregister {
 

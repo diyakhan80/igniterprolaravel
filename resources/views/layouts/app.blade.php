@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/font-awesome-4.3.0/css/font-awesome.min.css') }}" >
 
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{url('images/logo.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon-ico.png')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.theme.css') }}">

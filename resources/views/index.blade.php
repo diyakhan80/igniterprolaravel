@@ -15,7 +15,7 @@
 
 	<!-- [ PLUGIN STYLESHEET ]
         =========================================================================================================================-->
-	<link rel="shortcut icon" type="image/x-icon" href="images/logo.png">
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon-ico.png">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/animate.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/owl.theme.css') }}">
@@ -54,13 +54,13 @@
       <div class="headerTop">
         <div class="container-fluid clearfix">
           <ul class="float-left">
-            <li><a href="tel:+917455737778"><i class="fa fa-phone"></i>+917455737778</a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-envelope"></i>demo@gmail.com</a></li>
+            <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
+            <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
           </ul>
           <ul class="float-right">
-            <li><a href="tel:+917455737778"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </div>
@@ -79,7 +79,7 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right mobile-white-background">
               <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
               <li><a href="#one" class="page-scroll">About Us</a></li>
               
@@ -149,13 +149,11 @@
            <div class="container">
                <div class="row">
                    <div class="main-heading-content col-md-12 col-sm-12 text-center">
-        <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
-       <!-- <p class="main-heading-text" style="color:black">At IgniterPro, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work. </p>-->
-        <div class="btn-bar">
-         <!--  <a href="#" class="btn btn-custom theme_background_color">Ge Started</a> -->
-         <!--  <a href="#eight"  class="btn btn-custom-outline page-scroll">Contact Us</a> -->
-        </div>
-      </div>
+                    <!-- <img src="{{url('images/bannergif.gif')}}" class="bannergifimg"> -->
+                    <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
+                    <!-- <p class="main-heading-text" style="color:black">At IgniterPro, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work. </p>-->
+                    
+                  </div>
                </div>
            </div>
        </div>  
@@ -168,7 +166,7 @@
  
  <!-- [ABOUT US]
  ============================================================================================================================-->
- <section class="aboutus white-background black section-gap" id="one">
+ <section class="aboutus white-background black section-gap aboutBottom" id="one">
      <div class="container">
          <div class="row">
              <div class="col-md-12 text-center black">
@@ -303,7 +301,7 @@
                  <h3 class="title">OUR <span class="themecolor">VISION</span></h3>
                  <br/>
                 <div class="col-md-6">
-                  <img src="images/vision.png" height="220px" width="350px" alt="">
+                  <img src="images/facescan.gif" height="220px" width="350px" alt="vision">
                 </div>
                 <div class="col-md-6">
                   <p class="a-slog">Our Vision is to become a top global technology service providers by offering a complete spectrum of Managed IT consultants, e-business, Internet and communication technology services and components in an environment of empowerment, intellectual challenge and wealth sharing. We are here to make every brand more inspiring and the world more intelligent. We provide you quality approved with high-performance relevant products and support which is very easy to buy and use.</p> 
@@ -322,6 +320,94 @@
      </div>
  </section>
  
+ <section class="section-wrap back_gray section-gap" id="solution">
+    <div class="text-center provided_head"><h3 class="title">Solutions We provide</h3></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/web-design.gif')}}" class="img-responsive" alt="web designing">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Website Design</a></h4>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/google-adv.gif')}}" class="img-responsive" alt="google adword">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Google Adwords</a></h4>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/google-map.gif')}}" class="img-responsive" alt="google map">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Google Mapping</a></h4>
+                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/seo.gif')}}" class="img-responsive" alt="Search Engine Optimization">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Search Engine Optimization</a></h4>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/social-media.gif')}}" class="img-responsive" alt="Social Media Promotion">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Social Media Promotion</a></h4>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/contentw.gif')}}" class="img-responsive" alt="Content Writing">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Content Writing</a></h4>
+                   
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/web-deve.gif')}}" class="img-responsive" alt="Web Development">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Web Development</a></h4>
+                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/erp-content.gif')}}" class="img-responsive" alt="Enterprise Resourse Planning">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Enterprise Resourse Planning</a></h4>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+              <div class="solution_img">
+                <img src="{{url('images/mobile-app.gif')}}" class="img-responsive" alt="Mobile Application">
+                <div class="ingiter_text">
+                    <h4><a href="javascript:void(0);">Mobile Application</a></h4>
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
  
  
  <!-- [RECENT-WORKS]

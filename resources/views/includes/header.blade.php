@@ -2,13 +2,13 @@
       <div class="headerTop">
         <div class="container-fluid clearfix">
           <ul class="float-left">
-            <li><a href="tel:+917455737778"><i class="fa fa-phone"></i>+917455737778</a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-envelope"></i>demo@gmail.com</a></li>
+            <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
+            <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
           </ul>
           <ul class="float-right">
-            <li><a href="tel:+917455737778"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="mailto:demo@gmail.com"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
       </div>
@@ -22,12 +22,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" href="{{url('/')}}"><img src="images/logo.png" alt="igniterpro"></a>
+              <a class="navbar-brand" href="{{url('/')}}"><img src="{{url('images/logo.png')}}" alt="igniterpro"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right mobile-white-background">
               <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
               <li><a href="#one" class="page-scroll">About Us</a></li>
               

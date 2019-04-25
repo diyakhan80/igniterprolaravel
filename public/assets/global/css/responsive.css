@@ -25,6 +25,42 @@ VERSION : 1.1
 	    padding-top: 24px;
 	    padding-bottom: 15px;
 	}
+	.nim-service
+}
+@media (max-width: 767px){
+	.nim-service{
+		height: auto;
+	}
+	.mobile-white-background{
+		background-color: #fff;
+	}
+	.navbar-default .navbar-toggle, .navbar-default .navbar-toggle {
+    	background-color: #2196F3;
+	}
+	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    	background-color: #2196F3;
+    	box-shadow: none;
+	}
+	.navbar-default .navbar-toggle {
+	    border-color: #2196f3;
+	}
+	.navbar-default .navbar-toggle .icon-bar{
+		background-color: #fff;
+	}
+	.nim-menu.navbar-default .navbar-nav > li > a{
+		color: #000 !important;
+	}
+	.navbar-nav{
+		margin-top: 0;
+	}
+	.enquiryTop p{
+		font-size: 20px;
+	}
+}
+@media (max-width: 420px){
+	.headerTop ul li{
+		padding-right: 0;
+	}
 }
 /*......................................................
 	MOBILE LAYOUT
