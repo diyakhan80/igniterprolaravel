@@ -1,4 +1,4 @@
-<section class="aboutus white-background black" id="one" style="margin-top: 80px">
+<section class="aboutus contactWrapperr white-background black" id="one" style="margin-top: 0px">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-12 col-xs-12 black">
@@ -142,7 +142,7 @@
                 <div class="btnregister">
                   <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
                 </div>
-                <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
+                <div class="medica-appointment-card medicaAppointment wow fadeInUp" data-wow-delay="0.6s">
                     <h5>Make An Enquiry</h5>
                       <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
                             {{csrf_field()}}

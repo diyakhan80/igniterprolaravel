@@ -74,7 +74,7 @@ color:#f8198d;
 
 .sectionTitle hr
 {
-  border-color:#f8198d; 
+  border-color:#009fff; 
 }
 
 .sectionTitle .line{
@@ -86,25 +86,25 @@ color:#f8198d;
     border-color:#dbdbdb;
 }
 
-ol.type li a:hover{ color:#f8198d;}
+ol.type li a:hover{ color:#009fff;}
 
 .ramsh-menu.navbar-default .navbar-nav > li > a:hover,a.fa.fa-angle-down:hover,.navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus
 {
-    color:#f8198d;
+    color:#009fff;
 }
 
 .navbar-toggle
 {
  
- color:#f8198d;
+ color:#009fff;
 }
 
 .owl-theme .owl-controls .owl-page.active span, 
 .owl-theme .owl-controls.clickable .owl-page:hover span,#contactbtn:hover {
 	
-	background:#f8198d;
+	background: #009fff;
 }
 .owl-theme .owl-controls .owl-page.active span{
-	background:#f8198d;
+	background: #009fff;
 }

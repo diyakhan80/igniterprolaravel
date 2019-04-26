@@ -8,7 +8,7 @@ $name = $email = $rating = "";
 
 @endphp
 
-<section class="aboutus white-background black" id="one" style="margin-top: 80px">
+<section class="aboutus contactWrapperr white-background black" id="one">
        <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-12 col-xs-12 black">
