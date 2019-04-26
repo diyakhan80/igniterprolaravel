@@ -120,7 +120,18 @@ $(function () {
             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
         },isLocal: false
     });
-});      
+});
+
+$(function(){
+    var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+        $('.nav_active_menu a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).parent().addClass('active');
+            }
+        });
+    });
+            
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core componets
    Layout.init(); // init layout

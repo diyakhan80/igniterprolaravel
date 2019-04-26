@@ -47,6 +47,8 @@ class Validate
 			'start_from'		=> ['required'],
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
+			'slug_no_space'		=> ['required','alpha_dash','max:255'],
+			'photo_null'		=> ['nullable','mimes:jpg,jpeg,png'],
 
 		];
 		return $validation[$key];
@@ -289,6 +291,34 @@ class Validate
     		'next_delivery.required'		=>  'Next Delivery date is required',
     		'agent_commission.required'		=>  'Agents Commission date is required',
     		'status.required'				=>  'Status is required',
+    	]);
+    	return $validator;
+    }
+
+    public function createProduct($action='add')
+    {
+    	$validations = [
+			'name'			=> $this->validation('name'),
+            'slug' 		    => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
+            'image'			=> $this->validation('photo'),
+    	];
+
+    	if($action == 'edit'){
+    		$validations['slug'] = array_merge($this->validation('slug_no_space'),[
+				Rule::unique('products')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+    		$validations['image'] 	= $this->validation('photo_null');
+    	}
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 	=>  'Product Name is required',
+    		'slug.required'     => 'Product Slug is Required.',
+        	'slug.unique'     	=> 'This Product Slug has already been taken.',
+        	'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
+    		'image.required'	=> 'Product Image is required.',
+        	'image.mimes'		=> 'Image Should be in .jpg,.jpeg,.png format.',
     	]);
     	return $validator;
     }

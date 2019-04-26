@@ -3,8 +3,8 @@
 	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
 	<div class="page-sidebar md-shadow-z-2-i  navbar-collapse collapse">
 		
-		<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-			<li class="start active ">
+		<ul class="page-sidebar-menu nav_active_menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<li class="start">
 				<a href="{{url('admin/home')}}">
 				<i class="icon-home"></i>
 				<span class="title">Dashboard</span>
@@ -26,6 +26,12 @@
 				<a href="{{url('admin/clients')}}">
 					<i class="fa fa-users"></i>
 					<span class="title">Clients</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/products')}}">
+					<i class="fa fa-users"></i>
+					<span class="title">Products</span>
 				</a>
 			</li>
 			<li>
