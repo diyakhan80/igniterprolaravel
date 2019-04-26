@@ -65,7 +65,7 @@
         <script type="text/javascript" src="{{ asset('assets/global/js/SmoothScroll.js') }}"></script>
         <script src="{{ asset('js/select2.full.min.js')}}" type="text/javascript"></script>
 
-        <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js')}}"></script>
         <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <script type="text/javascript">
           $(document).ready(function(){

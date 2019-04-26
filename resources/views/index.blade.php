@@ -50,93 +50,93 @@
  ============================================================================================================================-->    
    <!-- Navigation
     ==========================================-->
-    <header>
-      <div class="headerTop">
-        <div class="container-fluid clearfix">
-          <ul class="float-left">
-            <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
-            <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
-          </ul>
-          <ul class="float-right">
-            <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
-          </ul>
-        </div>
+<header>
+  <div class="headerTop">
+    <div class="container-fluid clearfix">
+      <ul class="float-left">
+        <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
+        <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
+      </ul>
+      <ul class="float-right">
+        <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <nav  class="nim-menu navbar navbar-default headerbtm">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <a class="navbar-brand" href="{{url('/')}}"><img src="images/logo.png" alt="igniterpro"></a>
       </div>
-      <nav  class="nim-menu navbar navbar-default headerbtm">
-        <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-              <a class="navbar-brand" href="{{url('/')}}"><img src="images/logo.png" alt="igniterpro"></a>
-          </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right mobile-white-background">
-              <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
-              <li><a href="#one" class="page-scroll">About Us</a></li>
-              
-              <!-- <li><a href="#three" class="page-scroll">Team</a></li> -->
-              <li><a href="#two" class="page-scroll">Recent Works</a></li>
-              <!-- <li><a href="#three" class="page-scroll">Courses</a></li> -->
-              <li class="dropdown">
-                <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses <span class="caret"></span></a>
-                <ul class="dropdown-menu multi-level" role="menu">
-                  <li><a href="{{url('courses/android')}} " class="page-scroll">Android</a></li>
-                  <li><a href="{{url('courses/php')}}" class="page-scroll">PHP</a></li>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right mobile-white-background">
+          <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
+          <li><a href="#one" class="page-scroll">About Us</a></li>
+          
+          <!-- <li><a href="#three" class="page-scroll">Team</a></li> -->
+          <li><a href="#two" class="page-scroll">Recent Works</a></li>
+          <!-- <li><a href="#three" class="page-scroll">Courses</a></li> -->
+          <li class="dropdown">
+            <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses <span class="caret"></span></a>
+            <ul class="dropdown-menu multi-level" role="menu">
+              <li><a href="{{url('courses/android')}} " class="page-scroll">Android</a></li>
+              <li><a href="{{url('courses/php')}}" class="page-scroll">PHP</a></li>
 
-                  <!-- <li class="dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">I</a></li>
-                      <li><a href="#">J</a></li>
-                      <li><a href="#">K</a></li>
-                    </ul>
-                  </li> -->
-                  <li><a href="{{url('courses/python')}}" class="page-scroll">Python</a></li>
-                  <li><a href="{{url('courses/java')}}" class="page-scroll">Java</a></li>
-                  <li><a href="{{url('courses/ios')}}" class="page-scroll">iOS</a></li>
-                  <li><a href="{{url('courses/wordpress')}}" class="page-scroll">WordPress</a></li>
+              <!-- <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">I</a></li>
+                  <li><a href="#">J</a></li>
+                  <li><a href="#">K</a></li>
                 </ul>
-              </li>
-
-              <li class="dropdown">
-                <a href="#four" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
-                <ul class="dropdown-menu multi-level" role="menu">
-                  <li><a href="{{url('services/training')}}" class="page-scroll">Training</a></li>
-                  <li><a href="{{url('services/development')}}" class="page-scroll">Software Development</a></li>
-
-                  <!-- <li class="dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">I</a></li>
-                      <li><a href="#">J</a></li>
-                      <li><a href="#">K</a></li>
-                    </ul>
-                  </li> -->
-                  <li><a href="{{url('services/mobile_development')}}" class="page-scroll">Mobile Development</a></li>
-                  <li><a href="{{url('services/products')}}" class="page-scroll">Products</a></li>
-                  <li><a href="{{url('services/seo')}}" class="page-scroll">Search Engine Optimization</a></li>
-                  <li><a href="{{url('services/digitalmarketing')}}" class="page-scroll">Digital Marketing</a></li>
-                  <li><a href="{{url('services/erp')}}" class="page-scroll">ERP</a></li>
-                  </ul>
-              </li>
-              <!-- <li><a href="#five" class="page-scroll">Status</a></li> -->
-               <li><a href="{{url('reviews')}}" class="page-scroll">Reviews</a></li>
-               <li><a href="{{url('career') }}" class="page-scroll">Career</a></li>
-              <li><a href="{{url('contact') }}" class="page-scroll">Contact Us</a></li>
+              </li> -->
+              <li><a href="{{url('courses/python')}}" class="page-scroll">Python</a></li>
+              <li><a href="{{url('courses/java')}}" class="page-scroll">Java</a></li>
+              <li><a href="{{url('courses/ios')}}" class="page-scroll">iOS</a></li>
+              <li><a href="{{url('courses/wordpress')}}" class="page-scroll">WordPress</a></li>
             </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </header>
+          </li>
+
+          <li class="dropdown">
+            <a href="#four" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
+            <ul class="dropdown-menu multi-level" role="menu">
+              <li><a href="{{url('services/training')}}" class="page-scroll">Training</a></li>
+              <li><a href="{{url('services/development')}}" class="page-scroll">Software Development</a></li>
+
+              <!-- <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">I</a></li>
+                  <li><a href="#">J</a></li>
+                  <li><a href="#">K</a></li>
+                </ul>
+              </li> -->
+              <li><a href="{{url('services/mobile_development')}}" class="page-scroll">Mobile Development</a></li>
+              <li><a href="{{url('services/products')}}" class="page-scroll">Products</a></li>
+              <li><a href="{{url('services/seo')}}" class="page-scroll">Search Engine Optimization</a></li>
+              <li><a href="{{url('services/digitalmarketing')}}" class="page-scroll">Digital Marketing</a></li>
+              <li><a href="{{url('services/erp')}}" class="page-scroll">ERP</a></li>
+              </ul>
+          </li>
+          <!-- <li><a href="#five" class="page-scroll">Status</a></li> -->
+           <li><a href="{{url('reviews')}}" class="page-scroll">Reviews</a></li>
+           <li><a href="{{url('career') }}" class="page-scroll">Career</a></li>
+          <li><a href="{{url('contact') }}" class="page-scroll">Contact Us</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</header>
 
 
    <!-- [/NAV]
@@ -144,21 +144,20 @@
     
    <!-- [/MAIN-HEADING]
  ============================================================================================================================--> 
-   <section class="main-heading" id="home">
-       <div class="overlay">
-           <div class="container">
-               <div class="row">
-                   <div class="main-heading-content col-md-12 col-sm-12 text-center">
-                    <!-- <img src="{{url('images/bannergif.gif')}}" class="bannergifimg"> -->
-                    <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
-                    <!-- <p class="main-heading-text" style="color:black">At IgniterPro, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work. </p>-->
-                    
-                  </div>
-               </div>
-           </div>
-       </div>  
-      
-   </section>
+<section class="main-heading" id="home">
+  <div class="overlay">
+    <div class="container">
+      <div class="row">
+        <div class="main-heading-content col-md-12 col-sm-12 text-center">
+          <!-- <img src="{{url('images/bannergif.gif')}}" class="bannergifimg"> -->
+          <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
+          <!-- <p class="main-heading-text" style="color:black">At IgniterPro, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work. </p>-->
+              
+          </div>
+        </div>
+      </div>
+   </div>     
+ </section>
     
  <!-- [/MAIN-HEADING]
  ============================================================================================================================-->
@@ -661,37 +660,32 @@
  <!-- [TESTIMONIAL]
  ============================================================================================================================-->
  <section class="client-testimonial text-center white" id="six">
-  
-            <div class="container">
-                <div class="row">
-                <div class="col-md-12">
-                    <h3 class="title">Client <span class="themecolor">Testimonials</span></h3>            
-          </div> 
-                
-                    <div class="col-md-8 col-md-offset-2 grey">
-                        <div id="testimonial" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <h5>The IgniterPro has its skilled developers always at effective service providing fast as well as accurate delivery of milestones set for the project</h5>
-                                <p><strong>Shubham Jain</strong></p>
-                            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="title">Client <span class="themecolor">Testimonials</span></h3>            
+      </div> 
+      <div class="col-md-8 col-md-offset-2 grey">
+          <div id="testimonial" class="owl-carousel owl-theme">
+              <div class="item">
+                  <h5>The IgniterPro has its skilled developers always at effective service providing fast as well as accurate delivery of milestones set for the project</h5>
+                  <p><strong>Shubham Jain</strong></p>
+              </div>
 
-                            <div class="item">
-                                <h5>I am very happy by the work done by IgniterPro, my website was developed with great enthusiasm</h5>
-                                <p><strong>Shubham Agarwal</strong></p>
-                            </div>
+              <div class="item">
+                  <h5>I am very happy by the work done by IgniterPro, my website was developed with great enthusiasm</h5>
+                  <p><strong>Shubham Agarwal</strong></p>
+              </div>
 
-                            <div class="item">
-                                <h5>The team is very professional and has talented members, who keep their clients satisfied and happy</h5>
-                                <p><strong>Mayra Khan</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-     
-     
- </section> 
+              <div class="item">
+                  <h5>The team is very professional and has talented members, who keep their clients satisfied and happy</h5>
+                  <p><strong>Mayra Khan</strong></p>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section> 
  
  <!-- [/TESTIMONIAL]
  ============================================================================================================================-->
@@ -701,184 +695,184 @@
  
  
  <section class="services white-background black" id="seven">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-12">
-              <h3 class="title">We Are <span class="themecolor">Good In</span></h3>
-            <p class="a-slog text-center">We promise to deliver the best or nothing!</p>
-          </div> <!-- /col -->
-        </div> <!-- /row -->
-        <div class="gap"></div>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+            <h3 class="title">We Are <span class="themecolor">Good In</span></h3>
+          <p class="a-slog text-center">We promise to deliver the best or nothing!</p>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+      <div class="gap"></div>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-diamond"></i>
-              <div class="nim-service-detail">
-                <h4>Social Media Marketing</h4>
-                <p>We can create and manage effective social media marketing campaigns to grow your business while targeting the right audience and building a valid clientele. Unlike traditional advertising, your message is delivered around the world in a matter of seconds.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-diamond"></i>
+            <div class="nim-service-detail">
+              <h4>Social Media Marketing</h4>
+              <p>We can create and manage effective social media marketing campaigns to grow your business while targeting the right audience and building a valid clientele. Unlike traditional advertising, your message is delivered around the world in a matter of seconds.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->
 
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-tablet"></i>
-              <div class="nim-service-detail">
-                <h4>Web Design And Development</h4>
-                <p>IgniterPro offers customer-oriented web design services and more importantly, deliver them effectively.
-                If you go through our portfolio, you will realize that our web designs are all unique and combined with passionate animations reflecting the corporate identity of our clients following the latest trends and technologies such as responsive design and development, parallax and more! Our team of dedicated artists would spend days creating supernatural concepts translating imagination into images to present an accurate web design.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-tablet"></i>
+            <div class="nim-service-detail">
+              <h4>Web Design And Development</h4>
+              <p>IgniterPro offers customer-oriented web design services and more importantly, deliver them effectively.
+              If you go through our portfolio, you will realize that our web designs are all unique and combined with passionate animations reflecting the corporate identity of our clients following the latest trends and technologies such as responsive design and development, parallax and more! Our team of dedicated artists would spend days creating supernatural concepts translating imagination into images to present an accurate web design.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->
 
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-magic"></i>
-              <div class="nim-service-detail">
-                <h4>SEO</h4>
-                <p>SEO is a marketing discipline focused on growing visibility in organic (non-paid) search engine results. SEO encompasses both the technical and creative elements required to improve rankings, drive traffic, and increase awareness in search engines.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->       
-       
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-magic"></i>
+            <div class="nim-service-detail">
+              <h4>SEO</h4>
+              <p>SEO is a marketing discipline focused on growing visibility in organic (non-paid) search engine results. SEO encompasses both the technical and creative elements required to improve rankings, drive traffic, and increase awareness in search engines.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->       
+     
+
+   
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-rocket"></i>
+            <div class="nim-service-detail">
+              <h4>Mobile Application</h4>
+              <p>One of the fundamental promises we gave ourselves when IgniterPro was born, is to always keep pace with the latest innovations and technologies to provide the users with a smooth navigation experience by creating a digital smart interface.Using the latest development technologies and design trends, we thrive to bring you the most vibrant and upbeat mobile applications.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->
+
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-map-marker"></i>
+            <div class="nim-service-detail">
+              <h4>Analytics</h4>
+              <p>Analytics is the discovery, interpretation, and communication of meaningful patterns in data. Our analytics section relies on the simultaneous application of statistics, computer programming and operations research to quantify performance.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->
+
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-paypal"></i>
+            <div class="nim-service-detail">
+              <h4>Dedicated Support</h4>
+              <p>We provide support to our clients at every milestone of the project and try to reduce all difficulties that he faces throughout the time</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->         
+      
 
      
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-rocket"></i>
-              <div class="nim-service-detail">
-                <h4>Mobile Application</h4>
-                <p>One of the fundamental promises we gave ourselves when IgniterPro was born, is to always keep pace with the latest innovations and technologies to provide the users with a smooth navigation experience by creating a digital smart interface.Using the latest development technologies and design trends, we thrive to bring you the most vibrant and upbeat mobile applications.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-bar-chart-o"></i>
+            <div class="nim-service-detail">
+              <h4>Truly Multipurpose</h4>
+              <p>All our projects and work will be multipurpose, and can be modified as per client's perspective</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->
 
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-map-marker"></i>
-              <div class="nim-service-detail">
-                <h4>Analytics</h4>
-                <p>Analytics is the discovery, interpretation, and communication of meaningful patterns in data. Our analytics section relies on the simultaneous application of statistics, computer programming and operations research to quantify performance.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-paypal"></i>
-              <div class="nim-service-detail">
-                <h4>Dedicated Support</h4>
-                <p>We provide support to our clients at every milestone of the project and try to reduce all difficulties that he faces throughout the time</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->         
-        
-
-       
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-bar-chart-o"></i>
-              <div class="nim-service-detail">
-                <h4>Truly Multipurpose</h4>
-                <p>All our projects and work will be multipurpose, and can be modified as per client's perspective</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <!-- <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-delicious"></i>
-              <div class="nim-service-detail">
-                <h4>Unlimited Colors</h4>
-                <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.</p>
-              </div> 
+        <!-- <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-delicious"></i>
+            <div class="nim-service-detail">
+              <h4>Unlimited Colors</h4>
+              <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.</p>
             </div> 
-          </div>  -->
+          </div> 
+        </div>  -->
 
-          <div class="col-sm-6">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-pencil-square"></i>
-              <div class="nim-service-detail">
-                <h4>Web Services</h4>
-                <p>We have implemented the Content Management System within its workflow to help our clients create, edit and manage the content of their websites and increase customer satisfaction. The WALL CMS provides a versatile and effective way to update and control site content. Our team works through your website backend tool to add, edit and update your content in a professional way.</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->                      
-        </div> <!-- end row -->
+        <div class="col-sm-6">
+          <div class="nim-service margin-bottom">
+            <i class="fa fa-pencil-square"></i>
+            <div class="nim-service-detail">
+              <h4>Web Services</h4>
+              <p>We have implemented the Content Management System within its workflow to help our clients create, edit and manage the content of their websites and increase customer satisfaction. The WALL CMS provides a versatile and effective way to update and control site content. Our team works through your website backend tool to add, edit and update your content in a professional way.</p>
+            </div> <!-- /nim-service-detail -->
+          </div> <!-- /nim-service margin-bottom -->
+        </div> <!-- /col -->                      
+      </div> <!-- end row -->
 
-      </div>  <!-- container -->
-    </section>
-    <section class="contactsection">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h3 class="enquiryhead">Make An Enquiry</h3>
-            <div class="enquiryTop">
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="btnregister">
-              <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
-            </div>
-             <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
-                <!-- <h5>Make An Enquiry</h5> -->
-               <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
-                    {{csrf_field()}}
-                    <div class="form-group">
-                      <label>Name<span class="error">* </span></label>
-                        <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name" required >
-                    </div>
-                    <div class="form-group">
-                      <label>Phone<span class="error">* </span></label>
-                        <input  data-request="isnumeric" maxlength="10" type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required >
-                    </div>
-                    <div class="form-group">
-                      <label>Email<span class="error">* </span></label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required >
-                    </div>
-                    <div class="form-group">
-                      <label>Courses<span class="error">* </span></label>
-                         <select class="form-control drop-down  requirementname" name="course" required style="color:black;">
-                            <option value="">Courses</option>
-                            <option value="php">PHP</option>
-                            <option value="java">Java</option>
-                            <option value="android">Android</option>
-                            <option  value="python">Python</option>
-                            <option  value="ios" >iOS</option>
-                            <option value="wordpress" >WordPress</option>
-                            </select>
-                           
-                    </div>
-                     <div class="form-group">
-                      <label>Location<span class="error">* </span></label>
-                        <input type="text" class="form-control" name="location" id="location" placeholder="Location" required>
-                    </div>
-                     <div class="form-group">
-                      <label>Comments<span class="error">* </span></label>
-                        <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments" required >
-                    </div>  
-                    <div class="submitBtnDiv">
-                    <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
-                                            
-                      
-                    </div>       
-                  
-                </form>        
-            </div>
-
+    </div>  <!-- container -->
+  </section>
+  <section class="contactsection">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="enquiryhead">Make An Enquiry</h3>
+          <div class="enquiryTop">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
           </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="mapsection">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.9548798719716!2d80.99364131490461!3d26.873174583144692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2b036b2be6d%3A0x5060d981f9c8d805!2sPolytechnic+Chauraha%2C+Sector+8%2C+Indira+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226016!5e0!3m2!1sen!2sin!4v1538815134090" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="col-md-6">
+          <div class="btnregister">
+            <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
+          </div>
+           <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
+              <!-- <h5>Make An Enquiry</h5> -->
+             <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
+                  {{csrf_field()}}
+                  <div class="form-group">
+                    <label>Name<span class="error">* </span></label>
+                      <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name" required >
+                  </div>
+                  <div class="form-group">
+                    <label>Phone<span class="error">* </span></label>
+                      <input  data-request="isnumeric" maxlength="10" type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required >
+                  </div>
+                  <div class="form-group">
+                    <label>Email<span class="error">* </span></label>
+                      <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required >
+                  </div>
+                  <div class="form-group">
+                    <label>Courses<span class="error">* </span></label>
+                       <select class="form-control drop-down  requirementname" name="course" required style="color:black;">
+                          <option value="">Courses</option>
+                          <option value="php">PHP</option>
+                          <option value="java">Java</option>
+                          <option value="android">Android</option>
+                          <option  value="python">Python</option>
+                          <option  value="ios" >iOS</option>
+                          <option value="wordpress" >WordPress</option>
+                          </select>
+                         
+                  </div>
+                   <div class="form-group">
+                    <label>Location<span class="error">* </span></label>
+                      <input type="text" class="form-control" name="location" id="location" placeholder="Location" required>
+                  </div>
+                   <div class="form-group">
+                    <label>Comments<span class="error">* </span></label>
+                      <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments" required >
+                  </div>  
+                  <div class="submitBtnDiv">
+                  <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
+                                          
+                    
+                  </div>       
+                
+              </form>        
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="mapsection">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.9548798719716!2d80.99364131490461!3d26.873174583144692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2b036b2be6d%3A0x5060d981f9c8d805!2sPolytechnic+Chauraha%2C+Sector+8%2C+Indira+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226016!5e0!3m2!1sen!2sin!4v1538815134090" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
  
  <!-- [/SERVICES]
  ============================================================================================================================-->
