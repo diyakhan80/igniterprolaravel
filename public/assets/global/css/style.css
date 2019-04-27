@@ -756,8 +756,110 @@ span.jsnn-counter-label {
 .detailbox:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
+.backtechnology{
+  background-image: url(../../../images/c-bg.jpg);
+}
 .technologysection{
-  background-image: url(../images/c-bg.jpg);
+  padding: 60px 0;
+}
+.text-color{
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+.link_list ul li {
+  float: left;
+  width: 50%;
+  margin-bottom: 25px;
+}
+.link_list ul li .link_box1 {
+  width: 94%;
+  margin: auto;
+  border: 1px solid #00afc8;
+  border-radius: 36px;
+  background: #fff;
+  padding: 15px 10px;
+  height: 90px;
+  position: relative;
+}
+.link_list ul li:nth-child(2) .link_box1 {
+    border: 1px solid #c96c21;
+}
+.link_list ul li:nth-child(3) .link_box1 {
+    border: 1px solid #052149;
+}
+.link_list ul li:nth-child(4) .link_box1 {
+    border: 1px solid #27a87d;
+}
+.link_box_sec1 {
+    float: left;
+    position: absolute;
+    z-index: 99;
+    top: -2px;
+    left: -7px;
+}
+.link_list ul li .link_box_img {
+    width: 93px;
+    height: 93px;
+    background: #00afc8;
+    border-radius: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.link_box_img figure {
+    width: 93px;
+    height: 93px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.link_list ul li:nth-child(2) .link_box_img {
+    background: #c96c21;
+}
+.link_list ul li:nth-child(4) .link_box_img {
+    background: #27a87d;
+}
+.link_list ul li:nth-child(3) .link_box_img {
+    background: #052149;
+}
+.link_cnt {
+    font: 15px/16px Roboto,serif;
+    color: #000;
+    height: 65px;
+    overflow: hidden;
+}
+.link_box_sec2 {
+    float: right;
+    width: 67%;
+    color: #000;
+    height: 64px;
+    overflow: hidden;
+}
+.technologieshead h3{
+  color: #000;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+}
+.techlist{
+  margin-top: 20px;
+}
+.techlist ul li{
+  display: inline-block;
+  padding: 10px;
+}
+.techlist ul li img{
+  height: 100px;
+  width: 120px;
+}
+.techlist ul {
+    text-align: center;
+}
+.pb-15{
+  padding-bottom: 15px;
+}
+.link_section {
+    padding-top: 20px;
 }
 /*----------------------------our service build-------------------------------------------*/
 .solutions_sec {
