@@ -2,73 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use Redirect;
+use App\Models\ContactAddress;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Validations\Validate as Validations;
 use App\Http\Controllers\Controller;
-use Redirect;
 require '../vendor/autoload.php';
 
 class HomeController extends Controller
 {
 	public function __construct(Request $request){
-
         parent::__construct($request);
-        
     }
-    public function index(Request $request)
-    {
-		$data['view']='index';
+
+    public function index(Request $request){
+		$data['view'] = 'front.index';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
-    public function course(Request $request, $course)
-    {
-    	$data['view'] = 'courses';
+    public function course(Request $request, $course){
+    	$data['view'] = 'front.courses';
     	$data['course'] = $course;
      	return view('front_home',$data);
         
     }
 
-     public function service(Request $request, $service)
-    {
-        $data['view'] = 'services';
+    public function service(Request $request, $service){
+        $data['view'] = 'front.services';
         $data['service'] = $service;
         return view('front_home',$data);
             
     }
 
-    public function reviews(Request $request)
-    {
-        $data['view'] = 'reviews';
+    public function reviews(Request $request){
+        $data['view'] = 'front.reviews';
         $data['reviews'] = \Models\Review::list('array');
-
         return view('front_home',$data);
-            
     }
 
-    public function enquiryList(Request $request)
-    {
-        $data['view'] = 'enquiry_list';
+    public function enquiryList(Request $request){
+        $data['view'] = 'front.enquiry_list';
         $data['enquiries'] = \Models\Enquiry::list('array');
         return view('front_home',$data);
             
     }
 
-     public function register(Request $request)
-    {
-        $data['view'] = 'registration';
-        
-
+    public function register(Request $request){
+        $data['view'] = 'front.registration';
         return view('front_home',$data);
-            
     }
-     public function contact(Request $request)
-    {
-        $data['view'] = 'contact';
-       
-
+     
+    public function contact(Request $request){
+        $data['view'] = 'front.contact';
         return view('front_home',$data);
-            
     }
 
     public function submitEnquiry(Request $request){
@@ -132,11 +121,9 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function career(Request $request)
-    {
-        $data['view'] = 'career';  
+    public function career(Request $request){
+        $data['view'] = 'front.career';  
         return view('front_home',$data);
-            
     }
 
     public function submitCareer(Request $request){
@@ -185,17 +172,13 @@ class HomeController extends Controller
         return $this->populateresponse();
     }
 
-    public function about(Request $request)
-    {
-        $data['view'] = 'about';  
+    public function about(Request $request){
+        $data['view'] = 'front.about';  
         return view('front_home',$data);
-            
     }
-    public function recentWorks(Request $request)
-    {
-        $data['view'] = 'recentworks';  
+    public function recentWorks(Request $request){
+        $data['view'] = 'front.recentworks';  
         return view('front_home',$data);
-            
     }
 
      public function submitRegistration(Request $request){
@@ -223,6 +206,5 @@ class HomeController extends Controller
         } 
         return $this->populateresponse();
     }
-
 }
 ?>

@@ -12,9 +12,9 @@
             
             <div class="col-md-12 text-center"> 
                 <ul class="social">
-                    <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter "></i></a></li>
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter "></i></a></li>
+                    <li><a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>
             <div class="col-md-12"> <small>&copy; 2018 IgniterPro. All rights reserved.</small></div>

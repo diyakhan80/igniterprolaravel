@@ -83,6 +83,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('admin/contact')}}">
+					<i class="fa fa-phone"></i>
+					<span class="title">Contact Address</span>
+				</a>
+			</li>
+			<li>
 				<a href="{{url('admin/social')}}">
 					<i class="fa fa-instagram"></i>
 					<span class="title">Social Media</span>

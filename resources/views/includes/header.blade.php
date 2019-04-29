@@ -2,13 +2,13 @@
       <div class="headerTop">
         <div class="container-fluid clearfix">
           <ul class="float-left">
-            <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
-            <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
+            <li><a href="tel:{{!empty($contact[0]['phone'])?$contact[0]['phone']:''}}"><i class="fa fa-phone"></i>+91-{{$contact[0]['phone']}}</a></li>
+            <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{$contact[0]['email']}}</a></li>
           </ul>
           <ul class="float-right">
-            <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>

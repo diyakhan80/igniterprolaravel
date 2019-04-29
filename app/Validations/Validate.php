@@ -25,7 +25,8 @@ class Validate
 			'date_of_birth' 	=> ['nullable','string'],
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
-			'mobile_number' 	=> ['nullable','numeric','digits:10'],
+            'mobile_number'     => ['nullable','numeric','digits:10'],
+			'phone' 	        => ['required','numeric','digits:10'],
 			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric','digits:10'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
@@ -358,5 +359,22 @@ class Validate
     		'url.required' 			=> 'URL is required',
     	]);
     	return $validator;
+    }
+
+    public function contactAddress($action='edit')
+    {
+        $validations = [
+            'address'       => $this->validation('name'),
+            'email'         => $this->validation('req_email'),
+            'phone'         => $this->validation('phone'),
+        ];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'address.required'      => 'Address is required.',
+            'email.required'        => 'E-mail is required',
+            'phone.required'        => 'Contact Number is Required.',
+            'phone.numeric'         => 'Contact Number should be Numeric.',
+        ]);
+        return $validator;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\SocialMedia;
+use App\Models\ContactAddress;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
@@ -50,6 +51,51 @@ class SocialMediaController extends Controller
         return view('admin.home')->with($data);
     }
 
+    public function contactAddressList(Request $request, Builder $builder){
+        $data['site_title'] = $data['page_title'] = 'Contact Address List';
+        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Contact Address</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
+        $data['view'] = 'admin.contactaddress.list';
+        
+        $contactaddress  = _arefy(ContactAddress::where('status','!=','trashed')->get());
+        if ($request->ajax()) {
+            return DataTables::of($contactaddress)
+            ->editColumn('action',function($item){
+                $html    = '<div class="edit_details_box">';
+                $html   .= '<a href="'.url(sprintf('admin/contact/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> ';
+                $html   .= '</div>';
+                                
+                return $html;
+            })
+            ->editColumn('status',function($item){
+                return ucfirst($item['status']);
+            })
+            ->editColumn('phone',function($item){
+                return '+91-'.$item['phone'];
+            })
+            ->editColumn('whatsapp',function($item){
+                if (!empty($item['whatsapp'])) {
+                    return '+91-'.$item['whatsapp'];
+                }else{
+                    return 'N/A';
+                }
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+        }
+
+        $data['html'] = $builder
+            ->parameters([
+                "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
+            ])
+            ->addColumn(['data' => 'address', 'name' => 'address','title' => 'Office Address','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'email', 'name' => 'email','title' => 'E-mail','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'phone', 'name' => 'phone','title' => 'Contact Number','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'whatsapp', 'name' => 'whatsapp','title' => 'Whatsapp Number','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+        return view('admin.home')->with($data);
+    }
+
     public function editSocialMedia(Request $request,$id)
     {   
         $data['site_title'] = $data['page_title'] = 'Edit Social Media';
@@ -78,6 +124,37 @@ class SocialMediaController extends Controller
             $this->alert    = true;
             $this->message  = "Social Media has been Updated successfully.";
             $this->redirect = url('admin/social');
+        }
+        return $this->populateresponse();
+    }
+
+    public function editcontactAddress(Request $request,$id)
+    {   
+        $data['site_title'] = $data['page_title'] = 'Edit Contact Address';
+        $data['view'] = 'admin.contactaddress.edit';
+        $id = ___decrypt($id);
+        $data['contact'] = _arefy(ContactAddress::where('id',$id)->first());
+        return view('admin.home',$data);
+    }
+
+    public function contactAddressEdit(Request $request, $id)
+    {
+        $id = ___decrypt($id);
+        $validation = new Validations($request);
+        $validator  = $validation->contactAddress('edit');
+        if ($validator->fails()) {
+            $this->message = $validator->errors();
+        }else{
+            $contactAddress = ContactAddress::findOrFail($id);
+            $data = $request->all();
+
+            $contactAddress->update($data);
+
+            $this->status   = true;
+            $this->modal    = true;
+            $this->alert    = true;
+            $this->message  = "Contact Address has been Updated successfully.";
+            $this->redirect = url('admin/contact');
         }
         return $this->populateresponse();
     }
