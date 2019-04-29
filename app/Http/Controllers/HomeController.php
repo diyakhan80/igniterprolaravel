@@ -17,7 +17,8 @@ class HomeController extends Controller
     }
     public function index(Request $request)
     {
-		return view('index');
+		$data['view']='index';
+        return view('front_home',$data);
     }
 
     public function course(Request $request, $course)

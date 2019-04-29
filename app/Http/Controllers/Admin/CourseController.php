@@ -85,7 +85,7 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      /**/
-     public function create(Request $request){
+    public function create(Request $request){
         $data['site_title'] = $data['page_title'] = 'Create Course';
         $data['view'] = 'admin/courses/add';
         return view('admin.home',$data);

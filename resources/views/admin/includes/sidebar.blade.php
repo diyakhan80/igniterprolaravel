@@ -35,6 +35,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('admin/productsdetail')}}">
+					<i class="fa fa-users"></i>
+					<span class="title">Products Details</span>
+				</a>
+			</li>
+			<li>
 				<a href="{{url('admin/subject')}}">
 					<i class="fa fa-book"></i>
 					<span class="title">Subject</span>
@@ -76,7 +82,12 @@
 					<span class="title">Contact-Us</span>
 				</a>
 			</li>
-			
+			<li>
+				<a href="{{url('admin/social')}}">
+					<i class="fa fa-instagram"></i>
+					<span class="title">Social Media</span>
+				</a>
+			</li>
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>

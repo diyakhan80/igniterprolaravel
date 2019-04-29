@@ -48,7 +48,8 @@ class Validate
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'slug_no_space'		=> ['required','alpha_dash','max:255'],
-			'photo_null'		=> ['nullable','mimes:jpg,jpeg,png'],
+            'photo_null'        => ['nullable','mimes:jpg,jpeg,png'],
+			'url'		        => ['required','url'],
 
 		];
 		return $validation[$key];
@@ -298,9 +299,11 @@ class Validate
     public function createProduct($action='add')
     {
     	$validations = [
-			'name'			=> $this->validation('name'),
-            'slug' 		    => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
             'image'			=> $this->validation('photo'),
+			'name'			=> $this->validation('name'),
+            'slug'          => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
+            'url'           => $this->validation('name'),
+            'type' 		    => $this->validation('name'),
     	];
 
     	if($action == 'edit'){
@@ -313,12 +316,46 @@ class Validate
     	}
 
     	$validator = \Validator::make($this->data->all(), $validations,[
-    		'name.required' 	=>  'Product Name is required',
-    		'slug.required'     => 'Product Slug is Required.',
-        	'slug.unique'     	=> 'This Product Slug has already been taken.',
-        	'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
     		'image.required'	=> 'Product Image is required.',
         	'image.mimes'		=> 'Image Should be in .jpg,.jpeg,.png format.',
+    		'name.required' 	=>  'Product Name is required',
+            'slug.required'     => 'Product Slug is Required.',
+            'slug.unique'       => 'This Product Slug has already been taken.',
+            'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
+            'url.required'      => 'URL is Required.',
+    		'type.required'     => 'Product Type is Required.',
+    	]);
+    	return $validator;
+    }
+
+    public function createProductDetail($action='add')
+    {
+        $validations = [
+            'product_id'    => $this->validation('name'),
+            'url'           => $this->validation('name'),
+            'username'      => $this->validation('name'),
+            'password'      => $this->validation('name'),
+            'type'          => $this->validation('name'),
+        ];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'product_id.required'   => 'Product Name is required.',
+            'url.required'          => 'URL is required',
+            'username.required'     => 'Username is Required.',
+            'password.required'     => 'Password is required.',
+            'type.required'         => 'Type is required.',
+        ]);
+        return $validator;
+    }
+
+    public function socialMedia()
+    {
+    	$validations = [
+			'url'			=> $this->validation('url'),
+    	];
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'url.required' 			=> 'URL is required',
     	]);
     	return $validator;
     }

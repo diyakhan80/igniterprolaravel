@@ -8,7 +8,7 @@
           <ul class="float-right">
             <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
             <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="javascript:void(0);"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>

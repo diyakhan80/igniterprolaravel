@@ -123,6 +123,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'ProductController@changeStatus');
 	});
 
+	Route::resource('productsdetail', 'ProductDetailController');
+	Route::group(['prefix' => 'productsdetail'],function(){
+		Route::post('/status', 'ProductDetailController@changeStatus');
+	});
+
+	Route::get('social', 'SocialMediaController@socialMediaList');
+	Route::get('social/{id}/edit', 'SocialMediaController@editSocialMedia');
+	Route::post('social/{id}', 'SocialMediaController@socialMediaEdit');
+
 	Route::resource('appointments', 'AppointmentController');
 	Route::group(['prefix' => 'appointment'],function(){
 		Route::post('/delete', 'AppointmentController@delete');

@@ -1,149 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="keywords" content="igniterpro,igniter,top software company,lucknow best software company" />
-	<title>IgniterPro</title>
-	
-	<!-- [ FONT-AWESOME ICON ] 
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/library/font-awesome-4.3.0/css/font-awesome.min.css') }}">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
-
-	<!-- [ PLUGIN STYLESHEET ]
-        =========================================================================================================================-->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon-ico.png">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/animate.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/owl.carousel.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/owl.theme.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/magnific-popup.css') }}">
-	<!-- [ Boot STYLESHEET ]
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/library/bootstrap/css/bootstrap.css') }}">
-        <!-- [ DEFAULT STYLESHEET ] 
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/style.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/responsive.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/color/rose.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/IgnitorproStyle.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{asset('assets/global/css/Incognito_responsive.css') }}">
-</head>
-<body >
-<!-- [ LOADERs ]
-================================================================================================================================-->	
-<div class="preloader">
-  <div class="loader theme_background_color">
-  <span></span>
-
-  </div>
-</div>
-<!-- [ /PRELOADER ]
-=============================================================================================================================-->
-<!-- [WRAPPER ]
-=============================================================================================================================-->
-<div class="wrapper">
-  <!-- [NAV]
- ============================================================================================================================-->    
-   <!-- Navigation
-    ==========================================-->
-<header>
-  <div class="headerTop">
-    <div class="container-fluid clearfix">
-      <ul class="float-left">
-        <li><a href="tel:+918840086174"><i class="fa fa-phone"></i>+918840086174</a></li>
-        <li><a href="mailto:info@igniterpro.com"><i class="fa fa-envelope"></i>info@igniterpro.com</a></li>
-      </ul>
-      <ul class="float-right">
-        <li><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="javascript:void(0);"><i class="fa fa-youtube"></i></a></li>
-      </ul>
-    </div>
-  </div>
-  <nav  class="nim-menu navbar navbar-default headerbtm">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-          <a class="navbar-brand" href="{{url('/')}}"><img src="images/logo.png" alt="igniterpro"></a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right mobile-white-background">
-          <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
-          <li><a href="#one" class="page-scroll">About Us</a></li>
-          
-          <!-- <li><a href="#three" class="page-scroll">Team</a></li> -->
-          <li><a href="#two" class="page-scroll">Recent Works</a></li>
-          <!-- <li><a href="#three" class="page-scroll">Courses</a></li> -->
-          <li class="dropdown">
-            <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses <span class="caret"></span></a>
-            <ul class="dropdown-menu multi-level" role="menu">
-              <li><a href="{{url('courses/android')}} " class="page-scroll">Android</a></li>
-              <li><a href="{{url('courses/php')}}" class="page-scroll">PHP</a></li>
-
-              <!-- <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">I</a></li>
-                  <li><a href="#">J</a></li>
-                  <li><a href="#">K</a></li>
-                </ul>
-              </li> -->
-              <li><a href="{{url('courses/python')}}" class="page-scroll">Python</a></li>
-              <li><a href="{{url('courses/java')}}" class="page-scroll">Java</a></li>
-              <li><a href="{{url('courses/ios')}}" class="page-scroll">iOS</a></li>
-              <li><a href="{{url('courses/wordpress')}}" class="page-scroll">WordPress</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#four" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Services <span class="caret"></span></a>
-            <ul class="dropdown-menu multi-level" role="menu">
-              <li><a href="{{url('services/training')}}" class="page-scroll">Training</a></li>
-              <li><a href="{{url('services/development')}}" class="page-scroll">Software Development</a></li>
-
-              <!-- <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">I</a></li>
-                  <li><a href="#">J</a></li>
-                  <li><a href="#">K</a></li>
-                </ul>
-              </li> -->
-              <li><a href="{{url('services/mobile_development')}}" class="page-scroll">Mobile Development</a></li>
-              <li><a href="{{url('services/products')}}" class="page-scroll">Products</a></li>
-              <li><a href="{{url('services/seo')}}" class="page-scroll">Search Engine Optimization</a></li>
-              <li><a href="{{url('services/digitalmarketing')}}" class="page-scroll">Digital Marketing</a></li>
-              <li><a href="{{url('services/erp')}}" class="page-scroll">ERP</a></li>
-              </ul>
-          </li>
-          <!-- <li><a href="#five" class="page-scroll">Status</a></li> -->
-           <li><a href="{{url('reviews')}}" class="page-scroll">Reviews</a></li>
-           <li><a href="{{url('career') }}" class="page-scroll">Career</a></li>
-          <li><a href="{{url('contact') }}" class="page-scroll">Contact Us</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-</header>
-
-
-   <!-- [/NAV]
- ============================================================================================================================--> 
-    
-   <!-- [/MAIN-HEADING]
- ============================================================================================================================--> 
 <section class="main-heading" id="home">
   <div class="overlay">
     <div class="container">
@@ -157,11 +11,7 @@
         </div>
       </div>
    </div>     
- </section>
-    
- <!-- [/MAIN-HEADING]
- ============================================================================================================================-->
- 
+</section>
  
  <!-- [ABOUT US]
  ============================================================================================================================-->
@@ -715,164 +565,160 @@
      </div>
  </section> -->
  
- <section class="section-wrap back_gray section-gap" id="solution">
-    <div class="text-center provided_head"><h3 class="title">Solutions We provide</h3></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/web-design.gif')}}" class="img-responsive" alt="web designing">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Website Design</a></h4>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/google-adv.gif')}}" class="img-responsive" alt="google adword">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Google Adwords</a></h4>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/google-map.gif')}}" class="img-responsive" alt="google map">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Google Mapping</a></h4>
-                
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/seo.gif')}}" class="img-responsive" alt="Search Engine Optimization">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Search Engine Optimization</a></h4>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/social-media.gif')}}" class="img-responsive" alt="Social Media Promotion">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Social Media Promotion</a></h4>
-                 
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/contentw.gif')}}" class="img-responsive" alt="Content Writing">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Content Writing</a></h4>
-                   
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/web-deve.gif')}}" class="img-responsive" alt="Web Development">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Web Development</a></h4>
-                
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/erp-content.gif')}}" class="img-responsive" alt="Enterprise Resourse Planning">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Enterprise Resourse Planning</a></h4>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
-              <div class="solution_img">
-                <img src="{{url('images/mobile-app.gif')}}" class="img-responsive" alt="Mobile Application">
-                <div class="ingiter_text">
-                    <h4><a href="javascript:void(0);">Mobile Application</a></h4>
-                   
-                </div>
-              </div>
+<section class="section-wrap back_gray section-gap" id="solution">
+  <div class="text-center provided_head"><h3 class="title">Solutions We provide</h3></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/web-design.gif')}}" class="img-responsive" alt="web designing">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Website Design</a></h4>
+             
             </div>
           </div>
         </div>
-      </section>
- 
- 
- <!-- [RECENT-WORKS]
- ============================================================================================================================-->
-     <section class="recent-works text-center" id="two">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-              <h3 class="title">Recent <span class="themecolor">Works</span></h3>
-            <p class="a-slog text-center">These  are some of the work projects that we recently developed ...</p>
-          </div> 
-        </div>
-          
-          <div class="gap"></div>
-
-        <div class="row">
-          <div class="col-sm-4 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <img src="images/work-1.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/work-1.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/google-adv.gif')}}" class="img-responsive" alt="google adword">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Google Adwords</a></h4>
+             
             </div>
-            <div class="section-gradiant-b pd-all">
-              <h3><a href="#">Mockup Design</a></h3>
-              <span>Photoshop</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-
-          <div class="col-sm-4 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <img src="images/work-2.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/work-2.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="section-gradiant-b pd-all">
-              <h3><a href="#">Graphic Design</a></h3>
-              <span>Illustrator</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-
-          <div class="col-sm-4 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <img src="images/work-3.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/work-3.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="section-gradiant-b pd-all">
-              <h3><a href="#">Web Design</a></h3>
-              <span>Html/ Css</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-        </div> <!-- /row -->
-
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <!--<a href="#" class="btn btn-custom theme_background_color">Load More</a>-->
           </div>
-        </div> <!-- /row -->
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/google-map.gif')}}" class="img-responsive" alt="google map">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Google Mapping</a></h4>
+            
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/seo.gif')}}" class="img-responsive" alt="Search Engine Optimization">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Search Engine Optimization</a></h4>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/social-media.gif')}}" class="img-responsive" alt="Social Media Promotion">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Social Media Promotion</a></h4>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/contentw.gif')}}" class="img-responsive" alt="Content Writing">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Content Writing</a></h4>
+               
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/web-deve.gif')}}" class="img-responsive" alt="Web Development">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Web Development</a></h4>
+            
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/erp-content.gif')}}" class="img-responsive" alt="Enterprise Resourse Planning">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Enterprise Resourse Planning</a></h4>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 igniter_img">
+          <div class="solution_img">
+            <img src="{{url('images/mobile-app.gif')}}" class="img-responsive" alt="Mobile Application">
+            <div class="ingiter_text">
+                <h4><a href="javascript:void(0);">Mobile Application</a></h4>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
 
-      </div> <!-- /container -->
-    </section>
+<section class="recent-works text-center" id="two">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <h3 class="title">Recent <span class="themecolor">Works</span></h3>
+        <p class="a-slog text-center">These  are some of the work projects that we recently developed ...</p>
+      </div> 
+    </div>
+      
+      <div class="gap"></div>
+
+    <div class="row">
+      <div class="col-sm-4 port-item margin-bottom">
+        <div class="item-img-wrap">
+          <img src="images/work-1.jpg" class="img-responsive" alt="workimg">
+          <div class="item-img-overlay">
+            <a href="images/work-1.jpg" class="show-image">
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div class="section-gradiant-b pd-all">
+          <h3><a href="#">Mockup Design</a></h3>
+          <span>Photoshop</span>
+        </div>
+      </div> <!-- /portfolio-item -->
+
+      <div class="col-sm-4 port-item margin-bottom">
+        <div class="item-img-wrap">
+          <img src="images/work-2.jpg" class="img-responsive" alt="workimg">
+          <div class="item-img-overlay">
+            <a href="images/work-2.jpg" class="show-image">
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div class="section-gradiant-b pd-all">
+          <h3><a href="#">Graphic Design</a></h3>
+          <span>Illustrator</span>
+        </div>
+      </div> <!-- /portfolio-item -->
+
+      <div class="col-sm-4 port-item margin-bottom">
+        <div class="item-img-wrap">
+          <img src="images/work-3.jpg" class="img-responsive" alt="workimg">
+          <div class="item-img-overlay">
+            <a href="images/work-3.jpg" class="show-image">
+              <span></span>
+            </a>
+          </div>
+        </div>
+        <div class="section-gradiant-b pd-all">
+          <h3><a href="#">Web Design</a></h3>
+          <span>Html/ Css</span>
+        </div>
+      </div> <!-- /portfolio-item -->
+    </div> <!-- /row -->
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!--<a href="#" class="btn btn-custom theme_background_color">Load More</a>-->
+      </div>
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+</section>
     <!-- / Portfolio -->
  
  
@@ -1055,7 +901,7 @@
  
  <!-- [TESTIMONIAL]
  ============================================================================================================================-->
- <section class="client-testimonial text-center white" id="six">
+<section class="client-testimonial text-center white" id="six">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -1090,7 +936,7 @@
  ============================================================================================================================-->
  
  
- <section class="services white-background black" id="seven">
+<section class="services white-background black" id="seven">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
@@ -1198,166 +1044,73 @@
       </div> <!-- end row -->
 
     </div>  <!-- container -->
-  </section>
-  <section class="contactsection">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="enquiryhead">Make An Enquiry</h3>
-          <div class="enquiryTop">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="btnregister">
-            <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
-          </div>
-           <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
-              <!-- <h5>Make An Enquiry</h5> -->
-             <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
-                  {{csrf_field()}}
-                  <div class="form-group">
-                    <label>Name<span class="error">* </span></label>
-                      <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name" required >
-                  </div>
-                  <div class="form-group">
-                    <label>Phone<span class="error">* </span></label>
-                      <input  data-request="isnumeric" maxlength="10" type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required >
-                  </div>
-                  <div class="form-group">
-                    <label>Email<span class="error">* </span></label>
-                      <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required >
-                  </div>
-                  <div class="form-group">
-                    <label>Courses<span class="error">* </span></label>
-                       <select class="form-control drop-down  requirementname" name="course" required style="color:black;">
-                          <option value="">Courses</option>
-                          <option value="php">PHP</option>
-                          <option value="java">Java</option>
-                          <option value="android">Android</option>
-                          <option  value="python">Python</option>
-                          <option  value="ios" >iOS</option>
-                          <option value="wordpress" >WordPress</option>
-                          </select>
-                         
-                  </div>
-                   <div class="form-group">
-                    <label>Location<span class="error">* </span></label>
-                      <input type="text" class="form-control" name="location" id="location" placeholder="Location" required>
-                  </div>
-                   <div class="form-group">
-                    <label>Comments<span class="error">* </span></label>
-                      <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments" required >
-                  </div>  
-                  <div class="submitBtnDiv">
-                  <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
-                                          
-                    
-                  </div>       
-                
-              </form>        
-          </div>
+</section>
 
+<section class="contactsection">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="enquiryhead">Make An Enquiry</h3>
+        <div class="enquiryTop">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="mapsection">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.9548798719716!2d80.99364131490461!3d26.873174583144692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2b036b2be6d%3A0x5060d981f9c8d805!2sPolytechnic+Chauraha%2C+Sector+8%2C+Indira+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226016!5e0!3m2!1sen!2sin!4v1538815134090" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
- 
- <!-- [/SERVICES]
- ============================================================================================================================-->
- 
- 
- <!-- [CONTACT]
- ============================================================================================================================-->
- <!--sub-form-->
-
-<!--sub-form end--> 
-
-
- 
- <!-- [/CONTACT]
- ============================================================================================================================-->
- 
- 
- <!-- [FOOTER]
- ============================================================================================================================-->
- 
-<footer class="site-footer section-spacing text-center " id="eight">    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="footer-links">
-                    <li><a href="javascript:void(0);">About Us</a></li>
-                    <li><a href="javascript:void(0);">Terms of Use</a></li> 
-                    <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                    <li><a href="javascript:void(0);">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="col-md-12 text-center"> 
-                <ul class="social">
-                    <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter "></i></a></li>
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-12"> <small>&copy; 2018 IgniterPro. All rights reserved.</small></div>
+      <div class="col-md-6">
+        <div class="btnregister">
+          <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
+        </div>
+         <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s">
+            <!-- <h5>Make An Enquiry</h5> -->
+           <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
+                {{csrf_field()}}
+                <div class="form-group">
+                  <label>Name<span class="error">* </span></label>
+                    <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name" required >
+                </div>
+                <div class="form-group">
+                  <label>Phone<span class="error">* </span></label>
+                    <input  data-request="isnumeric" maxlength="10" type="text" class="form-control" name="phone" id="phone" placeholder="Phone" required >
+                </div>
+                <div class="form-group">
+                  <label>Email<span class="error">* </span></label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required >
+                </div>
+                <div class="form-group">
+                  <label>Courses<span class="error">* </span></label>
+                     <select class="form-control drop-down  requirementname" name="course" required style="color:black;">
+                        <option value="">Courses</option>
+                        <option value="php">PHP</option>
+                        <option value="java">Java</option>
+                        <option value="android">Android</option>
+                        <option  value="python">Python</option>
+                        <option  value="ios" >iOS</option>
+                        <option value="wordpress" >WordPress</option>
+                        </select>
+                       
+                </div>
+                 <div class="form-group">
+                  <label>Location<span class="error">* </span></label>
+                    <input type="text" class="form-control" name="location" id="location" placeholder="Location" required>
+                </div>
+                 <div class="form-group">
+                  <label>Comments<span class="error">* </span></label>
+                    <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments" required >
+                </div>  
+                <div class="submitBtnDiv">
+                <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
+                </div>       
+            </form>        
         </div>
 
+      </div>
     </div>
-</footer>
- 
+  </div>
+</section>
 
-
- 
- 
- <!-- [/FOOTER]
- ============================================================================================================================-->
- 
- 
- 
-</div>
- 
-
-<!-- [ /WRAPPER ]
-=============================================================================================================================-->
-
-	<!-- [ DEFAULT SCRIPT ] -->
-	<script src="{{asset('assets/global/library/jquery.min.js') }}"></script>
-        <script src="{{asset('assets/global/library/bootstrap/js/bootstrap.js') }}"></script>
-	<script type="text/javascript" src="{{asset('assets/global/js/jquery.easing.1.3.js') }}"></script>	
-  <script src="{{asset('assets/global/library/modernizr.custom.97074.js') }}"></script>
-	<!-- [ PLUGIN SCRIPT ] -->
-        <script src="{{asset('assets/global/library/vegas/vegas.min.js') }}"></script>
-	<script src="{{asset('assets/global/js/plugins.js') }}"></script>
-        <!-- [ TYPING SCRIPT ] -->
-         <script src="{{asset('assets/global/js/typed.js') }}"></script>
-         <script src="{{asset('assets/global/js/main.js') }}"></script>
-         <!-- [ COUNT SCRIPT ] -->
-         <script src="{{asset('assets/global/js/fappear.js') }}"></script>
-       <script src="{{asset('assets/global/js/jquery.countTo.js') }}"></script>
-	<!-- [ SLIDER SCRIPT ] -->  
-        <script src="{{asset('assets/global/js/owl.carousel.js') }}"></script>
-         <script src="{{asset('assets/global/js/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
-        <script type="text/javascript" src="{{asset('assets/global/js/SmoothScroll.js') }}"></script>
-        
-        <!-- [ COMMON SCRIPT ] -->
-	<script src="{{asset('assets/global/js/common.js')}} "></script>
-  <script type="text/javascript">
-    // $(document).ready(function(){
-    //   $('body').scroll(function(){
-    //       $(".headerbtm").addClass(" navbar-fixed-top");
-    //     });
-    // });
-  </script>
-</body>
-
-
-</html>
+<section>
+  <div class="container">
+    <div class="mapsection">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.9548798719716!2d80.99364131490461!3d26.873174583144692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be2b036b2be6d%3A0x5060d981f9c8d805!2sPolytechnic+Chauraha%2C+Sector+8%2C+Indira+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226016!5e0!3m2!1sen!2sin!4v1538815134090" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>

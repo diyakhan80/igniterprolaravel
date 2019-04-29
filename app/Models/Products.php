@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     protected $table = 'products';
-    protected $fillable = ['name','slug','image','status','created_at','updated_at'];
+    protected $fillable = ['name','slug','url','type','image','status','created_at','updated_at'];
 
     public static function change($userID,$data){
         $isUpdated = false;
