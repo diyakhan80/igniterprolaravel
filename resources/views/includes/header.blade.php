@@ -9,6 +9,7 @@
             <li><a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
             <li><a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
             <li><a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a class="whatsapp" href="https://api.whatsapp.com/send?phone=91{{$contact[0]['whatsapp']}}" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
           </ul>
         </div>
       </div>
@@ -35,23 +36,11 @@
               <li><a href="#two" class="page-scroll">Recent Works</a></li>
               <!-- <li><a href="#three" class="page-scroll">Courses</a></li> -->
               <li class="dropdown">
-                <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses <span class="caret"></span></a>
+                <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses<span class="caret"></span></a>
                 <ul class="dropdown-menu multi-level" role="menu">
-                  <li><a href="{{url('courses/android')}} " class="page-scroll">Android</a></li>
-                  <li><a href="{{url('courses/php')}}" class="page-scroll">PHP</a></li>
-
-                  <!-- <li class="dropdown-submenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">H</a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">I</a></li>
-                      <li><a href="#">J</a></li>
-                      <li><a href="#">K</a></li>
-                    </ul>
-                  </li> -->
-                  <li><a href="{{url('courses/python')}}" class="page-scroll">Python</a></li>
-                  <li><a href="{{url('courses/java')}}" class="page-scroll">Java</a></li>
-                  <li><a href="{{url('courses/ios')}}" class="page-scroll">iOS</a></li>
-                  <li><a href="{{url('courses/wordpress')}}" class="page-scroll">WordPress</a></li>
+                  @foreach($courses as $course)
+                    <li><a href="javascript:void(0);">{{$course['course_name']}}</a></li>
+                  @endforeach
                 </ul>
               </li>
 

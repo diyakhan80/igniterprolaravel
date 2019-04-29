@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Redirect;
-use App\Models\ContactAddress;
+use App\Models\Course;
 use App\Models\SocialMedia;
+use App\Models\ContactAddress;
 use Illuminate\Http\Request;
 use Validations\Validate as Validations;
 use App\Http\Controllers\Controller;
@@ -20,11 +21,14 @@ class HomeController extends Controller
 		$data['view'] = 'front.index';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
     public function course(Request $request, $course){
     	$data['view'] = 'front.courses';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
     	$data['course'] = $course;
      	return view('front_home',$data);
         
@@ -32,6 +36,9 @@ class HomeController extends Controller
 
     public function service(Request $request, $service){
         $data['view'] = 'front.services';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['service'] = $service;
         return view('front_home',$data);
             
@@ -39,12 +46,18 @@ class HomeController extends Controller
 
     public function reviews(Request $request){
         $data['view'] = 'front.reviews';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['reviews'] = \Models\Review::list('array');
         return view('front_home',$data);
     }
 
     public function enquiryList(Request $request){
         $data['view'] = 'front.enquiry_list';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['enquiries'] = \Models\Enquiry::list('array');
         return view('front_home',$data);
             
@@ -52,11 +65,17 @@ class HomeController extends Controller
 
     public function register(Request $request){
         $data['view'] = 'front.registration';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
      
     public function contact(Request $request){
         $data['view'] = 'front.contact';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
@@ -69,28 +88,30 @@ class HomeController extends Controller
             $data['name']               =!empty($request->name)?$request->name:'';
             $data['phone']              =!empty($request->phone)?$request->phone:'';
             $data['email']              =!empty($request->email)?$request->email:'';
-            $data['course']      		=!empty($request->course)?$request->course:'';
+            $data['course_id']      	=!empty($request->course_id)?$request->course_id:'';
             $data['location']           =!empty($request->location)?$request->location:'';
             $data['comments']           =!empty($request->comments)?$request->comments:'';
-            $data['date_enquired']      = date('Y-m-d H:i:s');
+            $data['status']             ='active';
+            $data['created_at']         =date('Y-m-d H:i:s');
+            $data['updated_at']         =date('Y-m-d H:i:s');
             
             $inserId = \Models\Enquiry::add($data);
-            if($inserId){
-               $emailData            = ___email_settings();
-               $emailData['name']    = !empty($request->name)?$request->name:'';
-               $emailData['email']   = !empty($request->email)?$request->email:'';
-               $emailData['phone']   = !empty($request->phone)?$request->phone:'';
-               $emailData['course']  = !empty($request->course)?$request->course:'';
-               $emailData['date']    = date('Y-m-d H:i:s');
+            // if($inserId){
+            //    $emailData            = ___email_settings();
+            //    $emailData['name']    = !empty($request->name)?$request->name:'';
+            //    $emailData['email']   = !empty($request->email)?$request->email:'';
+            //    $emailData['phone']   = !empty($request->phone)?$request->phone:'';
+            //    $emailData['course']  = !empty($request->course)?$request->course:'';
+            //    $emailData['date']    = date('Y-m-d H:i:s');
 
-               $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
-               ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
+               // $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
+               // ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Enquiry has been submitted successfully.";
                 $this->redirect = url('/');
-            } 
+            // } 
         } 
         return $this->populateresponse();
     }
@@ -122,7 +143,10 @@ class HomeController extends Controller
     }
 
     public function career(Request $request){
-        $data['view'] = 'front.career';  
+        $data['view'] = 'front.career';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
@@ -173,11 +197,17 @@ class HomeController extends Controller
     }
 
     public function about(Request $request){
-        $data['view'] = 'front.about';  
+        $data['view'] = 'front.about';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
     public function recentWorks(Request $request){
-        $data['view'] = 'front.recentworks';  
+        $data['view'] = 'front.recentworks';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 

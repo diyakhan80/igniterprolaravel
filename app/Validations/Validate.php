@@ -68,17 +68,22 @@ class Validate
 	public function createEnquiry($action='add'){
         $validations = [
             'name' 		        => $this->validation('name'),
-			'email'  			=> $this->validation('req_email'),
-			'phone'  	        => $this->validation('req_mobile_number'),
-			'comments'			=> $this->validation('comments'),
-            'location' 	        => $this->validation('location'),
-			'course' 	        => $this->validation('course'),
+			'phone'  	        => $this->validation('phone'),
+            'email'             => $this->validation('req_email'),
+			'course_id' 	    => $this->validation('name'),
+            'location'          => $this->validation('name'),
+            'comments'          => $this->validation('name'),
 
     	];
-
-    	
-
-        $validator = \Validator::make($this->data->all(), $validations,[]);
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'name.required'         => 'Name is required',
+            'phone.required'        => 'Contact Number is required',
+            'phone.numeric'         => 'Contact Number should be numeric',
+            'email.required'        => 'E-mail Id is required',
+            'course_id.required'    => 'Course Name is required',
+            'location.required'     => 'Location is required',
+            'comments.required'     => 'Comments are required'
+        ]);
         return $validator;		
 	}
 
@@ -367,6 +372,7 @@ class Validate
             'address'       => $this->validation('name'),
             'email'         => $this->validation('req_email'),
             'phone'         => $this->validation('phone'),
+            'whatsapp'         => $this->validation('phone'),
         ];
 
         $validator = \Validator::make($this->data->all(), $validations,[
@@ -374,6 +380,8 @@ class Validate
             'email.required'        => 'E-mail is required',
             'phone.required'        => 'Contact Number is Required.',
             'phone.numeric'         => 'Contact Number should be Numeric.',
+            'whatsapp.required'     => 'Whatsapp Number is Required.',
+            'whatsapp.numeric'      => 'Whatsapp Number should be Numeric.',
         ]);
         return $validator;
     }
