@@ -27,7 +27,7 @@
 		<div class="page-head">
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">
-				<h1>Products <small> MANAGE</small></h1>
+				<h1>Products Details<small> MANAGE</small></h1>
 			</div>
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PAGE TOOLBAR -->

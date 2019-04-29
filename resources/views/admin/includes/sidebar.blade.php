@@ -78,7 +78,7 @@
 			</li>
 			<li>
 				<a href="{{url('admin/contact-us')}}">
-					<i class="fa fa-phone"></i>
+					<i class="fa fa-rocket fa-fw"></i>
 					<span class="title">Contact-Us</span>
 				</a>
 			</li>
@@ -86,6 +86,18 @@
 				<a href="{{url('admin/contact')}}">
 					<i class="fa fa-phone"></i>
 					<span class="title">Contact Address</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/reviews')}}">
+					<i class="fa fa-phone"></i>
+					<span class="title">Reviews</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/static')}}">
+					<i class="fa fa-sliders"></i>
+					<span class="title">Static Pages</span>
 				</a>
 			</li>
 			<li>

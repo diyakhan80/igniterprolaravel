@@ -17,9 +17,11 @@ class Registration extends Model
         'name',
         'email',
         'phone',
-        'course',
+        'course_id',
         'location',
-        'reg_date',
+        'status',
+        'created_at',
+        'updated_at'
     ];
     /**
      * [This method is for scope for default keys] 

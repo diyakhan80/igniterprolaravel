@@ -130,9 +130,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 
 	Route::get('social', 'SocialMediaController@socialMediaList');
 	Route::get('contact', 'SocialMediaController@contactAddressList');
+	Route::get('static', 'SocialMediaController@staticPagesList');
+	Route::get('reviews', 'SocialMediaController@reviewsList');
+	Route::post('reviews/status', 'SocialMediaController@changeStatus');
 	Route::get('social/{id}/edit', 'SocialMediaController@editSocialMedia');
+	Route::get('static/{id}/edit', 'SocialMediaController@editStaticPages');
 	Route::get('contact/{id}/edit', 'SocialMediaController@editcontactAddress');
 	Route::post('social/{id}', 'SocialMediaController@socialMediaEdit');
+	Route::post('static/{id}', 'SocialMediaController@staticPagesEdit');
 	Route::post('contact/{id}', 'SocialMediaController@contactAddressEdit');
 
 	Route::resource('appointments', 'AppointmentController');

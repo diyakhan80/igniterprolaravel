@@ -13,15 +13,7 @@ class Review extends Model
     /*const CREATED_AT = 'created';
     const UPDATED_AT = 'updated';*/
 
-    protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'comments',
-        'rating',
-        'reg_date',
-        'status'
-    ];
+    protected $fillable = ['name','email','phone','comments','rating','status','created_at','updated_at'];
     /**
      * [This method is for scope for default keys] 
      * @return Boolean
@@ -44,8 +36,6 @@ class Review extends Model
             $table_review->whereRaw($where);
         }
         
-        //$userlist['userCount'] = !empty($table_user->count())?$table_user->count():0;
-        
         if(!empty($order)){
             $order = explode('-', $order);
             $table_review->orderBy($order[0],$order[1]);
@@ -63,5 +53,14 @@ class Review extends Model
             return $table_review->limit($limit)->get();
         }
     }
-  
+
+    public static function change($userID,$data){
+        $isUpdated = false;
+        $table_reviews = \DB::table('reviews');
+        if(!empty($data)){
+            $table_reviews->where('id','=',$userID);
+            $isUpdated = $table_reviews->update($data); 
+        }      
+        return (bool)$isUpdated;
+    }
 }

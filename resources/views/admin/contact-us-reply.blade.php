@@ -10,25 +10,25 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Email</label>
-								<input type="text" required id="email" name="email" value="{{$enquiry['email']}}" class="form-control" placeholder="Enter E-mail" readonly>
+								<input type="text" id="email" name="email" value="{{$enquiry['email']}}" class="form-control" placeholder="Enter E-mail" readonly>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Phone</label>
-								<input type="text" required id="phone" name="phone" value="{{$enquiry['phone']}}" class="form-control" placeholder="Enter Phone Number">
+								<input type="text" id="phone" name="phone" value="{{$enquiry['phone']}}" class="form-control" placeholder="Enter Phone Number" readonly>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Course</label>
-								<input type="text" required id="course" name="course" class="form-control" value="{{$enquiry['course']}}" placeholder="Enter Course">
+								<input type="text" required id="course" name="course_id" class="form-control" value="{{$enquiry['courses']['course_name']}}" placeholder="Enter Course" readonly>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label class="control-label required">Location</label>
-								<input type="text" value="{{$enquiry['location']}}" required id="location" name="location" class="form-control" placeholder="Enter Location">
+								<input type="text" value="{{$enquiry['location']}}" required id="location" name="location" class="form-control" placeholder="Enter Location" readonly>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -38,12 +38,9 @@
 							</div>
 						</div>
 					</div>
-				<div id="container"></div>
-
-				</div>
 				<div class="form-actions right">
-					<a href="{{url('admin/project')}}" class="btn default">Cancel</a>
-					<button type="button" data-request="ajax-submit" data-target='[role="add-project"]' class="btn blue comntact_reply"><i class="fa fa-check"></i> Send </button>
+					<a href="{{url('admin/contact-us')}}" class="btn default">Cancel</a>
+					<button type="button" data-request="ajax-submit" data-target='[role="contact-reply"]' class="btn blue contact_reply"><i class="fa fa-check"></i> Send </button>
 				</div>
 			</form>
 			<!-- END FORM-->
@@ -56,7 +53,7 @@
     $('[data-request="enable-enter"]').on('keyup','input',function (e) {
     e.preventDefault();
     if (e.which == 13) {
-    $('[data-request="enable-enter"]').find('.comntact_reply').trigger('click');
+    $('[data-request="enable-enter"]').find('.contact_reply').trigger('click');
     return false;    //<---- Add this line
     }
     }); 

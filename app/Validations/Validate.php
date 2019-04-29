@@ -150,31 +150,25 @@ class Validate
     		'course_picture.required'   =>  'Course Image is required',
     		'description.email'			=>  'Course Description is required',
     	]);
-
         return $validator;		
 	}
 
 	public function createRegistration($action='add'){
         $validations = [
-            'register_name' 		    => $this->validation('name'),
-			'register_email'  			=> $this->validation('req_email'),
-			'register_phone'  	        => $this->validation('req_mobile_number'),
-			'register_location'		    => $this->validation('location'),
-            'register_course'			=> $this->validation('course')
-			
+            'name' 		    => $this->validation('name'),
+			'phone'  	    => $this->validation('phone'),
+            'email'         => $this->validation('req_email'),
+            'course_id'     => $this->validation('name'),
+			'location'		=> $this->validation('name'),
     	];
 
         $validator = \Validator::make($this->data->all(), $validations,[
-    		'register_name.required' 	=>  'Your Name is required',
-    		'register_email.required'   =>  'Your Email is required',
-    		'register_email.email'		=>  'Your Email is in Incorrect format',
-    		'register_phone.required'   =>  'Your Phone is required',
-    		'register_phone.numeric'    =>  'Your Phone is not in correct format',
-    		'register_location.required'   =>  'Your Location is required',
-    		'register_course.required'   =>  'Course is required',
-
-    		
-
+    		'name.required' 	 =>  'Your Name is required.',
+    		'phone.required'     =>  'Your Phone is required.',
+    		'phone.numeric'      =>  'Phone Number should be numeric.',
+            'email.required'     =>  'Your Email is required.',
+    		'course_id.required' =>  'Course Name is required.',
+            'location.required'  =>  'Your Location is required.',
     	]);
         return $validator;		
 	}
@@ -385,4 +379,16 @@ class Validate
         ]);
         return $validator;
     }
+
+    public function staticpage($action='edit'){
+        $validations = [
+            'title'                     => $this->validation('name'),
+            'description'       => $this->validation('description'),
+        ];
+        $validator = \Validator::make($this->data->all(), $validations,[
+        'title.required'                => 'Title is Required.',
+        'description.required'    => 'Description is Required.',
+        ]);
+        return $validator;        
+        }
 }

@@ -126,9 +126,9 @@ class HomeController extends Controller
             $data['phone']              =!empty($request->review_phone)?$request->review_phone:'';
             $data['email']              =!empty($request->review_email)?$request->review_email:'';
             $data['rating']             =!empty($request->rate)?$request->rate:'';
-           
             $data['comments']           =!empty($request->review_comments)?$request->review_comments:'';
-            $data['reg_date']           = date('Y-m-d H:i:s');
+            $data['created_at']           = date('Y-m-d H:i:s');
+            $data['updated_at']           = date('Y-m-d H:i:s');
             
             $inserId = \Models\Review::add($data);
             if($inserId){
@@ -217,22 +217,24 @@ class HomeController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-            $data['name']               =!empty($request->register_name)?$request->register_name:'';
-            $data['phone']              =!empty($request->register_phone)?$request->register_phone:'';
-            $data['email']              =!empty($request->register_email)?$request->register_email:'';
-            $data['courses']             =!empty($request->register_course)?$request->register_course:'';
-           
-            $data['location']           =!empty($request->register_location)?$request->register_location:'';
-            $data['reg_date']           = date('Y-m-d H:i:s');
+            $data['name']               =!empty($request->name)?$request->name:'';
+            $data['phone']              =!empty($request->phone)?$request->phone:'';
+            $data['email']              =!empty($request->email)?$request->email:'';
+            $data['course_id']          =!empty($request->course_id)?$request->course_id:'';
+            $data['location']           =!empty($request->location)?$request->location:'';
+            $data['status']             = 'active';
+            $data['created_at']         = date('Y-m-d H:i:s');
+            $data['updated_at']         = date('Y-m-d H:i:s');
             
             $inserId = \Models\Registration::add($data);
-            if($inserId){
+            
+            // if($inserId){
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Your Registration has been submitted successfully.";
                 $this->redirect = url('/');
-            } 
+            // } 
         } 
         return $this->populateresponse();
     }
