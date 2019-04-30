@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Redirect;
 use App\Models\Course;
+use App\Models\Good_Works;
 use App\Models\SocialMedia;
 use App\Models\ContactAddress;
 use Illuminate\Http\Request;
@@ -22,6 +23,8 @@ class HomeController extends Controller
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
         $data['courses'] = _arefy(Course::where('status','=','active')->get());
+        $data['goodworks'] = _arefy(Good_Works::where('status','=','active')->get());
+        // dd($data['goodworks']);
         return view('front_home',$data);
     }
 

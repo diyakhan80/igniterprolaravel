@@ -32,7 +32,7 @@ class Validate
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],
 			'specifications'    => ['nullable','string','max:1500'],
-			'description'       => ['nullable','string','max:1500'],
+			'description'       => ['nullable','string'],
 			'required_description'  => ['required','string','max:1500'],
 			'title'             => ['required','string'],
 			'profile_picture'   => ['required','mimes:doc,docx,pdf','max:2048'],
@@ -382,13 +382,36 @@ class Validate
 
     public function staticpage($action='edit'){
         $validations = [
-            'title'                     => $this->validation('name'),
+            'title'             => $this->validation('name'),
             'description'       => $this->validation('description'),
         ];
+
         $validator = \Validator::make($this->data->all(), $validations,[
-        'title.required'                => 'Title is Required.',
-        'description.required'    => 'Description is Required.',
+            'title.required'          => 'Title is Required.',
+            'description.required'    => 'Description is Required.',
         ]);
+
         return $validator;        
+    }
+
+        public function createGoodWorks($action='edit'){
+        $validations = [
+            'image'             => $this->validation('photo'),    
+            'title'             => $this->validation('name'),
+            'description'       => $this->validation('description'),
+        ];
+
+        if($action == 'edit'){
+            $validations['image']   = $this->validation('photo_null');
         }
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'image.required'          => 'Image is required',
+            'image.mimes'             => 'Image Should be in .jpg,.jpeg,.png format.',
+            'title.required'          => 'Title is Required.',
+            'description.required'    => 'Description is Required.',
+        ]);
+
+        return $validator;        
+    }
 }

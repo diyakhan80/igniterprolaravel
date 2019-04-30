@@ -141,7 +141,7 @@
 							<span class="caption-subject font-green-sharp bold uppercase">{{$page_title}}</span>
 						</div>
 						<div class="actions">
-							<a href="{{url('admin/courses/create')}}" class="btn btn-default btn-circle">
+							<a href="{{url('admin/goodworks/create')}}" class="btn btn-default btn-circle">
 							<i class="fa fa-plus"></i>
 							<span class="hidden-480">
 							Add Works </span>

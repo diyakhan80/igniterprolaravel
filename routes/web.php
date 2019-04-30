@@ -118,6 +118,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'ServiceController@changeStatus');
 	});
 
+	Route::resource('goodworks', 'WorksController');
+	Route::group(['prefix' => 'goodworks'],function(){
+		Route::post('/status', 'WorksController@changeStatus');
+	});
+
 	Route::resource('products', 'ProductController');
 	Route::group(['prefix' => 'products'],function(){
 		Route::post('/status', 'ProductController@changeStatus');

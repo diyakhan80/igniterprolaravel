@@ -83,6 +83,7 @@
 <script src="{{ asset('assets/global/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/morris/raphael-min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('js/script.js')}}"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{ asset('assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
@@ -93,7 +94,6 @@
 <script src="{{asset('assets/global/js/bootstrap-clockpicker.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-<script src="{{asset('assets/global/js/script.js')}}"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script type="text/javascript">
 

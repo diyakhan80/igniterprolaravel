@@ -59,6 +59,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('admin/goodworks')}}">
+					<i class="fa fa-tasks"></i>
+					<span class="title">Good Works</span>
+				</a>
+			</li>
+			<li>
 				<a href="{{url('admin/project')}}">
 					<i class="fa fa-users"></i>
 					<span class="title">Projects</span>

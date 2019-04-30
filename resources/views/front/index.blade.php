@@ -931,12 +931,8 @@
  
  <!-- [/TESTIMONIAL]
  ============================================================================================================================-->
- 
- <!-- [/SERVICES]
- ============================================================================================================================-->
- 
- 
-<section class="services white-background black" id="seven">
+
+ <section class="services white-background black" id="seven">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -947,103 +943,23 @@
     <div class="gap">
     </div>
     <div class="row">
+      @foreach($goodworks as $goodwork)
       <div class="col-sm-6">
         <div class="nim-service margin-bottom">
           <i class="fa fa-diamond"></i>
           <div class="nim-service-detail">
-            <h4>Social Media Marketing</h4>
-            <p>We can create and manage effective social media marketing campaigns to grow your business while targeting the right audience and building a valid clientele. Unlike traditional advertising, your message is delivered around the world in a matter of seconds.</p>
+            <h4>{{$goodwork['title']}}</h4>
+            <p>{!! $goodwork['description'] !!}</p>
           </div> <!-- /nim-service-detail -->
         </div> <!-- /nim-service margin-bottom -->
       </div> <!-- /col -->
-
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-tablet"></i>
-          <div class="nim-service-detail">
-            <h4>Web Design And Development</h4>
-            <p>IgniterPro offers customer-oriented web design services and more importantly, deliver them effectively.
-            If you go through our portfolio, you will realize that our web designs are all unique and combined with passionate animations reflecting the corporate identity of our clients following the latest trends and technologies such as responsive design and development, parallax and more! Our team of dedicated artists would spend days creating supernatural concepts translating imagination into images to present an accurate web design.</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->
-
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-magic"></i>
-          <div class="nim-service-detail">
-            <h4>SEO</h4>
-            <p>SEO is a marketing discipline focused on growing visibility in organic (non-paid) search engine results. SEO encompasses both the technical and creative elements required to improve rankings, drive traffic, and increase awareness in search engines.</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->       
-   
-
- 
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-rocket"></i>
-          <div class="nim-service-detail">
-            <h4>Mobile Application</h4>
-            <p>One of the fundamental promises we gave ourselves when IgniterPro was born, is to always keep pace with the latest innovations and technologies to provide the users with a smooth navigation experience by creating a digital smart interface.Using the latest development technologies and design trends, we thrive to bring you the most vibrant and upbeat mobile applications.</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->
-
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-map-marker"></i>
-          <div class="nim-service-detail">
-            <h4>Analytics</h4>
-            <p>Analytics is the discovery, interpretation, and communication of meaningful patterns in data. Our analytics section relies on the simultaneous application of statistics, computer programming and operations research to quantify performance.</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->
-
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-paypal"></i>
-          <div class="nim-service-detail">
-            <h4>Dedicated Support</h4>
-            <p>We provide support to our clients at every milestone of the project and try to reduce all difficulties that he faces throughout the time</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->         
-    
-
-   
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-bar-chart-o"></i>
-          <div class="nim-service-detail">
-            <h4>Truly Multipurpose</h4>
-            <p>All our projects and work will be multipurpose, and can be modified as per client's perspective</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->
-
-      <!-- <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-delicious"></i>
-          <div class="nim-service-detail">
-            <h4>Unlimited Colors</h4>
-            <p>We put a lot of effort in design, as it’s the most important ingredient of successful website.</p>
-          </div> 
-        </div> 
-      </div>  -->
-
-      <div class="col-sm-6">
-        <div class="nim-service margin-bottom">
-          <i class="fa fa-pencil-square"></i>
-          <div class="nim-service-detail">
-            <h4>Web Services</h4>
-            <p>We have implemented the Content Management System within its workflow to help our clients create, edit and manage the content of their websites and increase customer satisfaction. The WALL CMS provides a versatile and effective way to update and control site content. Our team works through your website backend tool to add, edit and update your content in a professional way.</p>
-          </div> <!-- /nim-service-detail -->
-        </div> <!-- /nim-service margin-bottom -->
-      </div> <!-- /col -->                      
+      @endforeach                    
     </div> <!-- end row -->
   </div>
 </section>
+ 
+ <!-- [/SERVICES]
+ ============================================================================================================================-->
 
 <section class="contactsection">
   <div class="container">
