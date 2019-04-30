@@ -10,7 +10,7 @@
         
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
       
         <meta charset="utf-8"/>
@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/font-awesome-4.3.0/css/font-awesome.min.css') }}" >
 
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{url('images/logo.png')}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon-ico.png')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.theme.css') }}">
@@ -65,7 +65,7 @@
         <script type="text/javascript" src="{{ asset('assets/global/js/SmoothScroll.js') }}"></script>
         <script src="{{ asset('js/select2.full.min.js')}}" type="text/javascript"></script>
 
-        <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+        <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js')}}"></script>
         <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
         <script type="text/javascript">
           $(document).ready(function(){
@@ -82,7 +82,10 @@
                   var userRating = this.value;
                   $('.rate').val(userRating);
                  
-              }); 
+              });
+              // $('body').scroll(function(){
+              //   $(".headerbtm").addClass(" navbar-fixed-top");
+              // });
           });
     
     </script>  

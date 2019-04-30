@@ -53,6 +53,10 @@ h3.title {
 
 h3.title {
     text-align: left;
+    font-size: 30px;
+    color: #000;
+    font-weight: 500;
+    font-style: normal;
     display: inline-block;
     margin-bottom: 25px;
 }
@@ -72,11 +76,9 @@ h3.title:after {
     list-style-position: inside;
 }
 .medica-appointment-card {
-    margin-top: 50px;
+    margin-top: 30px;
 }
-.medica-appointment-card {
-    margin-top: 50px;
-}
+
 
 .medica-appointment-card h5 {
     line-height: normal;

@@ -48,7 +48,7 @@
     var asset_url = "{{ url('/') }}";
     var base_url  = "{{ url('/') }}";
 </script>
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="{{url('images/igniterpro-logo2.png')}}"/>
 </head>
 <body class="page-md page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed-hide-logo">
     <div id="app">
@@ -120,7 +120,18 @@ $(function () {
             'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
         },isLocal: false
     });
-});      
+});
+
+$(function(){
+    var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+        $('.nav_active_menu a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).parent().addClass('active');
+            }
+        });
+    });
+            
 jQuery(document).ready(function() {    
    Metronic.init(); // init metronic core componets
    Layout.init(); // init layout

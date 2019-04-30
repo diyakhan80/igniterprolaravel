@@ -25,8 +25,8 @@ class Validate
 			'date_of_birth' 	=> ['nullable','string'],
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
-			'mobile_number' 	=> ['nullable','numeric'],
-			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric'],
+			'mobile_number' 	=> ['nullable','numeric','digits:10'],
+			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric','digits:10'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],
@@ -42,11 +42,13 @@ class Validate
 			'course' 	        => ['required','string'],
 			'location' 	        => ['required','string'],
 			'comments' 	        => ['required','string'],
-			'password'          => ['required','string','max:50'],
+			'password'          => ['required','string','max:20','min:6'],
 			'price'				=> ['required','numeric'],
 			'start_from'		=> ['required'],
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
+			'slug_no_space'		=> ['required','alpha_dash','max:255'],
+			'photo_null'		=> ['nullable','mimes:jpg,jpeg,png'],
 
 		];
 		return $validation[$key];
@@ -200,9 +202,46 @@ class Validate
         return $validator;		
 	}
 
+	public function createClient($action='add'){
+        $validations = [
+            'name' 		        => $this->validation('name'),
+			'email'  			=> array_merge($this->validation('req_email'),[Rule::unique('clients')->ignore('trashed','status')]),
+
+			'phone_code'		=> $this->validation('id'),
+			'password'		=> $this->validation('password'),
+			'mobile_number'  	=> array_merge($this->validation('req_mobile_number'),[Rule::unique('clients')->ignore('trashed','status')]),
+			
+    	];
+
+
+    	
+        
+
+		if($action=='edit'){
+    		$validations['password'] ='';
+    		$validations['email'] 			= array_merge($this->validation('req_email'),[Rule::unique('clients')->ignore('trashed','status')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+			$validations['mobile_number'] 	= array_merge($this->validation('req_mobile_number'),[Rule::unique('clients')->ignore('trashed','status')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+
+    	}
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+			'name.required' 						=>  'Client Name is required.',
+			'email.required' 						=>  'E-mail is required.',
+			'mobile_number.required'				=>  'Mobile Number is required',
+			// 'phone_code.required'					=>  'Phone Code is required',
+		]);
+        return $validator;		
+	}
+
 	public function createProject($action='add'){
 		$validations = [
-			'user_client_id'			=> $this->validation('name'),
+			'client_id'			        => $this->validation('name'),
             'project_name' 		        => $this->validation('name'),
             'project_type'				=> $this->validation('type'),
             'project_price'				=> $this->validation('price'),
@@ -216,21 +255,9 @@ class Validate
 			'agent_commission'			=> $this->validation('price'),
     	];
 
-    	if($action == 'edit'){
-				$validations['project_name']				= $this->validation('name');
-				$validations['project_type']				= $this->validation('type');
-				$validations['project_price']				= $this->validation('price');
-				$validations['project_duration']			= $this->validation('price');
-				$validations['project_start_from']			= $this->validation('start_from');
-				$validations['recieved_payment']			= $this->validation('price');
-				$validations['payment_method']				= $this->validation('name');
-				$validations['next_payment']				= $this->validation('start_from');
-				$validations['next_delivery']				= $this->validation('start_from');
-				$validations['agent_commission']			= $this->validation('price');
-		}
-
+    	
     	$validator = \Validator::make($this->data->all(), $validations,[
-    		'user_client_id.required' 		=>  'User Name is required.',
+    		'client_id.required' 		    =>  'Client is required.',
     		'project_name.required' 		=>  'Project Name is required.',
     		'project_type.required'   		=>  'Project Type is required.',
     		'project_price.email'			=>  'Project Price is required.',
@@ -264,6 +291,34 @@ class Validate
     		'next_delivery.required'		=>  'Next Delivery date is required',
     		'agent_commission.required'		=>  'Agents Commission date is required',
     		'status.required'				=>  'Status is required',
+    	]);
+    	return $validator;
+    }
+
+    public function createProduct($action='add')
+    {
+    	$validations = [
+			'name'			=> $this->validation('name'),
+            'slug' 		    => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
+            'image'			=> $this->validation('photo'),
+    	];
+
+    	if($action == 'edit'){
+    		$validations['slug'] = array_merge($this->validation('slug_no_space'),[
+				Rule::unique('products')->where(function($query){
+					$query->where('id','!=',$this->data->id);
+				})
+			]);
+    		$validations['image'] 	= $this->validation('photo_null');
+    	}
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'name.required' 	=>  'Product Name is required',
+    		'slug.required'     => 'Product Slug is Required.',
+        	'slug.unique'     	=> 'This Product Slug has already been taken.',
+        	'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
+    		'image.required'	=> 'Product Image is required.',
+        	'image.mimes'		=> 'Image Should be in .jpg,.jpeg,.png format.',
     	]);
     	return $validator;
     }

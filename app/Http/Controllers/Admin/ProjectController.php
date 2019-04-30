@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use File;
 use App\Models\Users;
 use App\Models\Agent;
+use App\Models\Client;
 use App\Models\Project;
 use App\Models\Projectpayment;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Validations\Validate as Validations;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use PDF;
 class ProjectController extends Controller
 {
     /**
@@ -96,7 +97,7 @@ class ProjectController extends Controller
     public function create(Request $request){
         $data['site_title'] = $data['page_title'] = 'Create Project';
         $data['view'] = 'admin/project/add';
-        $data['user']  = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
+        $data['clients']  = _arefy(Client::where('status','!=','trashed')->get());
         $data['agent']  = _arefy(Agent::where('status','!=','trashed')->get());
         return view('admin.home',$data);
     }
@@ -107,7 +108,7 @@ class ProjectController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-        	$data['user_client_id']             = !empty($request->user_client_id)?$request->user_client_id:'';
+        	$data['client_id']                  = !empty($request->client_id)?$request->client_id:'';
             $data['project_name']               = !empty($request->project_name)?$request->project_name:'';
             $data['project_type']              	= !empty($request->project_type)?$request->project_type:'';
             $data['project_price']      		= !empty($request->project_price)?$request->project_price:'';
@@ -169,7 +170,7 @@ class ProjectController extends Controller
         $data['site_title']      = $data['page_title'] = 'Edit Project';
         $data['view']            = 'admin.project.edit';
         $id = ___decrypt($id);
-        $data['user']            = _arefy(Users::where('status','!=','trashed')->where('type','=','client')->get());
+        $data['client']            = _arefy(Client::where('status','!=','trashed')->get());
         $data['project']         = _arefy(Project::list('single','id='.$id));
         $data['agent']           = _arefy(Agent::where('status','!=','trashed')->get());
         return view('admin.home',$data);
@@ -181,6 +182,7 @@ class ProjectController extends Controller
         $data['view'] = 'admin.project.view';
         $id = ___decrypt($id);
         $data['project'] = _arefy(Project::list('single','id='.$id));
+
         return view('admin.home',$data);
     }
 
@@ -199,7 +201,7 @@ class ProjectController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-            $data['user_client_id']             = !empty($request->user_client_id)?$request->user_client_id:'';
+            $data['client_id']             = !empty($request->client_id)?$request->client_id:'';
             $data['project_name']               = !empty($request->project_name)?$request->project_name:'';
             $data['project_type']              	= !empty($request->project_type)?$request->project_type:'';
             $data['project_price']      		= !empty($request->project_price)?$request->project_price:'';
@@ -248,4 +250,20 @@ class ProjectController extends Controller
         }
      return $this->populateresponse();
     }
+
+    public function export_pdf($id)
+      {
+        $id=___decrypt($id);
+        // Fetch all customers from database
+        $data['site_title'] = $data['page_title'] = 'View Project';
+        $data['project'] = _arefy(Project::list('single','id='.$id));
+
+       /* return view('admin.home',$data);
+        // Send data to the view using loadView function of PDF facade*/
+        $pdf = PDF::loadView('admin.project.view',$data);
+        // If you want to store the generated pdf to the server then you can use the store function
+        $pdf->save(storage_path().'_filename.pdf');
+        // Finally, you can download the file using download function
+        return $pdf->download('customers.pdf');
+      }
 }
