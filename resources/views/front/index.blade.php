@@ -910,16 +910,19 @@
       <div class="col-md-8 col-md-offset-2 grey">
           <div id="testimonial" class="owl-carousel owl-theme">
               <div class="item">
+                <img src="{{url('images/default-profile.png')}}" alt="user" style="width: 100px;height:100px;" class="circle-img">
                   <h5>The IgniterPro has its skilled developers always at effective service providing fast as well as accurate delivery of milestones set for the project</h5>
                   <p><strong>Shubham Jain</strong></p>
               </div>
 
               <div class="item">
+                <img src="{{url('images/default-profile.png')}}" alt="user" style="width: 100px;height:100px;" class="circle-img">
                   <h5>I am very happy by the work done by IgniterPro, my website was developed with great enthusiasm</h5>
                   <p><strong>Shubham Agarwal</strong></p>
               </div>
 
               <div class="item">
+                <img src="{{url('images/default-profile.png')}}" alt="user" style="width: 100px;height:100px;" class="circle-img">
                   <h5>The team is very professional and has talented members, who keep their clients satisfied and happy</h5>
                   <p><strong>Mayra Khan</strong></p>
               </div>

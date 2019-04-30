@@ -423,7 +423,9 @@ div.preloader {
   font-weight: 900;
   color: #fff !important;
 }
-
+nav.nim-menu.navbar.navbar-default.headerbtm.allpageheader {
+    margin-bottom: 0;
+}
 .allpageheader.nim-menu.navbar-default .navbar-nav > li > a{
   color:#000 !important;
   padding-top: 30px;
@@ -850,7 +852,7 @@ span.jsnn-counter-label {
 }
 .techlist ul li img{
   height: 100px;
-  width: 120px;
+  width: 110px;
 }
 .techlist ul {
     text-align: center;
@@ -1300,7 +1302,9 @@ a, circle, div, path, rect, svg {
   margin-bottom: 20px;
   font-weight: 700;
 }
-
+.link_box_img:hover {
+    transform: scale(1.1);
+}
 /*  TESTIMONIAL
 ------------------------------*/
 .client-testimonial
@@ -1310,7 +1314,10 @@ a, circle, div, path, rect, svg {
  background-attachment: fixed;
  background-size:cover;
 }
-
+img.circle-img {
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
 .client-testimonial .container
 {
  padding:70px 0px;
