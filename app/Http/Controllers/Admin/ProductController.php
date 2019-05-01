@@ -27,8 +27,10 @@ class ProductController extends Controller
         $data['site_title'] = $data['page_title'] = 'Products List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Products</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.products.list';
-        
-        $products  = _arefy(Products::where('status','!=','trashed')->get());
+        \DB::Statement(\DB::raw('set @rownum = 0'));
+        $products  = Products::where('status','!=','trashed')->get(['products.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $products = _arefy($products);
         if ($request->ajax()) {
             return DataTables::of($products)
             ->editColumn('action',function($item){
@@ -83,6 +85,7 @@ class ProductController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'image', 'name' => 'image',"render"=> 'data','title' => 'Product Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Product Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'url', 'name' => 'url','title' => 'URL','orderable' => false, 'width' => 120])

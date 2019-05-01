@@ -11,7 +11,7 @@
 							<tr><th>No. Of Projects</th><td>({{ \App\Models\Project::count() }})</td></tr>
 							<tr><th>No. Of Agent</th><td>({{ \App\Models\Agent::count() }})</td></tr>
 							<tr><th>No. Of Employee</th><td>()</td></tr>
-								
+							<tr><th>No. Of Products</th><td>({{\App\Models\Products::count() }})</td></tr>
 							</table>
 						</div>
 					</div>

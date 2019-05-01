@@ -29,8 +29,10 @@ class CourseController extends Controller
         $data['site_title'] = $data['page_title'] = 'Course List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Courses</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.courses.list';
-        
-        $courses  = _arefy(Course::where('status','=','active')->get());
+        \DB::statement(\DB::raw('set @rownum=0'));
+        $courses  = Course::where('status','!=','trashed')->get(['courses.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $courses = _arefy($courses);
         if ($request->ajax()) {
             return DataTables::of($courses)
             ->editColumn('action',function($item){
@@ -62,10 +64,14 @@ class CourseController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-             ->editColumn('course_name',function($item){
+            ->editColumn('course_name',function($item){
                 return ucfirst($item['course_name']);
             })
-            ->rawColumns(['action'])
+            ->editColumn('course_picture',function($item){
+                $imageurl = asset("uploads/course/".$item['course_picture']);
+                return '<img src="'.$imageurl.'" height="80px" width="90px">';
+            })
+            ->rawColumns(['course_picture','action'])
             ->make(true);
         }
 
@@ -73,10 +79,12 @@ class CourseController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
+            ->addColumn(['data' => 'course_picture', 'name' => 'course_picture',"render"=> 'data','title' => 'Course Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'course_name', 'name' => 'course_name','title' => 'Course Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'description', 'name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
-            ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 

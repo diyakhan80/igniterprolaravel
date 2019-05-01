@@ -24,8 +24,10 @@ class SocialMediaController extends Controller
         $data['site_title'] = $data['page_title'] = 'Social Media List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Social Media</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.socialmedia.list';
-        
-        $socialmedia  = _arefy(SocialMedia::where('status','!=','trashed')->get());
+        \DB::Statement(\DB::raw('set @rownum = 0'));
+        $socialmedia  = SocialMedia::where('status','!=','trashed')->get(['socialmedia.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $socialmedia = _arefy($socialmedia);
         if ($request->ajax()) {
             return DataTables::of($socialmedia)
             ->editColumn('action',function($item){
@@ -46,8 +48,8 @@ class SocialMediaController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'url', 'name' => 'url','title' => 'URL','orderable' => false, 'width' => 120])
-            // ->addColumn(['data' => 'description', 'name' => 'description','title' => 'Description','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
@@ -57,8 +59,10 @@ class SocialMediaController extends Controller
         $data['site_title'] = $data['page_title'] = 'Contact Address List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Contact Address</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.contactaddress.list';
-        
-        $contactaddress  = _arefy(ContactAddress::where('status','!=','trashed')->get());
+        \DB::Statement(\DB::raw('set @rownum = 0'));
+        $contactaddress  = ContactAddress::where('status','!=','trashed')->get(['contactaddress.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $contactaddress = _arefy($contactaddress);
         if ($request->ajax()) {
             return DataTables::of($contactaddress)
             ->editColumn('action',function($item){
@@ -89,6 +93,7 @@ class SocialMediaController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'address', 'name' => 'address','title' => 'Office Address','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'email', 'name' => 'email','title' => 'E-mail','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'phone', 'name' => 'phone','title' => 'Contact Number','orderable' => false, 'width' => 120])
@@ -102,8 +107,10 @@ class SocialMediaController extends Controller
         $data['site_title'] = $data['page_title'] = 'Reviews List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Reviews</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.reviews.list';
-        
-        $reviews  = _arefy(\Models\Review::where('status','!=','trashed')->get());
+        \DB::Statement(\DB::raw('set @rownum = 0'));
+        $reviews  = \Models\Review::where('status','!=','trashed')->get(['reviews.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $reviews = _arefy($reviews);
         if ($request->ajax()) {
             return DataTables::of($reviews)
             ->editColumn('action',function($item){
@@ -150,6 +157,7 @@ class SocialMediaController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'email', 'name' => 'email','title' => 'E-mail','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'phone', 'name' => 'phone','title' => 'Contact Number','orderable' => false, 'width' => 120])
@@ -163,8 +171,10 @@ class SocialMediaController extends Controller
         $data['site_title'] = $data['page_title'] = 'Static Pages List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Static Pages</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.static.list';
-        
-        $staticPages  = _arefy(StaticPages::where('status','!=','trashed')->get());
+        \DB::Statement(\DB::raw('set @rownum = 0'));
+        $staticPages  = StaticPages::where('status','!=','trashed')->get(['static_pages.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $staticPages = _arefy($staticPages);
         if ($request->ajax()) {
             return DataTables::of($staticPages)
             ->editColumn('action',function($item){
@@ -203,6 +213,7 @@ class SocialMediaController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'image', 'name' => 'image',"render"=> 'data','title' => 'Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'title', 'name' => 'title','title' => 'Title','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug', 'name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])

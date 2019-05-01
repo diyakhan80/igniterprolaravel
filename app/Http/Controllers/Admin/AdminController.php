@@ -46,7 +46,6 @@ class AdminController extends Controller
 
         $where = 'status != "trashed"';
         $enquiry  = _arefy(\Models\Enquiry::list('array',$where));
-        // dd($enquiry);
 
         if ($request->ajax()) {
             return DataTables::of($enquiry)
