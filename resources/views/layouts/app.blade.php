@@ -22,13 +22,13 @@
 
 
         <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon-ico.png')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}">
+        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}"> -->
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.theme.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/magnific-popup.css') }}">
+        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/magnific-popup.css') }}"> -->
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}">
+        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}"> -->
        
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/responsive.css') }}">
@@ -51,22 +51,22 @@
                 @yield('content')
         
         
-        <script src="{{ asset('assets/global/library/modernizr.custom.97074.js') }}"></script>
+        <!-- <script src="{{ asset('assets/global/library/modernizr.custom.97074.js') }}"></script> -->
         <script src="{{ asset('assets/global/library/jquery-1.11.3.min.js') }}"></script>
         <script src="{{ asset('assets/global/library/bootstrap/js/bootstrap.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('assets/global/js/jquery.easing.1.3.js') }}"></script>  
+        <!-- <script type="text/javascript" src="{{ asset('assets/global/js/jquery.easing.1.3.js') }}"></script>   -->
         <script src="{{ asset('assets/global/library/vegas/vegas.min.js') }}"></script>
         <script src="{{ asset('assets/global/js/plugins.js') }}"></script>
         <script src="{{ asset('assets/global/js/typed.js') }}"></script>
-        <script src="{{ asset('assets/global/js/fappear.js') }}"></script>
-        <script src="{{ asset('assets/global/js/jquery.countTo.js') }}"></script>
+        <!-- <script src="{{ asset('assets/global/js/fappear.js') }}"></script> -->
+        <!-- <script src="{{ asset('assets/global/js/jquery.countTo.js') }}"></script> -->
         <script src="{{ asset('assets/global/js/owl.carousel.js') }}"></script>
-        <script src="{{ asset('assets/global/js/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
+        <!-- <script src="{{ asset('assets/global/js/jquery.magnific-popup.min.js') }}" type="text/javascript"></script> -->
         <script type="text/javascript" src="{{ asset('assets/global/js/SmoothScroll.js') }}"></script>
-        <script src="{{ asset('js/select2.full.min.js')}}" type="text/javascript"></script>
+        <!-- <script src="{{ asset('js/select2.full.min.js')}}" type="text/javascript"></script> -->
 
         <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <!-- <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script> -->
         <script type="text/javascript">
           $(document).ready(function(){
             // Check Radio-box
@@ -91,7 +91,7 @@
     </script>  
 
         <script src="{{ asset('assets/global/js/common.js') }}"></script>
-        <script src="{{asset('assets/global/js/script.js') }}"></script>
+        <script src="{{asset('js/script.js') }}"></script>
 
     </body>
 </html>
