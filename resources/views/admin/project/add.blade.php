@@ -60,7 +60,7 @@
 								<select class="form-control" name="payment_method">
 									<option value="">Select Project Payment Method</option>
 	                                        <option value="cash">Cash</option>
-	                                        <option value="check">Cheque</option>
+	                                        <option value="cheque">Cheque</option>
 	                                        <option value="online_transaction">Online Banking</option>
 								</select>
 							</div>

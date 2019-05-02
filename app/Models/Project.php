@@ -46,7 +46,7 @@ class Project extends Model
         }   
     }
 
-    public static function list($fetch='array',$where='',$keys=['*'],$order='id-desc'){
+    public static function list($fetch='array',$where='',$keys=['*'],$order='id-asc'){
                 
         $table_project = self::select($keys)
         ->with([
@@ -57,7 +57,7 @@ class Project extends Model
                 $q->select('id','name');
             },
             'payment' => function($q){
-                $q->select('project_id','recieved_payment','payment_method','next_payment','next_delivery');
+                $q->select('project_id','recieved_payment','payment_method','next_payment','next_delivery','balance');
             },
         ]);
        

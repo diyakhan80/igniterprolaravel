@@ -70,8 +70,8 @@
 								<label class="control-label required">Status</label>
 								<select class="form-control" name="status">
 									<option value="">Select Status</option>
-	                                        <option value="pending">Pending</option>
-	                                        <option value="paid">Paid</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="paid">Paid</option>
 								</select>
 							</div>
 						</div>
