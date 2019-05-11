@@ -19,7 +19,7 @@ VERSION : 1.1
             init:function()
             {
               App.typing();
-              App.owlTestimonial();
+              // App.owlTestimonial();
               App.stats();
               App.menuAnimation();
               App.navigate();
@@ -47,15 +47,7 @@ VERSION : 1.1
         
        
     
-    owlTestimonial:function()
-    {
-        $("#testimonial").owlCarousel({
-        navigation : false, // Show next and prev buttons
-        slideSpeed : 300,
-        paginationSpeed : 400,
-        singleItem:true
-        });
-    },
+   
     stats:function()
    {
         $('.our-stats-box').each(function () {

@@ -1,16 +1,18 @@
 <section class="main-heading" id="home">
   <div class="overlay">
-    <div class="container">
-      <div class="row">
-        <div class="main-heading-content col-md-12 col-sm-12 text-center">
-          <!-- <img src="{{url('images/bannergif.gif')}}" class="bannergifimg"> -->
-          <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
-          <!-- <p class="main-heading-text" style="color:black">At IgniterPro, we develop innovative and creative products and services that provide total communication and information solutions. Among a plethora of services, web design and development, tailor made applications, ERPs, CRMs, e-commerce solutions, business-to-business applications, business-to-client applications, managed hosting and internet portal management are few that we offer. Satisfied clients around the globe bear testimony to the quality of our work. </p>-->
-              
-          </div>
+    <div class="">
+      <div class="">
+        <div class="main-heading-content text-center">
+         <div class="owl-carousel" id="sliderbanner">
+            <div class="item">
+              <img src="{{url('images/main2.jpg')}}" class="img-responsive">
+              <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements="Web Developers,Creative,Ambitious"></span></h1>
+            </div>
+          </div>   
         </div>
       </div>
-   </div>     
+    </div>
+  </div>     
 </section>
  
  <!-- [ABOUT US]
@@ -19,11 +21,11 @@
      <div class="container">
          <div class="row">
              <div class="col-md-12 text-center black">
-                <div class="pt-30">
+                <div class="pt-30 wow fadeInUp" data-wow-delay="100ms">
                  <h3 class="title">ABOUT <span class="themecolor">US</span></h3>
                 </div>
                 <div class="col-md-6 dashedline">
-                  <div class="year-experience">
+                  <div class="year-experience item" data-aos="fade-up">
                     <h6 class="postisionrelative morethan"></h6>
                     <span class="figure av-white">3</span>
                     <span class="fig-content av-white">
@@ -35,7 +37,7 @@
                  
                 </div>
                 <div class="col-md-6">
-                  <div class="trainWrapper">
+                  <div class="trainWrapper item" data-aos="fade-down">
                     <div class="trainingknow">
                       <h3>App Developement</h3>
                       <p>Android, IOS, Cross Platform</p>
@@ -51,7 +53,7 @@
                   </div>
                  
                 </div>
-                <div class="col-md-6">                  
+                <div class="col-md-6 item" data-aos="fade-left">                  
                   <p class="a-slog">
                     At IgniterPro we deliver two intertwined Solutions. <br>
                     <b>Training and Development:</b>
@@ -89,46 +91,46 @@
                 </div>
          
                 <div class="col-md-6">
-                  <div class="col-md-6 text-center detailbox">
+                  <div class="col-md-6 text-center detailbox item" data-aos="flip-up">
                     <div class="margin-bottom aboutBox section-gradiant-b">
                       <span><img src="images/insight.png"><span>
                       <h4 class="headcontent"> INSIGHT</h4>
-                      <p class="black gray-content">We understand the specific cause and effect of your project.</p>
+                      <p class="white gray-content">We understand the specific cause and effect of your project.</p>
                     </div> <!-- / margin -->
                   </div> <!-- /col -->
-                  <div class="col-md-6 about-line text-center detailbox">
+                  <div class="col-md-6 about-line text-center detailbox item" data-aos="flip-down">
                     <div class="margin-bottom aboutBox section-gradiant-b">
                       <span><img src="images/analysis.png"><span>
                       <h4 class="headcontent">ANALYSIS</h4>
-                      <p class="black gray-content">We examine with detail the elements and structure of your company.</p>
+                      <p class="white gray-content">We examine with detail the elements and structure of your company.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
-                  <div class="col-md-6 text-center detailbox">
+                  <div class="col-md-6 text-center detailbox item" data-aos="flip-left">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/brainstorming.png"><span>
+                      <span><img src="images/brainstorming-1.png"><span>
                       <h4 class="headcontent">BRAINSTORMING</h4>
-                      <p class="black gray-content">All our great minds are brought together for your benefit.</p>
+                      <p class="white gray-content">All our great minds are brought together for your benefit.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
-                   <div class="col-md-6 text-center detailbox">
+                   <div class="col-md-6 text-center detailbox item" data-aos="flip-right">
                     <div class="margin-bottom aboutBox section-gradiant-b">
                       <span><img src="images/design.png"><span>
                       <h4 class="headcontent"> DESIGN</h4>
-                      <p class="black gray-content">After all the preparation steps the hard work begins.</p>
+                      <p class="white gray-content">After all the preparation steps the hard work begins.</p>
                     </div> <!-- / margin -->
                   </div> <!-- /col -->
-                  <div class="col-md-6 about-line text-center detailbox">
+                  <div class="col-md-6 about-line text-center detailbox item" data-aos="flip-up">
                     <div class="margin-bottom aboutBox section-gradiant-b">
                       <span><img src="images/development.png"><span>
                       <h4 class="headcontent">DEVELOPMEMT</h4>
-                      <p class="black gray-content">Our developers take charge of translating the design into interactive digits.</p>
+                      <p class="white gray-content">Our developers take charge of translating the design into interactive digits.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
-                  <div class="col-md-6 text-center detailbox">
+                  <div class="col-md-6 text-center detailbox item" data-aos="flip-down">
                     <div class="margin-bottom aboutBox section-gradiant-b">
                       <span><img src="images/testing.png"><span>
                       <h4 class="headcontent">TESTING</h4>
-                      <p class="black gray-content">This is the final step before advertising. The project’s functionality is thoroughly tested.</p>
+                      <p class="white gray-content">This is the final step before advertising. The project’s functionality is thoroughly tested.</p>
                     </div>
                   </div> <!-- / margin -->
                 </div><!-- /col -->
@@ -145,12 +147,12 @@
 <section class="bg-white webservicesection">
   <div class="container">
     <div class="solutions_sec" style="text-align: center;">
-      <h3 class="title">Our <span class="themecolor">Web Services</span></h3>
+      <h3 class="title item" data-aos="fade-left">Our <span class="themecolor">Web Services</span></h3>
 
       <div class="sol_sec_list">
         <div class="solution_list">
           <ul>
-            <li>
+            <li class="item" data-aos="fade-up">
               <div class="solution_area rel">
                 <div class="hover_box2 rel">
                   <!-- <p class="arrow_pos_home"><span class="fa fa-sort-asc arrow_col fs40"></span></p> -->
@@ -178,7 +180,7 @@
               <div class="solution_h_txt">Web design</div>
               </div>
             </li>
-            <li>
+            <li class="item" data-aos="fade-down">
             <div class="solution_area rel">
             <div class="hover_box2 rel">
             <!-- <p class="arrow_pos_home"><span class="fa fa-sort-asc arrow_col fs40"></span></p> -->
@@ -216,7 +218,7 @@
             <div class="solution_h_txt">Web Development</div>
             </div>
             </li>
-            <li>
+            <li class="item" data-aos="fade-up">
             <div class="solution_area rel">
 
             <div class="hover_box2 rel">
@@ -254,7 +256,7 @@
             <div class="solution_h_txt">digital marketing</div>
             </div>
             </li>
-            <li>
+            <li class="item" data-aos="fade-down">
             <div class="solution_area rel">
 
             <div class="hover_box2 rel">
@@ -306,7 +308,7 @@
  <section class="technologysection backtechnology">
    <div class="container">
      <div class="row">
-       <div class="col-md-6 dashedline">
+       <div class="col-md-6 dashedline item" data-aos="fade-right">
         <p class="text-color section-gap pb-15">Our Vision is to become a top global technology service providers by offering a complete spectrum of Managed IT consultants, e-business, Internet and communication technology services and components in an environment of empowerment, intellectual challenge and wealth sharing. We are here to make every brand more inspiring and the world more intelligent. We provide you quality approved with high-performance relevant products and support which is very easy to buy and use.</p>
         <div class="link_section">
           <div class="link_list">
@@ -516,7 +518,7 @@
           </div>
           </div>
         </div>
-       <div class="col-md-6">
+       <div class="col-md-6 item" data-aos="fade-left">
          <div class="technologieshead">
            <h3>Our Technologies</h3>
          </div>
@@ -526,11 +528,11 @@
              <li><img src="{{url('images/php1.png')}}" ></li>
              <li><img src="{{url('images/wordpress.png')}}" ></li>
              <li><img src="{{url('images/htmlcss.png')}}" ></li>
-             <li></li>
-             <li></li>
-             <li></li>
-             <li></li>
-             <li></li>
+             <li><img src="{{url('images/nodejs.png')}}" ></li>
+            <li><img src="{{url('images/js.png')}}" ></li>
+             <li><img src="{{url('images/netlang.jpg')}}" ></li>
+             <li><img src="{{url('images/android.png')}}" ></li>
+             <li><img src="{{url('images/ios.png')}}" ></li>
            </ul>
          </div>
        </div>
@@ -565,7 +567,7 @@
      </div>
  </section> -->
  
-<section class="section-wrap back_gray section-gap" id="solution">
+{{-- <section class="section-wrap back_gray section-gap" id="solution">
   <div class="text-center provided_head"><h3 class="title">Solutions We provide</h3></div>
     <div class="container">
       <div class="row">
@@ -652,9 +654,9 @@
         </div>
       </div>
     </div>
-</section>
+</section> --}}
 
-<section class="recent-works text-center" id="two">
+{{-- <section class="recent-works text-center" id="two">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -718,7 +720,7 @@
       </div>
     </div> <!-- /row -->
   </div> <!-- /container -->
-</section>
+</section> --}}
     <!-- / Portfolio -->
  
  
@@ -800,7 +802,55 @@
  
  <!-- [/OUR TEAM]
  ============================================================================================================================-->
- 
+ <div class="intro-section custom-owl-carousel" id="home-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mr-auto aos-init aos-animate" data-aos="fade-up">
+
+            <div class="owl-carousel slide-one-item-alt-text">  
+              <div class="slide-text">
+                <h1>High Quality Website Templates</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>We do things right.</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>High Quality Website Templates</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
+              </div>
+              <div class="slide-text">
+                <h1>We Do Awesome Things</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
+              </div>
+              
+              <div class="slide-text">
+                <h1>Free-Template.co</h1>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 ml-auto aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        
+            <div class="owl-carousel slide-one-item-alt"> 
+              <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid img-height">
+              <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid img-height"><img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid img-height">
+              <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid img-height">
+            </div>
+            <div class="owl-custom-direction">
+              <a href="#" class="custom-prev"><i class="fa fa-chevron-left"></i></a>
+              <a href="#" class="custom-next"><i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
  
  
  
@@ -901,11 +951,11 @@
  
  <!-- [TESTIMONIAL]
  ============================================================================================================================-->
-<section class="client-testimonial text-center white" id="six">
+{{-- <section class="client-testimonial text-center white" id="six">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="title">Client <span class="themecolor">Testimonials</span></h3>            
+        <h3 class="title">Our <span class="themecolor">Testimonial</span></h3>            
       </div> 
       <div class="col-md-8 col-md-offset-2 grey">
           <div id="testimonial" class="owl-carousel owl-theme">
@@ -930,12 +980,56 @@
       </div>
     </div>
   </div>
-</section> 
+</section> --}} 
+
+<section class="testmonialsection">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="item" data-aos="fade-right">
+              <div class="testimonial-head sectionserv text-center">
+                <h3>Our Testimonial</h3>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="owl-carousel" id="testimonials-user">
+          
+              <div class="item">
+                <div class="testimonial-text">
+                  <p>Startup is really a great da yto get strarted with. With its awesome features and easy customization with unbounce. This made my day. Very recommended.</p>
+                </div>
+                <div class="testimonial-user-wrapper">
+                  <div class="testimonial-user item" data-aos="fade-in">
+                    <span><img src="{{url('images/default-profile.png')}}" alt="user" style="width: 100px;height:100px;" class="circle-img"></span>
+                    <span class="pd-left" style="color:#384047;"><p>Name</p><p class="testimonial-name">Rohit Sharma</p></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="item">
+                <div class="testimonial-text">
+                  <p>I like this very much. easy customization and perfect support. This is the finest startup template I’ve ever seen. Its minimal, Flat and responsive too. I’m really happy with their service.</p>
+                </div>
+                <div class="testimonial-user-wrapper">
+                  <div class="testimonial-user item"  data-aos="fade-in">
+                    <span><img src="{{url('images/default-profile.png')}}" alt="user" style="width: 100px;height:100px;" class="circle-img"></span>
+                    <span class="pd-left" style="color:#384047;"><p>Name</p><p class="testimonial-name">Amresh Singh</p></span>
+                  </div>
+                </div>
+              
+          </div>
+        </div>
+      </div>
+    </section>
  
  <!-- [/TESTIMONIAL]
  ============================================================================================================================-->
 
- <section class="services white-background black" id="seven">
+ {{-- <section class="services white-background black" id="seven">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -959,12 +1053,12 @@
       @endforeach                    
     </div> <!-- end row -->
   </div>
-</section>
+</section> --}}
  
  <!-- [/SERVICES]
  ============================================================================================================================-->
 
-<section class="contactsection">
+{{-- <section class="contactsection">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -1019,4 +1113,4 @@
     </div>
   </div>
 </section>
-
+ --}}
