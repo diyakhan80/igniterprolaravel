@@ -25,7 +25,7 @@ class ProductController extends Controller
 
     public function index(Request $request, Builder $builder){
         $data['site_title'] = $data['page_title'] = 'Products List';
-        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Courses</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
+        $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Products</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.products.list';
         
         $products  = _arefy(Products::where('status','!=','trashed')->get());
@@ -63,6 +63,9 @@ class ProductController extends Controller
             ->editColumn('name',function($item){
                 return ucfirst($item['name']);
             })
+            ->editColumn('type',function($item){
+                return ucfirst($item['type']);
+            })
             ->editColumn('image',function($item){
                 if (!empty($item['image'])) {
                     $imageurl = asset("images/Products/".$item['image']);
@@ -82,6 +85,8 @@ class ProductController extends Controller
             ])
             ->addColumn(['data' => 'image', 'name' => 'image',"render"=> 'data','title' => 'Product Image','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Product Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'url', 'name' => 'url','title' => 'URL','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'type', 'name' => 'type','title' => 'Type','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'slug', 'name' => 'slug','title' => 'Slug','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);

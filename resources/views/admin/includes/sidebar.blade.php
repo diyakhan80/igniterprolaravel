@@ -35,6 +35,12 @@
 				</a>
 			</li>
 			<li>
+				<a href="{{url('admin/productsdetail')}}">
+					<i class="fa fa-users"></i>
+					<span class="title">Products Details</span>
+				</a>
+			</li>
+			<li>
 				<a href="{{url('admin/subject')}}">
 					<i class="fa fa-book"></i>
 					<span class="title">Subject</span>
@@ -50,6 +56,12 @@
 				<a href="{{url('admin/batches')}}">
 					<i class="fa fa-tasks"></i>
 					<span class="title">Batches</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/goodworks')}}">
+					<i class="fa fa-tasks"></i>
+					<span class="title">Good Works</span>
 				</a>
 			</li>
 			<li>
@@ -72,11 +84,34 @@
 			</li>
 			<li>
 				<a href="{{url('admin/contact-us')}}">
-					<i class="fa fa-phone"></i>
+					<i class="fa fa-rocket fa-fw"></i>
 					<span class="title">Contact-Us</span>
 				</a>
 			</li>
-			
+			<li>
+				<a href="{{url('admin/contact')}}">
+					<i class="fa fa-phone"></i>
+					<span class="title">Contact Address</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/reviews')}}">
+					<i class="fa fa-phone"></i>
+					<span class="title">Reviews</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/static')}}">
+					<i class="fa fa-sliders"></i>
+					<span class="title">Static Pages</span>
+				</a>
+			</li>
+			<li>
+				<a href="{{url('admin/social')}}">
+					<i class="fa fa-instagram"></i>
+					<span class="title">Social Media</span>
+				</a>
+			</li>
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>

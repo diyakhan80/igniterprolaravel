@@ -22,7 +22,6 @@ class AgentController extends Controller
     public function __construct(Request $request){
         $this->middleware('auth');
         parent::__construct($request);
-        
     }
 
     public function index(Request $request, Builder $builder){

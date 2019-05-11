@@ -22,7 +22,7 @@
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Course:</strong></td>
-                                <td>{{$enquiry['course']}}</td>
+                                <td>{{$enquiry['courses']['course_name']}}</td>
                             </tr>
                             <tr>
                                 <td width="30%" style="text-align: right;"><strong>Location:</strong></td>

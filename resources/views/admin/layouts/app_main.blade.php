@@ -40,9 +40,6 @@
  <link href="{{asset('assets/global/css/bootstrap-clockpicker.min.css')}}" rel="stylesheet" type="text/css" media="all">
  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 
- 
-<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
-
 <!-- END THEME STYLES -->
 <script type="text/javascript">
     var asset_url = "{{ url('/') }}";
@@ -71,6 +68,7 @@
 <script src="{{ asset('assets/global/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
 <script src="{{url('js/select2.full.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('bower_components/ckeditor/ckeditor.js')}}"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="{{ asset('assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js') }}" type="text/javascript"></script>
@@ -85,6 +83,7 @@
 <script src="{{ asset('assets/global/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/morris/raphael-min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/global/plugins/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<script src="{{asset('js/script.js')}}"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="{{ asset('assets/global/scripts/metronic.js') }}" type="text/javascript"></script>
@@ -95,7 +94,6 @@
 <script src="{{asset('assets/global/js/bootstrap-clockpicker.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-<script src="{{asset('assets/global/js/script.js')}}"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script type="text/javascript">
 

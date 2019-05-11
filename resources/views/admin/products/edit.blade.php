@@ -16,9 +16,19 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
+			          <label for="image">Product Image:</label>
+			          <div>
+			              <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+			          </div>
+			          <div>
+			            <img style="max-width: 250px;" src="{{url('images/Products')}}/{{$products['image']}}" id="adminimg" alt="No Featured Image Added">
+			          </div>
+			        </div>
+			      </div>
+						<div class="col-md-12">
+							<div class="form-group">
 								<label class="control-label required">Product Name</label>
 								<input type="text" id="name" name="name" class="form-control" value="{{$products['name']}}" placeholder="Enter product Name">
-								
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -29,15 +39,20 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-			          <label for="image">Product Image:</label>
-			          <div>
-			              <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-			          </div>
-			          <div>
-			            <img style="max-width: 250px;" src="{{url('images/Products')}}/{{$products['image']}}" id="adminimg" alt="No Featured Image Added">
-			          </div>
-			        </div>
-			      </div>
+								<label class="control-label required">URL</label>
+								<input type="text" id="url" name="url" class="form-control" placeholder="Enter URL" value="{{$products['url']}}">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Type</label>
+								<select class="form-control" name="type">
+									<option value="">Select Type</option>
+									<option <?php if($products['type'] == 'portfolio'){echo("selected");}?>>Portfolio</option>
+                	<option <?php if($products['type'] == 'product'){echo("selected");}?>>Product</option>
+								</select>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="form-actions right">

@@ -25,13 +25,14 @@ class Validate
 			'date_of_birth' 	=> ['nullable','string'],
 			'gender' 			=> ['required','string'],
 			'phone_code' 		=> ['nullable','required_with:mobile_number','string'],
-			'mobile_number' 	=> ['nullable','numeric','digits:10'],
+            'mobile_number'     => ['nullable','numeric','digits:10'],
+			'phone' 	        => ['required','numeric','digits:10'],
 			'req_mobile_number' 	=> ['required','required_with:phone_code','numeric','digits:10'],
 			'country' 			=> ['required','string'],
 			'address'           => ['nullable','string','max:1500'],
 			'qualifications'    => ['required','string','max:1500'],
 			'specifications'    => ['nullable','string','max:1500'],
-			'description'       => ['nullable','string','max:1500'],
+			'description'       => ['nullable','string'],
 			'required_description'  => ['required','string','max:1500'],
 			'title'             => ['required','string'],
 			'profile_picture'   => ['required','mimes:doc,docx,pdf','max:2048'],
@@ -48,7 +49,8 @@ class Validate
 			'photo'				=> ['required','mimes:jpg,jpeg,png','max:2408'],
 			'photomimes'		=> ['mimes:jpg,jpeg,png','max:2408'],
 			'slug_no_space'		=> ['required','alpha_dash','max:255'],
-			'photo_null'		=> ['nullable','mimes:jpg,jpeg,png'],
+            'photo_null'        => ['nullable','mimes:jpg,jpeg,png'],
+			'url'		        => ['required','url'],
 
 		];
 		return $validation[$key];
@@ -66,17 +68,22 @@ class Validate
 	public function createEnquiry($action='add'){
         $validations = [
             'name' 		        => $this->validation('name'),
-			'email'  			=> $this->validation('req_email'),
-			'phone'  	        => $this->validation('req_mobile_number'),
-			'comments'			=> $this->validation('comments'),
-            'location' 	        => $this->validation('location'),
-			'course' 	        => $this->validation('course'),
+			'phone'  	        => $this->validation('phone'),
+            'email'             => $this->validation('req_email'),
+			'course_id' 	    => $this->validation('name'),
+            'location'          => $this->validation('name'),
+            'comments'          => $this->validation('name'),
 
     	];
-
-    	
-
-        $validator = \Validator::make($this->data->all(), $validations,[]);
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'name.required'         => 'Name is required',
+            'phone.required'        => 'Contact Number is required',
+            'phone.numeric'         => 'Contact Number should be numeric',
+            'email.required'        => 'E-mail Id is required',
+            'course_id.required'    => 'Course Name is required',
+            'location.required'     => 'Location is required',
+            'comments.required'     => 'Comments are required'
+        ]);
         return $validator;		
 	}
 
@@ -143,31 +150,25 @@ class Validate
     		'course_picture.required'   =>  'Course Image is required',
     		'description.email'			=>  'Course Description is required',
     	]);
-
         return $validator;		
 	}
 
 	public function createRegistration($action='add'){
         $validations = [
-            'register_name' 		    => $this->validation('name'),
-			'register_email'  			=> $this->validation('req_email'),
-			'register_phone'  	        => $this->validation('req_mobile_number'),
-			'register_location'		    => $this->validation('location'),
-            'register_course'			=> $this->validation('course')
-			
+            'name' 		    => $this->validation('name'),
+			'phone'  	    => $this->validation('phone'),
+            'email'         => $this->validation('req_email'),
+            'course_id'     => $this->validation('name'),
+			'location'		=> $this->validation('name'),
     	];
 
         $validator = \Validator::make($this->data->all(), $validations,[
-    		'register_name.required' 	=>  'Your Name is required',
-    		'register_email.required'   =>  'Your Email is required',
-    		'register_email.email'		=>  'Your Email is in Incorrect format',
-    		'register_phone.required'   =>  'Your Phone is required',
-    		'register_phone.numeric'    =>  'Your Phone is not in correct format',
-    		'register_location.required'   =>  'Your Location is required',
-    		'register_course.required'   =>  'Course is required',
-
-    		
-
+    		'name.required' 	 =>  'Your Name is required.',
+    		'phone.required'     =>  'Your Phone is required.',
+    		'phone.numeric'      =>  'Phone Number should be numeric.',
+            'email.required'     =>  'Your Email is required.',
+    		'course_id.required' =>  'Course Name is required.',
+            'location.required'  =>  'Your Location is required.',
     	]);
         return $validator;		
 	}
@@ -298,9 +299,11 @@ class Validate
     public function createProduct($action='add')
     {
     	$validations = [
-			'name'			=> $this->validation('name'),
-            'slug' 		    => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
             'image'			=> $this->validation('photo'),
+			'name'			=> $this->validation('name'),
+            'slug'          => array_merge($this->validation('slug_no_space'),[Rule::unique('products')]),
+            'url'           => $this->validation('name'),
+            'type' 		    => $this->validation('name'),
     	];
 
     	if($action == 'edit'){
@@ -313,13 +316,102 @@ class Validate
     	}
 
     	$validator = \Validator::make($this->data->all(), $validations,[
-    		'name.required' 	=>  'Product Name is required',
-    		'slug.required'     => 'Product Slug is Required.',
-        	'slug.unique'     	=> 'This Product Slug has already been taken.',
-        	'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
     		'image.required'	=> 'Product Image is required.',
         	'image.mimes'		=> 'Image Should be in .jpg,.jpeg,.png format.',
+    		'name.required' 	=>  'Product Name is required',
+            'slug.required'     => 'Product Slug is Required.',
+            'slug.unique'       => 'This Product Slug has already been taken.',
+            'slug.alpha_dash'   => 'No spaces allowed in Product slug.The Slug may only contain letters, numbers, dashes and underscores.',
+            'url.required'      => 'URL is Required.',
+    		'type.required'     => 'Product Type is Required.',
     	]);
     	return $validator;
+    }
+
+    public function createProductDetail($action='add')
+    {
+        $validations = [
+            'product_id'    => $this->validation('name'),
+            'url'           => $this->validation('name'),
+            'username'      => $this->validation('name'),
+            'password'      => $this->validation('name'),
+            'type'          => $this->validation('name'),
+        ];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'product_id.required'   => 'Product Name is required.',
+            'url.required'          => 'URL is required',
+            'username.required'     => 'Username is Required.',
+            'password.required'     => 'Password is required.',
+            'type.required'         => 'Type is required.',
+        ]);
+        return $validator;
+    }
+
+    public function socialMedia()
+    {
+    	$validations = [
+			'url'			=> $this->validation('url'),
+    	];
+
+    	$validator = \Validator::make($this->data->all(), $validations,[
+    		'url.required' 			=> 'URL is required',
+    	]);
+    	return $validator;
+    }
+
+    public function contactAddress($action='edit')
+    {
+        $validations = [
+            'address'       => $this->validation('name'),
+            'email'         => $this->validation('req_email'),
+            'phone'         => $this->validation('phone'),
+            'whatsapp'         => $this->validation('phone'),
+        ];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'address.required'      => 'Address is required.',
+            'email.required'        => 'E-mail is required',
+            'phone.required'        => 'Contact Number is Required.',
+            'phone.numeric'         => 'Contact Number should be Numeric.',
+            'whatsapp.required'     => 'Whatsapp Number is Required.',
+            'whatsapp.numeric'      => 'Whatsapp Number should be Numeric.',
+        ]);
+        return $validator;
+    }
+
+    public function staticpage($action='edit'){
+        $validations = [
+            'title'             => $this->validation('name'),
+            'description'       => $this->validation('description'),
+        ];
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'title.required'          => 'Title is Required.',
+            'description.required'    => 'Description is Required.',
+        ]);
+
+        return $validator;        
+    }
+
+        public function createGoodWorks($action='edit'){
+        $validations = [
+            'image'             => $this->validation('photo'),    
+            'title'             => $this->validation('name'),
+            'description'       => $this->validation('description'),
+        ];
+
+        if($action == 'edit'){
+            $validations['image']   = $this->validation('photo_null');
+        }
+
+        $validator = \Validator::make($this->data->all(), $validations,[
+            'image.required'          => 'Image is required',
+            'image.mimes'             => 'Image Should be in .jpg,.jpeg,.png format.',
+            'title.required'          => 'Title is Required.',
+            'description.required'    => 'Description is Required.',
+        ]);
+
+        return $validator;        
     }
 }

@@ -30,7 +30,7 @@ class CourseController extends Controller
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Courses</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.courses.list';
         
-        $courses  = _arefy(Course::where('status','!=','trashed')->get());
+        $courses  = _arefy(Course::where('status','=','active')->get());
         if ($request->ajax()) {
             return DataTables::of($courses)
             ->editColumn('action',function($item){
@@ -85,7 +85,7 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      /**/
-     public function create(Request $request){
+    public function create(Request $request){
         $data['site_title'] = $data['page_title'] = 'Create Course';
         $data['view'] = 'admin/courses/add';
         return view('admin.home',$data);

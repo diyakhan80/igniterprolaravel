@@ -118,10 +118,32 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'ServiceController@changeStatus');
 	});
 
+	Route::resource('goodworks', 'WorksController');
+	Route::group(['prefix' => 'goodworks'],function(){
+		Route::post('/status', 'WorksController@changeStatus');
+	});
+
 	Route::resource('products', 'ProductController');
 	Route::group(['prefix' => 'products'],function(){
 		Route::post('/status', 'ProductController@changeStatus');
 	});
+
+	Route::resource('productsdetail', 'ProductDetailController');
+	Route::group(['prefix' => 'productsdetail'],function(){
+		Route::post('/status', 'ProductDetailController@changeStatus');
+	});
+
+	Route::get('social', 'SocialMediaController@socialMediaList');
+	Route::get('contact', 'SocialMediaController@contactAddressList');
+	Route::get('static', 'SocialMediaController@staticPagesList');
+	Route::get('reviews', 'SocialMediaController@reviewsList');
+	Route::post('reviews/status', 'SocialMediaController@changeStatus');
+	Route::get('social/{id}/edit', 'SocialMediaController@editSocialMedia');
+	Route::get('static/{id}/edit', 'SocialMediaController@editStaticPages');
+	Route::get('contact/{id}/edit', 'SocialMediaController@editcontactAddress');
+	Route::post('social/{id}', 'SocialMediaController@socialMediaEdit');
+	Route::post('static/{id}', 'SocialMediaController@staticPagesEdit');
+	Route::post('contact/{id}', 'SocialMediaController@contactAddressEdit');
 
 	Route::resource('appointments', 'AppointmentController');
 	Route::group(['prefix' => 'appointment'],function(){

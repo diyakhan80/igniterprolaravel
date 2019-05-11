@@ -9,6 +9,15 @@
 						{{csrf_field()}}
 						<div class="col-md-12">
 							<div class="form-group">
+				        <label for="image">Product Image:</label>
+				        <div>
+				            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
+				        </div>
+				        <div>
+				            <img style="max-width: 250px;" src="{{asset('images/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
+				        </div>
+						<div class="col-md-12">
+							<div class="form-group">
 								<label class="control-label required">Product Name</label>
 								<input type="text" id="name" name="name" class="form-control" placeholder="Enter Product Name">
 							</div>
@@ -21,13 +30,20 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-				        <label for="image">Product Image:</label>
-				        <div>
-				            <input onchange="readURL(this)" id="uploadFile" accept="image/*" name="image" type="file">
-				        </div>
-				        <div>
-				            <img style="max-width: 250px;" src="{{asset('images/avatar.png')}}" id="adminimg" alt="No Featured Image Added">
-				        </div>
+								<label class="control-label required">URL</label>
+								<input type="text" id="url" name="url" class="form-control" placeholder="Enter URL">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="control-label required">Type</label>
+								<select class="form-control" name="type">
+									<option value="">Select Type</option>
+									<option value="portfolio">Portfolio</option>
+									<option value="product">Product</option>
+								</select>
+							</div>
+						</div>
 			       	</div>
 			      </div>
 					</div>

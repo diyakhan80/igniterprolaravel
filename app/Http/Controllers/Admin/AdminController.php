@@ -44,7 +44,10 @@ class AdminController extends Controller
         $data['site_title'] = $data['page_title'] = 'Contact-Us';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li></ul>';
 
-        $enquiry  = _arefy(\Models\Enquiry::get());
+        $where = 'status != "trashed"';
+        $enquiry  = _arefy(\Models\Enquiry::list('array',$where));
+        // dd($enquiry);
+
         if ($request->ajax()) {
             return DataTables::of($enquiry)
             ->editColumn('action',function($item){
@@ -54,8 +57,14 @@ class AdminController extends Controller
                 $html   .= '</div>';
                 return $html;
             })
-             ->editColumn('name',function($item){
+            ->editColumn('name',function($item){
                 return ucfirst($item['name']);
+            })
+            ->editColumn('phone',function($item){
+                return '+91-'.$item['phone'];
+            })
+            ->editColumn('course_id',function($item){
+                return ucfirst($item['courses']['course_name']);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -68,8 +77,8 @@ class AdminController extends Controller
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'email','name' => 'email','title' => 'Email','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'phone','name' => 'phone','title' => 'Mobile Number','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'course','name' => 'course','title' => 'Course','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'location','name' => 'location','title' => 'Course','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'course_id','name' => 'course_id','title' => 'Course Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'location','name' => 'location','title' => 'Location','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);
         return view('admin.home',$data);
     }
@@ -79,7 +88,8 @@ class AdminController extends Controller
         $data['view'] = 'admin/contact-us-view';
         $data['site_title'] = $data['page_title'] = 'Contact-Us';
         $id = ___decrypt($id);
-        $data['enquiry']  = _arefy(\Models\Enquiry::where('id','=',$id)->first());
+        $where = 'id = '.$id;
+        $data['enquiry']  = _arefy(\Models\Enquiry::list('single',$where));
         return view('admin.home',$data);
     }
 
@@ -88,7 +98,8 @@ class AdminController extends Controller
         $data['view'] = 'admin/contact-us-reply';
         $data['site_title'] = $data['page_title'] = 'Contact-Us';
         $id = ___decrypt($id);
-        $data['enquiry']  = _arefy(\Models\Enquiry::where('id','=',$id)->first());
+        $where = 'id = '.$id;
+        $data['enquiry']  = _arefy(\Models\Enquiry::list('single',$where));
         return view('admin.home',$data);
     }
 
