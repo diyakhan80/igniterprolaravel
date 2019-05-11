@@ -62,9 +62,9 @@ class ProjectPaymentController extends Controller
             $data['project_id']                 = !empty($request->project_id)?$request->project_id:'';
             $data['recieved_payment']           = !empty($request->recieved_payment)?$request->recieved_payment:'';
             $data['payment_method']             = !empty($request->payment_method)?$request->payment_method:'';
-            $data['next_payment']               = !empty($request->next_payment)?$request->next_payment:'';
-            $data['next_delivery']              = !empty($request->next_delivery)?$request->next_delivery:'';
-            $data['agent_commission']           = !empty($request->agent_commission)?$request->agent_commission:'';
+            $data['next_payment']               = !empty($request->next_payment)?$request->next_payment:NULL;
+            $data['next_delivery']              = !empty($request->next_delivery)?$request->next_delivery:NULL;
+            $data['agent_commission']           = !empty($request->agent_commission)?$request->agent_commission:NULL;
             $data['status']                     = !empty($request->status)?$request->status:'';
             $data['created_at']                 =  date('Y-m-d H:i:s');
             $data['updated_at']                 =  date('Y-m-d H:i:s');

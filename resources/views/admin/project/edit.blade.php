@@ -82,7 +82,7 @@
 	                                        	echo 'selected="selected"'; 
 	                                    	}
 	                                    	@endphp>Cash</option>
-	                                        <option value="check" @php if($project['payment']['payment_method']=='check'){
+	                                        <option value="cheque" @php if($project['payment']['payment_method']=='check'){
 	                                        	echo 'selected="selected"'; 
 	                                    	}
 	                                    	@endphp>Cheque</option>

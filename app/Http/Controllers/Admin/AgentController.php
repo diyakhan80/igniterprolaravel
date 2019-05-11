@@ -28,8 +28,10 @@ class AgentController extends Controller
         $data['site_title'] = $data['page_title'] = 'Agent List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Agent</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.agent.list';
-        
-        $agent  = _arefy(Agent::where('status','!=','trashed')->get());
+        \DB::statement(\DB::raw('set @rownum=0'));
+        $agent  = Agent::where('status','!=','trashed')->get(['agent.*', 
+                    \DB::raw('@rownum  := @rownum  + 1 AS rownum')]);
+                $agent = _arefy($agent);
         if ($request->ajax()) {
             return DataTables::of($agent)
             ->editColumn('action',function($item){
@@ -72,6 +74,7 @@ class AgentController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
+            ->addColumn(['data' => 'rownum', 'name' => 'rownum','title' => 'S No','orderable' => false, 'width' => 10])
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status','name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
             ->addAction(['title' => '', 'orderable' => false, 'width' => 120]);

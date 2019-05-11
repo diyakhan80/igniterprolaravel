@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 	Route::group(['prefix' => 'project'],function(){
 		Route::post('/status', 'ProjectController@changeStatus');
 		Route::get('{id}/pdf','ProjectController@export_pdf');
+		Route::get('list/{id}','ProjectController@paymentList');
 	});
 
 	Route::resource('training', 'TrainingController');

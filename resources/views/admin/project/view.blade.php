@@ -180,9 +180,9 @@
                                     <td style="border-top: 1px solid #ddd;">{{date('Y-m-d',strtotime($project['payment']['next_delivery']))}}</td>
                                 @endif
                                 @if($project['project_price']!=$project['payment']['recieved_payment'])
-                                   <td style="border-top: 1px solid #ddd;">Completed</td>
-                                @else
                                     <td style="border-top: 1px solid #ddd;">Ongoing</td>
+                                @else
+                                   <td style="border-top: 1px solid #ddd;">Completed</td>
                                 @endif
                             </tr>
                            

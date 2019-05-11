@@ -252,8 +252,8 @@ class Validate
 			'payment_method'			=> $this->validation('name'),
 			'next_payment'				=> $this->validation('start_from'),
 			'next_delivery'				=> $this->validation('start_from'),
-			'project_agent_id'			=> $this->validation('name'),
-			'agent_commission'			=> $this->validation('price'),
+			// 'project_agent_id'			=> $this->validation('name'),
+			// 'agent_commission'			=> $this->validation('price'),
     	];
 
     	
@@ -268,8 +268,8 @@ class Validate
     		'payment_method.required'		=>  'Payment Method is required',
     		'next_payment.required'			=>  'Next Payment date is required',
     		'next_delivery.required'		=>  'Next Delivery date is required',
-    		'project_agent_id.required'   	=>  'Agent ID is required.',
-    		'agent_commission.required'   	=>  'Agent Commmision is required.',
+    		// 'project_agent_id.required'   	=>  'Agent ID is required.',
+    		// 'agent_commission.required'   	=>  'Agent Commmision is required.',
     	]);
         return $validator;
     }
@@ -279,18 +279,18 @@ class Validate
     	$validations = [
 			'recieved_payment'			=> $this->validation('price'),
             'payment_method' 		    => $this->validation('name'),
-            'next_payment'				=> $this->validation('start_from'),
-            'next_delivery'				=> $this->validation('start_from'),
-            'agent_commission'			=> $this->validation('price'),
+            // 'next_payment'				=> $this->validation('start_from'),
+            // 'next_delivery'				=> $this->validation('start_from'),
+            // 'agent_commission'			=> $this->validation('price'),
             'status'					=> $this->validation('name'),
     	];
 
     	$validator = \Validator::make($this->data->all(), $validations,[
     		'recieved_payment.required' 	=>  'Projects Payment is required',
     		'payment_method.required' 		=>  'Payment Method is required',
-    		'next_payment.required'   		=>  'Next Payment date is required',
-    		'next_delivery.required'		=>  'Next Delivery date is required',
-    		'agent_commission.required'		=>  'Agents Commission date is required',
+    		// 'next_payment.required'   		=>  'Next Payment date is required',
+    		// 'next_delivery.required'		=>  'Next Delivery date is required',
+    		// 'agent_commission.required'		=>  'Agents Commission date is required',
     		'status.required'				=>  'Status is required',
     	]);
     	return $validator;

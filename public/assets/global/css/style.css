@@ -1,4 +1,4 @@
-/*
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 AUTHOR : Vijayan PP
 PROJECT : Nim-MUTLIT PURPOSE LANDING PAGE TEMPLATE
@@ -419,18 +419,23 @@ div.preloader {
   font-size: 2.0em;
   display: block;
   padding: 0;
-  height: 90px;
+  height: 80px;
   font-weight: 900;
+  /* margin-bottom: -20px; */
   color: #fff !important;
 }
-
+nav.nim-menu.navbar.navbar-default.headerbtm.allpageheader {
+    margin-bottom: 0;
+}
 .allpageheader.nim-menu.navbar-default .navbar-nav > li > a{
   color:#000 !important;
   padding-top: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 
 .navbar-default.headerbtm.allpageheader {
-    min-height: 90px;
+    min-height: 80px;
 }
 .nim-menu.navbar-default .navbar-nav > li > a {
   
@@ -485,7 +490,9 @@ div.preloader {
   }
         
 .navbar-brand img{
-  height: 90px;
+  /* height: 70px; */
+  height: 100%;
+  object-fit: contain;
  }  
 .headerTop{
   background-color: rgb(0, 0, 0,.9);
@@ -508,10 +515,10 @@ div.preloader {
 
 .main-heading
 {
-   background: url(../../../images/main2.jpg) center center no-repeat;
+   /*background: url(../../../images/main2.jpg) center center no-repeat;
   background-size:cover;
   background-attachment: fixed;
-  color: #cfcfcf;
+  color: #cfcfcf;*/
         /*margin-top:80px;*/
 }
 
@@ -549,7 +556,7 @@ p.lead {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   position: absolute;
-  top: 50%;
+  top: 41.9%;
   left: 0;
   right: 0;
 }
@@ -557,8 +564,15 @@ p.lead {
 .main-heading-title {
   font-weight: 900;
   color: #ffffff;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   text-transform: uppercase;
   font-size: 50px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+  font-variant: normal;
   margin-bottom: 30px;
   text-shadow: rgba(0,0,0,0.498039) 2px 2px 2px;
   letter-spacing: 0.02em;
@@ -850,7 +864,8 @@ span.jsnn-counter-label {
 }
 .techlist ul li img{
   height: 100px;
-  width: 120px;
+  width: 110px;
+  padding: 15px;
 }
 .techlist ul {
     text-align: center;
@@ -1300,28 +1315,94 @@ a, circle, div, path, rect, svg {
   margin-bottom: 20px;
   font-weight: 700;
 }
-
+.link_box_img:hover {
+    transform: scale(1.1);
+}
 /*  TESTIMONIAL
 ------------------------------*/
 .client-testimonial
 {
- background:url("../../../images/img-2.jpg");
+ /*background:url("../../../images/img-2.jpg");*/
  background-position: center center;
  background-attachment: fixed;
  background-size:cover;
 }
-
+img.circle-img {
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
 .client-testimonial .container
 {
  padding:70px 0px;
 }
 
 
-#testimonial {
-  padding: 30px 0;
+section.testmonialsection {
+    padding: 50px 0;
+}
+.testimonial-head h3{ 
+  /*font-family: open-sans;*/
+  font-weight: 600;
+  font-size: 40px;
+}
+.testimonial-name{
+  color:#7e9096;
+  font-size: 15px !important;
+  font-weight: 500;
+}
+span.pd-left>p {
+    /*margin-bottom: 4px;*/
+    font-size: 18px;
+}
+.testimonial-head p{
+  font-size:18px;
+  color:#94a3a8;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-family: Myriad Pro;
+}
+.testimonial-text{
+  background-color: #1d2024;
+  border: 1px solid #1d2024;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.testimonial-text:after{
+  content: "";
+    position: absolute;
+    border-left: 22px solid transparent;
+    border-top: 22px solid #1d2024;
+    left: 67px;
+    border-right: 23px solid transparent;
+}
+.testimonial-user span img {
+    height: 75px;
+    width: 75px;
+}
+.testimonial-user span.pd-left{
+  padding-left: 10px;
+    line-height: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.testimonial-user {
+    display: flex;
+    align-items: center;
+}
+.testimonial-text p{
+  font-family: Georgia, Times, "Times New Roman", serif; font-style: italic; font-variant: normal;line-height: 26.4px;
+    color: #fefefe;
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    min-height: 110px;
+    overflow: hidden;
+    padding: 26px;
 }
 .item h5 {
-    color: #fff;
+    color: #201f1f;
     font-weight: 400;
     line-height: 27px;
     font-size: 17px;
@@ -1422,7 +1503,7 @@ a, circle, div, path, rect, svg {
   line-height: 29px;
   font-size: 14px;
   /*color:#202020;*/
-  min-height: 150px;
+  /*min-height: 150px;*/
 }
 .nim-service:hover{
   box-shadow: -14.142px 14.142px 20px 0px rgba(157, 157, 157, 0.5);
@@ -1442,6 +1523,115 @@ a, circle, div, path, rect, svg {
     -ms-box-shadow:2px 3px 5px 2px rgba(0,0,0,0.3);
 }
 
+
+ /*-----------------------section--------------------------------*/
+
+ .intro-section, .intro-section .container .row {
+    height: 100vh;
+    min-height: 500px;
+}
+.intro-section {
+    position: relative;
+}
+.intro-section:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 70%;
+    background: #352961;
+    border-bottom-right-radius: 200px;
+}
+.intro-section h1 {
+    line-height: 45px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 900;
+    color: #fff;
+}
+.intro-section p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+    max-width: 400px;
+}
+.custom-owl-carousel .owl-custom-direction a:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.custom-owl-carousel .owl-custom-direction a {
+    z-index: 1;
+    display: inline-block;
+    padding: 28px 30px;
+    position: relative;
+    background: #dc3545;
+    float: left;
+}
+.custom-owl-carousel .owl-custom-direction a {
+    z-index: 1;
+    display: inline-block;
+    padding: 12px 24px;
+    position: relative;
+    background: #dc3545;
+    float: left;
+}
+.custom-owl-carousel .owl-custom-direction a i{
+  color:#fff;
+  font-size: 16px;
+}
+.custom-owl-carousel .owl-custom-direction a span{
+    font-size: 1.5rem;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.icon-keyboard_arrow_left:before {
+    content: "\e314";
+}
+.intro-section .btn {
+    border: 2px solid #fff;
+    color: #fff;
+}
+.btn-outline-light:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+.custom-owl-carousel .owl-custom-direction {
+    position: absolute;
+    bottom: -20px;
+    z-index: 9;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.custom-owl-carousel .slide-one-item-alt {
+    border-top-left-radius: 200px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 0.4);
+}
+.img-height{
+    height: 400px;
+    width: 100%;
+}
+/*.custom-owl-carousel .owl-theme .owl-controls {
+    margin-top: -30px;
+}*/
+.align-items-center {
+    -webkit-box-align: center!important;
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+/*-------------------------End section------------------------------*/
 /*----------------CONTACTUS
 
 -------------------------------------------------------*/
@@ -1705,7 +1895,7 @@ ul.footer-links li {
 .medica-appointment-card label{
   color: #000;
   font-family: bentonsans-regular-webfont, Tahoma, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 .medica-contact-card {
     background-color: #093f86;
@@ -1938,6 +2128,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .sendenquiry{
   background-color: #282626;
+  color: #fff;
   border-radius: 20px;
 }
 .sendenquiry:hover{
@@ -2025,6 +2216,7 @@ a.demoregisterbtn {
 
 .medica-appointment-card .form-control {
    border: 1px solid #ddd;
+   height: 35px;
 }
 
 .submitBTn {
@@ -2041,4 +2233,44 @@ a.demoregisterbtn {
 }
 .has-error .help-block{
   color:#FF0000 !important;
+}
+.separator {
+    line-height: .5em;
+    margin: 30px 0;
+}
+.icon-service-img-module .separator span {
+    color: #888;
+}
+.headerTop ul{
+  margin-bottom: 0;
+}
+.separator span:before, .separator span:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 275px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.separator span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+.separator span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+#loading {
+    /*-webkit-animation: rotation 2s infinite linear;*/
+}
+.white {
+    color: #fff;
+}
+/*@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(180deg);
+    }
 }
