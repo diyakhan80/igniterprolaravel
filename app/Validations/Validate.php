@@ -279,20 +279,18 @@ class Validate
     	$validations = [
 			'recieved_payment'			=> $this->validation('price'),
             'payment_method' 		    => $this->validation('name'),
-            // 'next_payment'				=> $this->validation('start_from'),
-            // 'next_delivery'				=> $this->validation('start_from'),
-            // 'agent_commission'			=> $this->validation('price'),
-            'status'					=> $this->validation('name'),
     	];
 
     	$validator = \Validator::make($this->data->all(), $validations,[
     		'recieved_payment.required' 	=>  'Projects Payment is required',
     		'payment_method.required' 		=>  'Payment Method is required',
-    		// 'next_payment.required'   		=>  'Next Payment date is required',
-    		// 'next_delivery.required'		=>  'Next Delivery date is required',
-    		// 'agent_commission.required'		=>  'Agents Commission date is required',
-    		'status.required'				=>  'Status is required',
-    	]);
+        ]);
+
+        if(($this->data->recieved_payment) > ($this->data->balance)){
+            $validator->after(function ($validator){
+               $validator->errors()->add('recieved_payment', 'Payment Should not be greater than the Balance Amount.');
+            });
+        }
     	return $validator;
     }
 

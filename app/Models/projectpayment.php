@@ -39,4 +39,41 @@ class Projectpayment extends Model
         }
         return (bool)$isUpdated;
     }
+
+    public function project(){
+        return $this->hasOne('App\Models\Project','id','project_id');
+    }
+
+    public static function list($fetch='array',$where='',$keys=['*'],$order='id-asc'){
+                
+        $table_project = self::select($keys)
+        ->with([
+            'project' => function($q){
+                $q->select('id','project_name','project_type','project_price','project_duration','project_start_from');
+            },
+        ]);
+       
+        if($where){
+            $table_project->whereRaw($where);
+        }
+        
+        //$userlist['userCount'] = !empty($table_user->count())?$table_user->count():0;
+        
+        if(!empty($order)){
+            $order = explode('-', $order);
+            $table_project->orderBy($order[0],$order[1]);
+        }
+        if($fetch == 'array'){
+            $list = $table_project->get();
+            return json_decode(json_encode($list ), true );
+        }else if($fetch ==='obj'){
+            return $table_project->limit($limit)->get();                
+        }else if($fetch == 'single'){
+            return $table_project->get()->first();
+        }else if($fetch == 'count'){
+            return $table_project->get()->count();
+        }else{
+            return $table_project->limit($limit)->get();
+        }
+    }
 }

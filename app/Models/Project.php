@@ -15,6 +15,7 @@ class Project extends Model
         'project_name',
         'project_type',
         'project_price',
+        'balance',
         'project_duration',
         'project_start_from',
         'project_agent_id',

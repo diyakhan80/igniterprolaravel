@@ -73,6 +73,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'ProjectController@changeStatus');
 		Route::get('{id}/pdf','ProjectController@export_pdf');
 		Route::get('list/{id}','ProjectController@paymentList');
+		Route::get('payment/{id}','ProjectController@makePayment');
+		Route::post('payment/{id}','ProjectController@paymentDone');
 	});
 
 	Route::resource('training', 'TrainingController');
@@ -80,11 +82,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 		Route::post('/status', 'TrainingController@changeStatus');
 	});
 
-	Route::resource('project-payment', 'ProjectPaymentController');
-	Route::group(['prefix' => 'project-payment'],function(){
-		Route::post('/status', 'ProjectPaymentController@changeStatus');
+	// Route::resource('project-payment', 'ProjectPaymentController');
+	// Route::group(['prefix' => 'project-payment'],function(){
+	// 	Route::post('/status', 'ProjectPaymentController@changeStatus');
 
-	});
+	// });
 
 	Route::resource('subject', 'SubjectController');
 	Route::group(['prefix' => 'subject'],function(){

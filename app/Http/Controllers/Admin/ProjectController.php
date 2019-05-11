@@ -41,6 +41,9 @@ class ProjectController extends Controller
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
                 $html   .= '<a href="'.url(sprintf('admin/project/list/%s',___encrypt($item['id']))).'"  title="Project Payment List"><i class="fa fa-cc-visa"></i></a> | ';
+                if ($item['balance'] != 0) {
+                    $html   .= '<a href="'.url(sprintf('admin/project/payment/%s',___encrypt($item['id']))).'"  title="Make Payment"><i class="fa fa-money"></i></a> | ';
+                }
                 $html   .= '<a href="'.url(sprintf('admin/project/%s',___encrypt($item['id']))).'"  title="View Detail"><i class="fa fa-eye"></i></a> | ';
                 $html   .= '<a href="'.url(sprintf('admin/project/%s/edit',___encrypt($item['id']))).'"  title="Edit Detail"><i class="fa fa-edit"></i></a> | ';
                 if($item['status'] == 'ongoing'){
@@ -86,9 +89,12 @@ class ProjectController extends Controller
                 return $item['client']['email'];
             })
             ->editColumn('project_price',function($item){
-                return 'Rs.'. number_format($item['project_price']);
+                return 'Rs.'. IND_money_format($item['project_price']);
             })
-              ->editColumn('project_duration',function($item){
+            ->editColumn('balance',function($item){
+                return 'Rs.'. IND_money_format($item['balance']);
+            })
+            ->editColumn('project_duration',function($item){
                 return ucfirst($item['project_duration']).' days';
             })
             ->rawColumns(['action'])
@@ -104,18 +110,19 @@ class ProjectController extends Controller
             ->addColumn(['data' => 'name', 'name' => 'name','title' => 'Project Name','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'project_type', 'name' => 'project_type','title' => 'Project Type','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'project_price', 'name' => 'project_price','title' => 'Project Price','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'balance', 'name' => 'balance','title' => 'Balance','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'project_duration','name' => 'project_duration','title' => 'Project Duration','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'agent', 'name' => 'name','title' => 'Agent Name','orderable' => false, 'width' => 120])
             ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 
-    public function paymentList(Request $request, Builder $builder){
+    public function paymentList(Request $request, Builder $builder,$id){
         $data['site_title'] = $data['page_title'] = 'Projects Payment List';
         $data['breadcrumb'] = '<ul class="page-breadcrumb breadcrumb"><li><a href="">Home</a><i class="fa fa-circle"></i></li><li><a href="#">Project Payment</a><i class="fa fa-circle"></i></li><li><a href="#">List</a></li></ul>';
         $data['view'] = 'admin.project.paymentlist';
-        $where = 'status != "trashed"';
-        $projectPayment  = _arefy(Project::list('array',$where));
+        $id = ___decrypt($id);
+        $projectPayment  = _arefy(Projectpayment::where('project_id',$id)->get());
         // dd($projectPayment);
         if ($request->ajax()) {
             return DataTables::of($projectPayment)
@@ -129,23 +136,21 @@ class ProjectController extends Controller
             ->editColumn('status',function($item){
                 return ucfirst($item['status']);
             })
-            ->editColumn('name',function($item){
-                return ucfirst($item['project_name']);
-            })
-            ->editColumn('client',function($item){
-                return ucfirst($item['client']['name']);
-            })
-            ->editColumn('email',function($item){
-                return $item['client']['email'];
-            })
-            ->editColumn('project_price',function($item){
-                return 'Rs.'. number_format($item['project_price']);
+            ->editColumn('payment_method',function($item){
+                return ucfirst($item['payment_method']);
             })
             ->editColumn('recieved_payment',function($item){
-                return 'Rs.'. number_format($item['payment']['recieved_payment']);
+                return 'Rs.'.IND_money_format($item['recieved_payment']);
+            })
+            ->editColumn('agent_commission',function($item){
+              if (!empty($item['agent_commission'])) {
+                  return 'Rs.'.IND_money_format($item['agent_commission']);
+              }else{
+                  return 'N/A';
+                }
             })
             ->editColumn('balance',function($item){
-                return 'Rs.'. number_format($item['payment']['balance']);
+                return 'Rs.'.IND_money_format($item['balance']);
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -155,12 +160,10 @@ class ProjectController extends Controller
             ->parameters([
                 "dom" => "<'row' <'col-md-6 col-sm-12 col-xs-4'l><'col-md-6 col-sm-12 col-xs-4'f>><'row filter'><'row white_box_wrapper database_table table-responsive'rt><'row' <'col-md-6'i><'col-md-6'p>>",
             ])
-            ->addColumn(['data' => 'name', 'name' => 'project_name','title' => 'Project Name','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'client', 'name' => 'name','title' => 'Client Name','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'email', 'name' => 'email','title' => 'Client E-mail','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'project_price', 'name' => 'project_price','title' => 'Project Price','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'recieved_payment', 'name' => 'recieved_payment','title' => 'Recieved Payment','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'balance', 'name' => 'balance','title' => 'Balance Payment','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'balance', 'name' => 'balance','title' => 'Balance Amount','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'payment_method', 'name' => 'payment_method','title' => 'Payment Method','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'agent_commission', 'name' => 'agent_commission','title' => 'Agent Commission','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'status', 'name' => 'status','title' => 'Status','orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
@@ -188,12 +191,13 @@ class ProjectController extends Controller
             $data['project_name']               = !empty($request->project_name)?$request->project_name:'';
             $data['project_type']              	= !empty($request->project_type)?$request->project_type:'';
             $data['project_price']      		= !empty($request->project_price)?$request->project_price:'';
+            $data['balance']                    = $data['project_price'] - $request->recieved_payment;
             $data['project_duration']         	= !empty($request->project_duration)?$request->project_duration:'';
             $data['project_start_from']         = !empty($request->project_start_from)?$request->project_start_from:'';
             $data['project_agent_id']         	= !empty($request->project_agent_id)?$request->project_agent_id:NULL;
             $data['agent_commission']         	= !empty($request->agent_commission)?$request->agent_commission:NULL;
-            $data['created_at']     	    	=date('Y-m-d H:i:s');
-            $data['updated_at']         		=date('Y-m-d H:i:s');
+            $data['created_at']     	    	= date('Y-m-d H:i:s');
+            $data['updated_at']         		= date('Y-m-d H:i:s');
             if ($request->recieved_payment > 0) {
                 $data['status'] = 'ongoing';
             }else {
@@ -207,7 +211,7 @@ class ProjectController extends Controller
             $payment['next_payment']            = !empty($request->next_payment)?$request->next_payment:'';
             $payment['next_delivery']           = !empty($request->next_delivery)?$request->next_delivery:'';
             $payment['agent_commission']        = !empty($request->agent_commission)?$request->agent_commission:NULL;
-            $payment['status']                  = 'paid';
+            $payment['status']                  = 'pending';
             $payment['created_at']              = date('Y-m-d H:i:s');
             $payment['updated_at']              = date('Y-m-d H:i:s');
             $payment['balance']                 = $data['project_price'] - $payment['recieved_payment'];
@@ -277,14 +281,14 @@ class ProjectController extends Controller
         if($validator->fails()){
             $this->message = $validator->errors();
         }else{
-            $data['client_id']             = !empty($request->client_id)?$request->client_id:'';
+            $data['client_id']                  = !empty($request->client_id)?$request->client_id:'';
             $data['project_name']               = !empty($request->project_name)?$request->project_name:'';
             $data['project_type']              	= !empty($request->project_type)?$request->project_type:'';
             $data['project_price']      		= !empty($request->project_price)?$request->project_price:'';
             $data['project_duration']         	= !empty($request->project_duration)?$request->project_duration:'';
             $data['project_start_from']         = !empty($request->project_start_from)?$request->project_start_from:'';
-            $data['project_agent_id']         	= !empty($request->project_agent_id)?$request->project_agent_id:'';
-            $data['agent_commission']         	= !empty($request->agent_commission)?$request->agent_commission:'';
+            $data['project_agent_id']         	= !empty($request->project_agent_id)?$request->project_agent_id:NULL;
+            $data['agent_commission']         	= !empty($request->agent_commission)?$request->agent_commission:NULL;
             $data['updated_at']         		= date('Y-m-d H:i:s');
 
             $inserId = Project::change(___decrypt($id),$data);
@@ -328,7 +332,7 @@ class ProjectController extends Controller
     }
 
     public function export_pdf($id)
-      {
+    {
         $id=___decrypt($id);
         // Fetch all customers from database
         $data['site_title'] = $data['page_title'] = 'View Project';
@@ -341,5 +345,55 @@ class ProjectController extends Controller
         $pdf->save(storage_path().'_filename.pdf');
         // Finally, you can download the file using download function
         return $pdf->download('customers.pdf');
-      }
+    }
+
+    public function makePayment(Request $request,$id){
+        $id = ___decrypt($id);
+        $data['site_title'] = $data['page_title'] = 'Project Payment';
+        $data['view'] = 'admin/project/projectpayment';
+        $where =  "id = ".$id;
+        $data['projectPayment'] = _arefy(Project::list('single',$where));
+        // dd($data['projectPayment']);
+        return view('admin.home',$data);
+    }
+
+    public function paymentDone(Request $request,$id){
+        // dd($request->all());
+        $id = ___decrypt($id);
+        $validation = new Validations($request);
+        $validator  = $validation->createProjectPayment();
+        if($validator->fails()){
+            $this->message = $validator->errors();
+        }else{
+            $data['project_id']                 = !empty($request->id)?$request->id:'';
+            $data['recieved_payment']           = !empty($request->recieved_payment)?$request->recieved_payment:'';
+            $data['payment_method']             = !empty($request->payment_method)?$request->payment_method:'';
+            $data['next_payment']               = !empty($request->next_payment)?$request->next_payment:NULL;
+            $data['next_delivery']              = !empty($request->next_delivery)?$request->next_delivery:NULL;
+            $data['agent_commission']           = !empty($request->agent_commission)?$request->agent_commission:NULL;
+            $data['created_at']                 =  date('Y-m-d H:i:s');
+            $data['updated_at']                 =  date('Y-m-d H:i:s');
+            $data['balance']                    =  $request->balance - $request->recieved_payment;
+            if ($data['balance'] != 0) {
+              $data['status'] = 'pending';
+            }else{
+              $data['status'] = 'paid';
+            }
+            
+            $projectpayment = Projectpayment::add($data);
+
+            $lastId = $data['project_id'];
+            $projectId['balance'] = $data['balance'];
+            $projectData = Project::change($lastId,$projectId);
+
+            if($projectpayment){
+                $this->status = true;
+                $this->modal  = true;
+                $this->alert    = true;
+                $this->message  = "Project Payment has been added successfully.";
+                $this->redirect = url('admin/project');
+            }
+        }
+        return $this->populateresponse();
+    }
 }
