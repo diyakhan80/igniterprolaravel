@@ -22,14 +22,14 @@
 
 
         <link rel="shortcut icon" type="image/x-icon" href="{{url('images/favicon-ico.png')}}">
-        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}"> -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/animate.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.theme.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/magnific-popup.css') }}"> -->
 
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}"> -->
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}"> -->
-       
+        
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/responsive.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/color/rose.css') }}">
@@ -37,6 +37,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/Incognito_responsive.css') }}">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
         <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
     </head>
@@ -54,19 +55,21 @@
         <!-- <script src="{{ asset('assets/global/library/modernizr.custom.97074.js') }}"></script> -->
         <script src="{{ asset('assets/global/library/jquery-1.11.3.min.js') }}"></script>
         <script src="{{ asset('assets/global/library/bootstrap/js/bootstrap.js') }}"></script>
-        <!-- <script type="text/javascript" src="{{ asset('assets/global/js/jquery.easing.1.3.js') }}"></script>   -->
+        <script type="text/javascript" src="{{ asset('assets/global/js/jquery.easing.1.3.js') }}"></script>  
         <script src="{{ asset('assets/global/library/vegas/vegas.min.js') }}"></script>
         <script src="{{ asset('assets/global/js/plugins.js') }}"></script>
         <script src="{{ asset('assets/global/js/typed.js') }}"></script>
         <!-- <script src="{{ asset('assets/global/js/fappear.js') }}"></script> -->
-        <!-- <script src="{{ asset('assets/global/js/jquery.countTo.js') }}"></script> -->
+        <script src="{{ asset('assets/global/js/jquery.countTo.js') }}"></script>
+        <script src="{{ asset('assets/global/js/wow.js') }}"></script>
         <script src="{{ asset('assets/global/js/owl.carousel.js') }}"></script>
-        <!-- <script src="{{ asset('assets/global/js/jquery.magnific-popup.min.js') }}" type="text/javascript"></script> -->
-        <script type="text/javascript" src="{{ asset('assets/global/js/SmoothScroll.js') }}"></script>
+        <script src="{{ asset('assets/global/js/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('assets/global/js/main.js') }}"></script>
         <!-- <script src="{{ asset('js/select2.full.min.js')}}" type="text/javascript"></script> -->
 
         <script src="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.min.js')}}"></script>
-        <!-- <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script> -->
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" type="text/javascript"></script>
         <script type="text/javascript">
           $(document).ready(function(){
             // Check Radio-box
@@ -86,9 +89,84 @@
               // $('body').scroll(function(){
               //   $(".headerbtm").addClass(" navbar-fixed-top");
               // });
+              $('#testimonial').owlCarousel({
+                  items:2,
+                  loop:true,
+                  margin:10,
+                  nav:false,
+                  slideTransition: 'linear',
+                  autoplaySpeed: 2000,
+                  autoplay:true,
+                  // autoplayTimeout:3000,
+                  // autoplayHoverPause:true,
+                  responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    500: {
+                        items: 1
+                    },
+                    991: {
+                        items: 2
+                    },
+                    1600: {
+                        items: 2
+                    }
+                }
+              });
           });
+
+          $(document).ready(function(){
+            $("#testimonials-user").owlCarousel({
+                  // items:4,
+                  loop:true,
+                  margin:10,
+                  nav:false,
+                  slideTransition: 'linear',
+                  autoplaySpeed: 2000,
+                  autoplay:true,
+                  // autoplayTimeout:3000,
+                  // autoplayHoverPause:true,
+                  responsive: {
+                    0: {
+                        items: 1
+                    },
+                    360: {
+                        items: 1
+                    },
+                    500: {
+                        items: 1
+                    },
+                    991: {
+                        items: 2
+                    },
+                    1600: {
+                        items: 2
+                    }
+                }
+              });
+
+            $("#sliderbanner").owlCarousel({
+                  items:1,
+                  loop:true,
+                  margin:10,
+                  nav:false,
+                  slideTransition: 'linear',
+                  autoplaySpeed: 2000,
+                  autoplay:true
+              });
+        });
+
     
     </script>  
+    <script type="text/javascript">
+        AOS.init({
+      duration: 1200,
+    })
+    </script>
 
         <script src="{{ asset('assets/global/js/common.js') }}"></script>
         <script src="{{asset('js/script.js') }}"></script>
