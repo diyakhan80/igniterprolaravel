@@ -7,6 +7,7 @@
                     <li><a href="javascript:void(0);">Terms of Use</a></li> 
                     <li><a href="javascript:void(0);">Privacy Policy</a></li>
                     <li><a href="{{url('/contact')}}">Contact Us</a></li>
+                    <li><a href="{{url('/gallery')}}">Gallery</a></li>
                 </ul>
             </div>
             

@@ -52,6 +52,7 @@ class HomeController extends Controller
         $data['view'] = 'front.reviews';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['reviews'] = \Models\Review::list('array');
         return view('front_home',$data);
     }
@@ -76,6 +77,7 @@ class HomeController extends Controller
         $data['view'] = 'front.contact';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
