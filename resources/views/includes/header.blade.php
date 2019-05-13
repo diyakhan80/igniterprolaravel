@@ -31,13 +31,16 @@
             <ul class="nav navbar-nav navbar-right mobile-white-background">
               <li><a href="{{url('/')}}" class="page-scroll">Home</a></li>
               <li><a href="#one" class="page-scroll">About Us</a></li>
-              
+              <li><a href="{{url('products')}}" class="page-scroll">Products</a></li>
               <!-- <li><a href="#three" class="page-scroll">Team</a></li> -->
-              <li><a href="#two" class="page-scroll">Recent Works</a></li>
+              <li><a href="{{url('portfolio')}}" class="page-scroll">Portfolio</a></li>
               <!-- <li><a href="#three" class="page-scroll">Courses</a></li> -->
               <li class="dropdown">
                 <a href="#three" class="dropdown-toggle page-scroll" data-toggle="dropdown" role="button" aria-expanded="false">Courses<span class="caret"></span></a>
                 <ul class="dropdown-menu multi-level" role="menu">
+                  @php
+                    $courses = _arefy(App\Models\Course::where('status','=','active')->get());
+                  @endphp
                   @foreach($courses as $course)
                     <li><a href="javascript:void(0);">{{$course['course_name']}}</a></li>
                   @endforeach

@@ -44,6 +44,7 @@ class ProjectPaymentController extends Controller
         $data['view'] = 'admin/project/projectpayment';
         $where =  "status IN ('pending','delay','ongoing')"; 
         $data['project'] = _arefy(Project::list('array',$where));
+       
         return view('admin.home',$data);
     }
 

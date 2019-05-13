@@ -7,9 +7,11 @@ use App\Models\Course;
 use App\Models\Good_Works;
 use App\Models\SocialMedia;
 use App\Models\ContactAddress;
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Validations\Validate as Validations;
 use App\Http\Controllers\Controller;
+use File;
 require '../vendor/autoload.php';
 
 class HomeController extends Controller
@@ -22,7 +24,7 @@ class HomeController extends Controller
 		$data['view'] = 'front.index';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
+        
         $data['goodworks'] = _arefy(Good_Works::where('status','=','active')->get());
         // dd($data['goodworks']);
         return view('front_home',$data);
@@ -41,7 +43,6 @@ class HomeController extends Controller
         $data['view'] = 'front.services';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['service'] = $service;
         return view('front_home',$data);
             
@@ -51,7 +52,6 @@ class HomeController extends Controller
         $data['view'] = 'front.reviews';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['reviews'] = \Models\Review::list('array');
         return view('front_home',$data);
     }
@@ -60,7 +60,6 @@ class HomeController extends Controller
         $data['view'] = 'front.enquiry_list';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         $data['enquiries'] = \Models\Enquiry::list('array');
         return view('front_home',$data);
             
@@ -70,7 +69,6 @@ class HomeController extends Controller
         $data['view'] = 'front.registration';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
      
@@ -78,7 +76,6 @@ class HomeController extends Controller
         $data['view'] = 'front.contact';
         $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
         $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
-        $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
 
@@ -99,22 +96,12 @@ class HomeController extends Controller
             $data['updated_at']         =date('Y-m-d H:i:s');
             
             $inserId = \Models\Enquiry::add($data);
-            // if($inserId){
-            //    $emailData            = ___email_settings();
-            //    $emailData['name']    = !empty($request->name)?$request->name:'';
-            //    $emailData['email']   = !empty($request->email)?$request->email:'';
-            //    $emailData['phone']   = !empty($request->phone)?$request->phone:'';
-            //    $emailData['course']  = !empty($request->course)?$request->course:'';
-            //    $emailData['date']    = date('Y-m-d H:i:s');
-
-               // $emailData['custom_text'] = 'Your Enquiry has been submitted successfully';
-               // ___mail_sender($emailData['email'],$request->name,"enquiry_email",$emailData);
+           
                 $this->status   = true;
                 $this->modal    = true;
                 $this->alert    = true;
                 $this->message  = "Enquiry has been submitted successfully.";
                 $this->redirect = url('/');
-            // } 
         } 
         return $this->populateresponse();
     }
@@ -152,6 +139,21 @@ class HomeController extends Controller
         $data['courses'] = _arefy(Course::where('status','=','active')->get());
         return view('front_home',$data);
     }
+    public function product(Request $request){
+        $data['view'] = 'front.product';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['products'] = _arefy(Products::where(['status'=>'active','type'=>'product'])->get());
+        return view('front_home',$data);
+    }
+
+    public function portfolio(Request $request){
+        $data['view'] = 'front.portfolio';
+        $data['contact'] = _arefy(ContactAddress::where('status','=','active')->get());
+        $data['social'] = _arefy(SocialMedia::where('status','=','active')->get());
+        $data['products'] = _arefy(Products::where(['status'=>'active','type'=>'portfolio'])->get());
+        return view('front_home',$data);
+    }
 
     public function submitCareer(Request $request){
         $validation = new Validations($request);
@@ -165,24 +167,16 @@ class HomeController extends Controller
            
             /*$data['resume']             =!empty($request->resume)?$request->resume:'';*/
             if(!empty($request->resume)){
-               $path=$request->file('resume')->store('resume');
-              /* $image = $request->file('topic_picture');
-               $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-               $path = public_path().'/uploads/topic';
+               $image = $request->file('resume');
+               $input['resume'] = time() . '.' . $image->getClientOriginalExtension();
+               $path = public_path().'/uploads/resume';
                 if(!File::exists($path)) {
                     File::makeDirectory($path, $mode = 0777, true);
                 }
 
-               $destinationPath = public_path('uploads/topic');
-               $img = Image::make($image->getRealPath());
-               $img->resize(264, 337, function ($constraint) {
-                   $constraint->aspectRatio();
-               })->save($destinationPath . '/' . $input['imagename']);
-
-               $destinationPath = public_path('images/image');
-               $image->move($destinationPath, $input['imagename']);*/
-               //$data['topic_picture'] = $input['imagename'];
-               $data['resume'] =  $path;
+               $destinationPath = public_path('uploads/resume');
+               $image->move($destinationPath, $input['resume']);
+               $data['resume'] =  $input['resume'];
             }
             $data['applied_on']         = date('Y-m-d H:i:s');
             

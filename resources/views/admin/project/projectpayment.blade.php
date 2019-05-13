@@ -5,8 +5,9 @@
 			<form role="project-payment" action="{{url('admin/project/payment/'.___encrypt($projectPayment['id']))}}" method="POST" class="horizontal-form">
 				<div class="form-body">
 						{{csrf_field()}}
-						<input type="hidden" name="balance" value="{{$projectPayment['payment']['balance']}}">
-						<input type="hidden" name="id" value="{{$projectPayment['id']}}">
+						<input type="text" name="balance" value="{{$projectPayment['balance']}}">
+						<input type="text" name="id" value="{{$projectPayment['id']}}">
+						<input type="text" name="total_agent_amount" value="{{$totalAgentCommission}}">
 					<h3 class="form-section">Projects Payment</h3>
 					<div class="row">
 						<div class="col-md-12">

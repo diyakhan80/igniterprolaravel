@@ -43,13 +43,21 @@ class Projectpayment extends Model
     public function project(){
         return $this->hasOne('App\Models\Project','id','project_id');
     }
+    public function client(){
+        return $this->hasOne('App\Models\Client','id','client_id');
+    }
 
     public static function list($fetch='array',$where='',$keys=['*'],$order='id-asc'){
                 
         $table_project = self::select($keys)
         ->with([
             'project' => function($q){
-                $q->select('id','project_name','project_type','project_price','project_duration','project_start_from');
+                $q->select('id','client_id','project_name','project_type','project_price','project_duration','project_start_from')
+                    ->with([
+                        'client' => function($q1){
+                            $q1->select('id','name','phone_code','mobile_number','email');
+                        },
+                    ]);
             },
         ]);
        

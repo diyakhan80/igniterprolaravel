@@ -18,7 +18,7 @@
                     <li><a class="whatsapp" href="https://api.whatsapp.com/send?phone=91{{$contact[0]['whatsapp']}}" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
                 </ul>
             </div>
-            <div class="col-md-12"> <small>&copy; 2018 IgniterPro. All rights reserved.</small></div>
+            <div class="col-md-12"> <small>&copy; {{date('Y')}} IgniterPro. All rights reserved.</small></div>
         </div>
 
     </div>

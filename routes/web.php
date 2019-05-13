@@ -36,6 +36,8 @@ Route::get('reviews','HomeController@reviews');
 Route::post('reviewsubmission','HomeController@submitReview');
 Route::get('contact','HomeController@contact');
 Route::get('career','HomeController@career');
+Route::get('products','HomeController@product');
+Route::get('portfolio','HomeController@portfolio');
 Route::post('careersubmission','HomeController@submitCareer');
 Route::get('about','HomeController@about');
 Route::get('recentworks','HomeController@recentWorks');
@@ -81,12 +83,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware'=>'adminAu
 	Route::group(['prefix' => 'training'],function(){
 		Route::post('/status', 'TrainingController@changeStatus');
 	});
-
-	// Route::resource('project-payment', 'ProjectPaymentController');
-	// Route::group(['prefix' => 'project-payment'],function(){
-	// 	Route::post('/status', 'ProjectPaymentController@changeStatus');
-
-	// });
+	Route::get('project-payment/invoice/{id}', 'ProjectController@projectInvoice');
+	Route::resource('project-payment', 'ProjectPaymentController');
+	Route::group(['prefix' => 'project-payment'],function(){
+		Route::post('/status', 'ProjectPaymentController@changeStatus');
+	});
 
 	Route::resource('subject', 'SubjectController');
 	Route::group(['prefix' => 'subject'],function(){

@@ -6,7 +6,7 @@
                   <h3 class="title">WE BELIEVE IN <span class="themecolor">ENTHUSIASTIC & PASSIONATE PEOPLE</span></h3>
                   <p style="font-family:Brush Script MT; font-size:25px;">Softpro hires Technocrats and Industry Experts who have expertise in handling Complex Business Challenges to deliver Best Solutions</p>
                 </div>
-	               <!--  <div class="col-md-8 col-sm-8 col-xs-12">
+	                <div class="col-md-8 col-sm-8 col-xs-12">
 	                    <div class="medica-appointment-card wow fadeInUp" data-wow-delay="0.6s" >
 	                        <h5>APPLY FOR JOBS</h5>
 	                         <form role="add-career" action="{{url('careersubmission')}}" method="POST" >
@@ -95,7 +95,7 @@
                         </form>   
                     </div>
 
-                </div> -->
+                </div>
             	</div>
             </div>
 		</section>

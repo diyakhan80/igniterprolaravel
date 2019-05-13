@@ -113,6 +113,7 @@ class ProjectController extends Controller
             ->addColumn(['data' => 'balance', 'name' => 'balance','title' => 'Balance','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'project_duration','name' => 'project_duration','title' => 'Project Duration','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'agent', 'name' => 'name','title' => 'Agent Name','orderable' => false, 'width' => 120])
+            ->addColumn(['data' => 'agent_total_recieved_amount', 'name' => 'agent_total_recieved_amount','title' => 'Agent Recieved Amount','orderable' => false, 'width' => 120])
             ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
@@ -128,7 +129,7 @@ class ProjectController extends Controller
             return DataTables::of($projectPayment)
             ->editColumn('action',function($item){
                 $html    = '<div class="edit_details_box">';
-                
+                $html   .= '<a href="'.url(sprintf('admin/project-payment/invoice/%s',___encrypt($item['id']))).'"  title="Project Payment List"><i class="fa fa-cc-visa"></i></a>';
                 $html   .= '</div>';
                                 
                 return $html;
@@ -164,10 +165,23 @@ class ProjectController extends Controller
             ->addColumn(['data' => 'balance', 'name' => 'balance','title' => 'Balance Amount','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'payment_method', 'name' => 'payment_method','title' => 'Payment Method','orderable' => false, 'width' => 120])
             ->addColumn(['data' => 'agent_commission', 'name' => 'agent_commission','title' => 'Agent Commission','orderable' => false, 'width' => 120])
-            ->addColumn(['data' => 'status', 'name' => 'status','title' => 'Status','orderable' => false, 'width' => 120]);
+            
+            ->addColumn(['data' => 'status', 'name' => 'status','title' => 'Status','orderable' => false, 'width' => 120])
+            ->addAction(['title' => 'Actions', 'orderable' => false, 'width' => 120]);
         return view('admin.home')->with($data);
     }
 
+    public function projectInvoice(Request $request,$id){
+        $id = ___decrypt($id);
+        $where =  "id = ".$id;
+        $data['projectpayment']=Projectpayment::list('single',$where);
+        //$data['client']=Projectpayment::list('single',$where);
+
+        //dd(_arefy($data['projectpayment']));
+
+        //$data['view']='admin.project.invoice';
+        return view('admin.project.invoice')->with($data);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -352,8 +366,14 @@ class ProjectController extends Controller
         $data['site_title'] = $data['page_title'] = 'Project Payment';
         $data['view'] = 'admin/project/projectpayment';
         $where =  "id = ".$id;
+        $wheres=  "project_id = ".$id;
         $data['projectPayment'] = _arefy(Project::list('single',$where));
-        // dd($data['projectPayment']);
+        $data['agentPayment'] = _arefy(projectPayment::list('array',$wheres));
+         //d($data['agentPayment']);
+        $data['totalAgentCommission']=0;
+         foreach ($data['agentPayment'] as $key) {
+             $data['totalAgentCommission']+=$key['agent_commission'];
+         }
         return view('admin.home',$data);
     }
 
@@ -384,6 +404,7 @@ class ProjectController extends Controller
 
             $lastId = $data['project_id'];
             $projectId['balance'] = $data['balance'];
+            $projectId['agent_total_recieved_amount']=$request->total_agent_amount+$request->agent_commission;
             $projectData = Project::change($lastId,$projectId);
 
             if($projectpayment){

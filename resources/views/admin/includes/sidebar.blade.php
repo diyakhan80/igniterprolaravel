@@ -40,7 +40,7 @@
 					<span class="title">Products Details</span>
 				</a>
 			</li>
-			<li>
+			{{-- <li>
 				<a href="{{url('admin/subject')}}">
 					<i class="fa fa-book"></i>
 					<span class="title">Subject</span>
@@ -57,7 +57,7 @@
 					<i class="fa fa-tasks"></i>
 					<span class="title">Batches</span>
 				</a>
-			</li>
+			</li> --}}
 			<li>
 				<a href="{{url('admin/goodworks')}}">
 					<i class="fa fa-tasks"></i>
@@ -76,12 +76,12 @@
 					<span class="title">Training</span>
 				</a>
 			</li>
-			<!-- <li>
+			<li>
 				<a href="{{url('admin/project-payment/create')}}">
 					<i class="fa fa-cc-visa"></i>
 					<span class="title">Project Payment</span>
 				</a>
-			</li> -->
+			</li>
 			<li>
 				<a href="{{url('admin/contact-us')}}">
 					<i class="fa fa-rocket fa-fw"></i>

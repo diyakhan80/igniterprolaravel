@@ -109,6 +109,7 @@ class ProductDetailController extends Controller
         $data['site_title'] = $data['page_title'] = 'Create Product Details';
         $data['view'] = 'admin/productDetail/add';
         $data['product'] = _arefy(Products::where('status','active')->get());
+        
         return view('admin.home',$data);
     }
 
