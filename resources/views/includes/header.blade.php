@@ -1,4 +1,4 @@
-<header>
+ {{-- <header> --}}
       <div class="headerTop">
         <div class="container-fluid clearfix">
           <ul class="float-left">
@@ -6,13 +6,14 @@
             <li><a href="mailto:{{!empty($contact[0]['email'])?$contact[0]['email']:''}}"><i class="fa fa-envelope"></i>{{$contact[0]['email']}}</a></li>
           </ul>
           <ul class="float-right">
-            <li><a href="{{$social[0]['url']}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="{{$social[1]['url']}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="{{$social[2]['url']}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            <li><a class="whatsapp" href="https://api.whatsapp.com/send?phone=91{{$contact[0]['whatsapp']}}" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="{{$social[0]['url']}}" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="{{$social[1]['url']}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="{{$social[2]['url']}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="whatsapp" href="https://api.whatsapp.com/send?phone=91{{$contact[0]['whatsapp']}}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
           </ul>
         </div>
-      </div>
+      </div>     
+      {{--
       <nav  class="nim-menu navbar navbar-default headerbtm allpageheader">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -76,4 +77,38 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </header>
+    </header> --}}
+
+    <!-- header-section -->
+
+   <div id="home-header">
+        <div class="new-header">
+            <div class="logo-section">
+                <img src="./images/igniter-logo2.png" alt="">
+            </div>
+            <div class="header-section">
+                <div class="menu-wrapper">
+                    <ul class="menu-items">
+                        <li class="menu"><a href="{{url('/')}}" class="link">Home</a></li>
+                        <li class="menu"><a href="{{url('about')}}" class="link">AboutUS</a></li>
+                        <li class="menu"><a href="{{url('products')}}" class="link">Products</a></li>
+                        <li class="menu"><a href="{{url('portfolio')}}" class="link">Portfolio</a></li>
+                        <li class="menu"><a href="{{url('courses')}}" class="link">Courses</a></li>
+                        <li class="menu"><a href="{{url('serices')}}" class="link">Services</a></li>
+                        <li class="menu"><a href="{{url('reviews')}}" class="link">Reviews</a></li>
+                        <li class="menu"><a href="{{url('career')}}" class="link">Carrier</a></li>
+                        <li class="menu"><a href="{{url('contact')}}" class="link">ContactUS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="option-btn">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+    
+              
+        </div>
+    </div>
+
+  <!--header-section ends here  -->

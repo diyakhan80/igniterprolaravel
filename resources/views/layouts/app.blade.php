@@ -10,6 +10,7 @@
         
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="{{ asset('assets/global/css/preloader.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
       
@@ -29,6 +30,7 @@
 
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}"> -->
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> 
         
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/responsive.css') }}">
@@ -40,14 +42,38 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
         <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/engine1/style.css') }}" />
+	      <script type="text/javascript" src="{{ asset('assets/global/engine1/jquery.js') }}"></script>
+
+
     </head>
     <body class="page-md login">
         <div class="preloader">
-            <div class="loader theme_background_color">
-            <span></span>
-
+            {{-- <div class="loader theme_background_color">
+            <span></span> --}}
+            <div class="animation-container">
+              <div class="lightning-container">
+                <div class="lightning white"></div>
+                <div class="lightning red"></div>
+              </div>
+              <div class="boom-container">
+                <div class="shape circle big white"></div>
+                <div class="shape circle white"></div>
+                <div class="shape triangle big yellow"></div>
+                <div class="shape disc white"></div>
+                <div class="shape triangle blue"></div>
+              </div>
+              <div class="boom-container second">
+                <div class="shape circle big white"></div>
+                <div class="shape circle white"></div>
+                <div class="shape disc white"></div>
+                <div class="shape triangle blue"></div>
+              </div>
+            </div>
             </div>
         </div>
+        
         
                 @yield('content')
         
@@ -188,5 +214,8 @@
             </div>
           </div>
         </div>
+        <script type="text/javascript" src="{{ asset('assets/global/engine1/wowslider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/global/engine1/script.js') }}"></script>
+ 
     </body>
 </html>

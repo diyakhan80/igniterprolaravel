@@ -52,13 +52,13 @@ h3.title {
 }
 
 h3.title {
-    text-align: left;
-    font-size: 35px;
-    color: #000;
-    font-weight: 500;
-    font-style: normal;
-    display: inline-block;
-    margin-bottom: 25px;
+    text-transform: uppercase;
+  background: linear-gradient(to right, #aa246da8 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 55px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 0;
 }
 
 h3.title:after {

@@ -65,17 +65,47 @@
                     <h5 class="submitReview">Submit Reviews</h5>
                     <form role="add-review" action="{{url('reviewsubmission')}}" method="POST">
                         {{csrf_field()}}
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                         	<label>Name<span class="error">* </span></label>
                             <input type="text" class="form-control text-white" name="review_name" id="name" placeholder="Name"  required>
+                        </div> --}}
+                        <div class="group-career mt-5">      
+                            <input type="text" name="name" id="name" required class="career-input" autocomplete="off">
+                            <span class="highlight-career"></span>
+                            <span class="career-bar"></span>
+                            <label class="career-label">Name</label>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                         	<label>Phone</label>
                             <input type="text" class="form-control" data-request="isnumeric" name="review_phone" id="phone" placeholder="Phone" >
+                        </div> --}}
+                        <div class="group-career mt-5">      
+                            <input type="text" name="review_phone" id="phone" required class="career-input" autocomplete="off" data-request="isnumeric">
+                            <span class="highlight-career"></span>
+                            <span class="career-bar"></span>
+                            <label class="career-label">Phone</label>
                         </div>
-                        <div class="form-group">
+                         
+                        {{-- <div class="form-group">
                         	<label>Email<span class="error">* </span></label>
                             <input type="email" class="form-control" name="review_email" id="email" placeholder="E-mail" required >
+                        </div> --}}
+                        <div class="group-career mt-5">      
+                            <input type="text" name="review_email" id="email" required class="career-input" autocomplete="off">
+                            <span class="highlight-career"></span>
+                            <span class="career-bar"></span>
+                            <label class="career-label">Email</label>
+                        </div>
+                        {{-- <div class="form-group">
+                         	<label>Comments<span class="error">* </span></label>
+                            <input type="comments" class="form-control" name="review_comments" id="comments" placeholder="Comments" >
+                     
+                        </div>   --}}
+                        <div class="group-career mt-5 commnets-space">      
+                            <input type="comments" name="review_comments" id="comments" required class="career-input" autocomplete="off" data-request="isnumeric">
+                            <span class="highlight-career"></span>
+                            <span class="career-bar"></span>
+                            <label class="career-label">Comments</label>
                         </div>
 						<div class="rating form-group">
 							<label class="ratingclass">Choose Rating:<span class="error">* </span></label>
@@ -87,11 +117,8 @@
 						    
 						</div>
 						<input type="hidden" name="rate" class="rate">
-                         <div class="form-group">
-                         	<label>Comments<span class="error">* </span></label>
-                            <input type="comments" class="form-control" name="review_comments" id="comments" placeholder="Comments" >
-                     
-                        </div>  
+                        
+                        
                         <div class="submitBtnDiv">
                         	
                         <button type="button" data-request="ajax-submit" name="addReview" value="Submit Review" data-target='[role="add-review"]' class="btn btn-primary">Save</button>
@@ -109,17 +136,35 @@
                     <h5>Make An Enquiry</h5>
                     <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
                             {{csrf_field()}}
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                               <label>Name<span class="error">* </span></label>
                                 <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name">
+                            </div> --}}
+                            <div class="group-career mt-5">      
+                                <input type="text" name="name" id="name" required class="career-input" autocomplete="off">
+                                <span class="highlight-career"></span>
+                                <span class="career-bar"></span>
+                                <label class="career-label">Name</label>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                               <label>Phone<span class="error">* </span></label>
                                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                            </div> --}}
+                            <div class="group-career mt-5">      
+                                <input type="text" name="phone" id="phone" required class="career-input" autocomplete="off">
+                                <span class="highlight-career"></span>
+                                <span class="career-bar"></span>
+                                <label class="career-label">Phone</label>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                               <label>Email<span class="error">* </span></label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+                            </div> --}}
+                            <div class="group-career mt-5">  
+                                <input type="email" name="email" id="email" required class="career-input" autocomplete="off">
+                                <span class="highlight-career"></span>
+                                <span class="career-bar"></span>
+                                <label class="career-label">Email</label>
                             </div>
                             <div class="form-group">
                               <label>Courses<span class="error">* </span></label>
@@ -131,14 +176,26 @@
                                 </select>
                                    
                             </div>
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                               <label>Location<span class="error">* </span></label>
                                 <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                            </div> --}}
+                            <div class="group-career mt-5">      
+                                <input type="text" name="location" id="location" required class="career-input" autocomplete="off">
+                                <span class="highlight-career"></span>
+                                <span class="career-bar"></span>
+                                <label class="career-label">Location</label>
                             </div>
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                               <label>Comments<span class="error">* </span></label>
                                 <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments">
-                            </div>  
+                            </div>   --}}
+                            <div class="group-career mt-5">      
+                                <input type="comments" name="comments" id="comments" required class="career-input" autocomplete="off">
+                                <span class="highlight-career"></span>
+                                <span class="career-bar"></span>
+                                <label class="career-label">Comments</label>
+                            </div>
                             <div class="submitBtnDiv">
                             <button type="button" data-request="ajax-submit" name="addEnquiry" value="Submit Enquiry" data-target='[role="add-enquiry"]' class="btn btn-primary">Save</button>
                             </div>       

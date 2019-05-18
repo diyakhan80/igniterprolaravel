@@ -1,4 +1,4 @@
-<section class="main-heading" id="home">
+{{-- <section class="main-heading" id="home">
   <div class="overlay">
     <div class="">
       <div class="">
@@ -13,7 +13,36 @@
       </div>
     </div>
   </div>     
-</section>
+</section> --}}
+
+<div id="wowslider-container1">
+  <div class="ws_images">
+      <ul>
+          <li><img src="{{url('assets/global/data1/images/artbigdatablur373543.jpg')}}" alt="WE ARE IGNITERS"
+                  title="WE ARE IGNITERS" id="wows1_0" /></li>
+          <li><a href="javascript void(0)"><img src="{{url('assets/global/data1/images/artificialflowersblurredbackgroundcloseup1229861.jpg')}}"
+                      alt="jquery image slider" title="WE ARE DESIGNERS" id="wows1_1" /></a></li>
+          <li><img src="{{url('assets/global/data1/images/artificialintelligencecodesdeveloping1936299.jpg')}}" alt="WE ARE DEVELOPERS"
+                  title="WE ARE DEVELOPERS" id="wows1_2" /></li>
+      </ul>
+  </div>
+  <div class="ws_bullets">
+      <div>
+          <a href="#" title="WE ARE IGNITERS"><span><img
+                      src="data1/tooltips/artificialflowersblurredbackgroundcloseup1229861.jpg"
+                      alt="WE ARE IGNITERS" />1</span></a>
+          <a href="#" title="WE ARE DESIGERS"><span><img src="data1/tooltips/artbigdatablur373543.jpg"
+                      alt="WE ARE DESIGERS" />2</span></a>
+          <a href="#" title="WE ARE DEVELOPERS"><span><img
+                      src="data1/tooltips/artificialintelligencecodesdeveloping1936299.jpg"
+                      alt="WE ARE DEVELOPERS" />3</span></a>
+      </div>
+  </div>
+  
+</div>
+
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
  
  <!-- [ABOUT US]
  ============================================================================================================================-->

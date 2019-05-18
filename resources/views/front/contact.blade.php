@@ -34,22 +34,40 @@
               <a class="demoregisterbtn" href="{{url('registration')}}">Register for demo classes</a>
             </div>
              <div class="medica-appointment-card medicaAppointment wow fadeInUp" data-wow-delay="0.6s">
-                <h5>Make An Enquiry</h5>
+                <h5 style="margin-top:10px;">Make An Enquiry</h5>
               <form role="add-enquiry" action="{{url('enquirysubmission')}}" method="POST" >
                 {{csrf_field()}}
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label>Name<span class="error">* </span></label>
                     <input type="text" class="form-control text-white" name="name" id="name" placeholder="Name">
+                </div> --}}
+                <div class="group-career mt-5">      
+                  <input type="text" name="name" id="name" required class="career-input" autocomplete="off">
+                  <span class="highlight-career"></span>
+                  <span class="career-bar"></span>
+                  <label class="career-label">Name</label>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label>Phone<span class="error">*</span></label>
                     <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+                </div> --}}
+                <div class="group-career mt-5">      
+                  <input type="text" name="phone" id="phone" required class="career-input" autocomplete="off">
+                  <span class="highlight-career"></span>
+                  <span class="career-bar"></span>
+                  <label class="career-label">Phone</label>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label>Email<span class="error">* </span></label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+                </div> --}}
+                <div class="group-career mt-5">      
+                  <input type="email" name="email" id="name" required class="career-input" autocomplete="off">
+                  <span class="highlight-career"></span>
+                  <span class="career-bar"></span>
+                  <label class="career-label">Email</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-4 mb-5">
                   <label>Courses<span class="error">* </span></label>
                     <select class="form-control drop-down requirementname" name="course_id" style="color:black;">
                       <option value="">Courses</option>
@@ -58,14 +76,26 @@
                       @endforeach
                     </select>
                 </div>
-                 <div class="form-group">
+                 {{-- <div class="form-group">
                   <label>Location<span class="error">* </span></label>
                     <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                </div> --}}
+                <div class="group-career mt-5">      
+                  <input type="text" name="location" id="location" required class="career-input" autocomplete="off">
+                  <span class="highlight-career"></span>
+                  <span class="career-bar"></span>
+                  <label class="career-label">Location</label>
                 </div>
-                 <div class="form-group">
+                 {{-- <div class="form-group">
                   <label>Comments<span class="error">* </span></label>
                     <input type="comments" class="form-control" name="comments" id="comments" placeholder="Comments">
-                </div>  
+                </div>   --}}
+                <div class="group-career mt-5">      
+                  <input type="Comments" name="career_name" id="name" required class="career-input" autocomplete="off">
+                  <span class="highlight-career"></span>
+                  <span class="career-bar"></span>
+                  <label class="career-label">Comments</label>
+                </div>
                 <div class="submitBtnDiv">
                 <button type="button" data-request="ajax-submit" data-target='[role="add-enquiry"]' class="btn sendenquiry">Send Enquiry</button>
                 </div>

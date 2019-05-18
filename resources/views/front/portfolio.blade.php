@@ -11,7 +11,7 @@
           
           <div class="gap"></div>
 
-        <div class="row">
+         {{-- <div class="row">
 	       @if(!empty($products))
 			@foreach($products as $product)
 	          <div class="col-sm-4 port-item margin-bottom">
@@ -25,13 +25,40 @@
 	            </div>
 	            <div class="work-desc">
 	              <h3><a target="blank" href="{{$product['url']}}">{{$product['name']}}</a></h3>
-	              {{-- <span>{{$product['name']}}</span> --}}
+	              <span>{{$product['name']}}</span> 
 	            </div>
-	          </div> <!-- /portfolio-item -->
+	          </div> 
 	          @endforeach
 			@endif
-        </div> <!-- /row -->
-
+				</div>  --}}
+				
+				<div class="portfolio-row">
+						@if(!empty($products))
+						@foreach($products as $product)
+					<div class="item-wrapper">
+						 <div class="image-wrapper">
+								<img src="{{url('images/Products/'.$product['image'])}}" alt="">
+								<div class="item-overlay">
+										<a href="{{url('images/Products/'.$product['image'])}}" >
+											<span></span>
+										</a>
+									</div>
+						 </div>
+						 <div class="brk-btn">
+	              <h3><a target="blank" href="{{$product['url']}}">{{$product['name']}}</a></h3>
+	              <span>{{$product['name']}}</span> 
+	          </div>
+						 
+						
+							
+							
+							
+					</div>
+					@endforeach
+					@endif
+				</div>
+			
+			
         <div class="row">
           <div class="col-md-12 text-center">
            <!-- <a href="#" class="btn btn-custom theme_background_color">Load More</a>-->
