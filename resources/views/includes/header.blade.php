@@ -13,7 +13,7 @@
           </ul>
         </div>
       </div>     
-      {{--
+      
       <nav  class="nim-menu navbar navbar-default headerbtm allpageheader">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,11 +77,11 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </header> --}}
+    </header>
 
     <!-- header-section -->
 
-   <div id="home-header">
+   {{-- <div id="home-header">
         <div class="new-header">
             <div class="logo-section">
                 <img src="./images/igniter-logo2.png" alt="">
@@ -109,6 +109,6 @@
     
               
         </div>
-    </div>
+    </div> --}}
 
   <!--header-section ends here  -->

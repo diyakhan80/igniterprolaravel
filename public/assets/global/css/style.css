@@ -1,4 +1,4 @@
-
+/*
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 AUTHOR : Vijayan PP
 PROJECT : Nim-MUTLIT PURPOSE LANDING PAGE TEMPLATE
@@ -87,7 +87,6 @@ h1 strong{
   
 }
 h2{
-  ;
   line-height: 20px;
   margin:  0;
 }
@@ -2110,7 +2109,7 @@ select.form-control:not([size]):not([multiple]) {
     font-weight: 400;
     font-size: 14px;
     line-height: 27px;
-    text-align: left;
+    text-align: center;
     margin: 10px 0;
 
 }
@@ -2162,8 +2161,9 @@ select.form-control:not([size]):not([multiple]) {
   padding-top: 0 !important;
 }
 .office-section h5 {
-
+    text-align: center;
     margin-bottom: 16px;
+    font-size: 20px;
 
 }
 .email-detailsection p b{

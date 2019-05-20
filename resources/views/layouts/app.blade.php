@@ -43,8 +43,8 @@
         <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/main.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/engine1/style.css') }}" />
-	      <script type="text/javascript" src="{{ asset('assets/global/engine1/jquery.js') }}"></script>
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/engine1/style.css') }}" />
+	      <script type="text/javascript" src="{{ asset('assets/global/engine1/jquery.js') }}"></script> --}}
 
 
     </head>

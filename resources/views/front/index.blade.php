@@ -15,7 +15,7 @@
   </div>     
 </section> --}}
 
-<div id="wowslider-container1">
+{{-- <div id="wowslider-container1">
   <div class="ws_images">
       <ul>
           <li><img src="{{url('assets/global/data1/images/artbigdatablur373543.jpg')}}" alt="WE ARE IGNITERS"
@@ -42,8 +42,47 @@
 </div>
 
 <script type="text/javascript" src="engine1/wowslider.js"></script>
-<script type="text/javascript" src="engine1/script.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script> --}}
  
+
+{{-- new  slider begins from here  --}}
+
+
+<section class="cd-slider">
+  <ul>
+    <li data-color="#FF384B">
+      <div class="content" >
+        <blockquote class="blockquote-1">
+          <p>WE ARE DEVELOPERS</p>
+          <span></span>
+        </blockquote>
+      </div>
+    </li>
+    <li data-color="#FF9C00">
+      <div class="content">
+        <blockquote class="blockquote-1">
+          <p>WE ARE DESIGNERS</p>
+          <span></span>
+        </blockquote>
+      </div>
+    </li>
+    <li data-color="#002AFF">
+      <div class="content" >
+        <blockquote class="blockquote-1">
+          <p>WE ARE IGNITERS</p>
+          <span></span>
+        </blockquote>
+      </div>
+    </li>
+  </ul>
+  <nav class="navigation-slider">
+    <div><a class="prev" href="#"></a></div>
+    <div><a class="next" href="#"></a></div>
+  </nav>
+</section>
+
+{{-- new slider ends from here  --}}
+
  <!-- [ABOUT US]
  ============================================================================================================================-->
  <section class="aboutus white-background black section-gap aboutBottom" id="one">
