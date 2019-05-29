@@ -24,11 +24,17 @@ VERSION : 1.1
 }
 
 @media (min-width: 768px){
+	.navbar-nav{
+		
+			margin: 0px -13px;
+	
+	}
+
 	.navbar-nav > li > a {
 	    padding-top: 24px;
 	    padding-bottom: 15px;
 	}
-	.nim-service
+
 }
 @media (max-width: 767px){
 	.nim-service{
@@ -53,8 +59,8 @@ VERSION : 1.1
 	.nim-menu.navbar-default .navbar-nav > li > a{
 		color: #000 !important;
 	}
-	.navbar-nav{
-		margin-top: 0;
+	.navbar-nav {
+		margin: 0px -13px !important;
 	}
 	.enquiryTop p{
 		font-size: 20px;

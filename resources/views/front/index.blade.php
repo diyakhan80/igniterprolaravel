@@ -878,28 +878,21 @@
             <div class="owl-carousel slide-one-item-alt-text">  
               <div class="slide-text">
                 <h1>High Quality Website Templates</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p class="mb-5">We develop the the website templates that require some tweeks that match your
+                  requirement.
+                </p>
                 <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
               </div>
               <div class="slide-text">
                 <h1>We do things right.</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
-                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
-              </div>
-              <div class="slide-text">
-                <h1>High Quality Website Templates</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
-                <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
-              </div>
-              <div class="slide-text">
-                <h1>We Do Awesome Things</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p class="mb-5">We do the things that a project requires in a way to make that right</p>
                 <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
               </div>
               
+              
               <div class="slide-text">
                 <h1>Free-Template.co</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ipsa nulla sed quis rerum amet natus quas necessitatibus.</p>
+                <p class="mb-5">Check Out the Templates from our team to ensures your requirement</p>
                 <p><a href="https://free-template.co/" target="_blank" class="btn btn-outline-light py-3 px-5">Get Started</a></p>
               </div>
             </div>
