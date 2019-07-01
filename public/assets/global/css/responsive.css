@@ -12,15 +12,90 @@ VERSION : 1.1
 /*......................................................
 	DESKTOP LAYOUT
 ........................................................*/
-
+@media only screen and (max-width: 1200px){
+	.solution_list ul li .solution_area{
+		width: 255px;
+	}
+	.solution_list ul li .solution_h_txt{
+		font-size: 14px;
+	}
+}
 @media only screen and (max-width: 900px){
     .ramsh-menu ul li:last-child::after{
         display:none;
     }
     .solution_list ul li{
-    	width: 50%;
+    	width: 100%;
+    	margin-bottom: 20px;
     }
-    
+    .navbar-toggle{
+    	display: block;
+    }
+    .navbar-header{
+    	float: none;
+    }
+    .solution_list ul{
+    	flex-direction: column;
+    	justify-content: center;
+    }
+    .navbar-default .navbar-toggle, .navbar-default .navbar-toggle {
+    	background-color: #2196F3;
+	}
+	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+    	background-color: #2196F3;
+    	box-shadow: none;
+	}
+	.navbar-default .navbar-toggle {
+	    border-color: #2196f3;
+	    margin-top: 20px;
+	}
+	.navbar-default .navbar-toggle .icon-bar{
+		background-color: #fff;
+	}
+	.nim-menu.navbar-default .navbar-nav > li > a{
+		color: #000 !important;
+	}
+	.navbar-nav {
+		margin: 0px -13px !important;
+	}
+	.mobile-white-background{
+		background-color: #fff;
+	}
+	.navbar-nav > li {
+	    float: none;
+	}
+	.navbar-right{
+		float: none !important;
+	}
+	.dashedline{
+		border: 0;
+	}
+    h3.title{
+    	font-size: 34px !important;
+    }
+    .trainWrapper {
+	    padding: 20px 0;
+	}
+	.figure {
+	    font-size: 120px;
+	}	
+	p.full.years {
+	    font-size: 40px;
+	}
+	.navbar-collapse.collapse {
+	    display: none !important;
+	    visibility: hidden;
+	}
+	.navbar-collapse.collapse.in {
+	    display: block !important;
+	    visibility: visible;
+	}
+	.intro-section{
+		display: none;
+	}
+	.aboutBox span img{
+		padding: 7px;
+	}
 }
 
 @media (min-width: 768px){
@@ -40,27 +115,32 @@ VERSION : 1.1
 	.nim-service{
 		height: auto;
 	}
-	.mobile-white-background{
-		background-color: #fff;
+	.link_list ul li{
+		width: 100%;
+		float: none;
 	}
-	.navbar-default .navbar-toggle, .navbar-default .navbar-toggle {
-    	background-color: #2196F3;
+	.rating{
+		margin-right: 0;
 	}
-	.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
-    	background-color: #2196F3;
-    	box-shadow: none;
+	.techlist {
+	    margin-top: 0px;
 	}
-	.navbar-default .navbar-toggle {
-	    border-color: #2196f3;
+	.aboutBottom{
+		padding-top: 30px;
+		padding-bottom: 20px;
 	}
-	.navbar-default .navbar-toggle .icon-bar{
-		background-color: #fff;
+	.row.no-gutter {
+	    padding-top: 30px;
+	    padding-bottom: 20px;
 	}
-	.nim-menu.navbar-default .navbar-nav > li > a{
-		color: #000 !important;
+	h3.title {
+	    font-size: 26px !important;
 	}
-	.navbar-nav {
-		margin: 0px -13px !important;
+	.webservicesection{
+		padding: 30px 0 30px;
+	}
+	.technologysection {
+	    padding: 40px 0;
 	}
 	.enquiryTop p{
 		font-size: 20px;

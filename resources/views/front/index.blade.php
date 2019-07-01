@@ -88,10 +88,11 @@
  <section class="aboutus white-background black section-gap aboutBottom" id="one">
      <div class="container">
          <div class="row">
-             <div class="col-md-12 text-center black">
+            <div class="col-md-12 text-center black">
                 <div class="pt-30 wow fadeInUp" data-wow-delay="100ms">
                  <h3 class="title">ABOUT <span class="themecolor">US</span></h3>
                 </div>
+                
                 <div class="col-md-6 dashedline">
                   <div class="year-experience item" data-aos="fade-up">
                     <h6 class="postisionrelative morethan"></h6>
@@ -161,52 +162,49 @@
                 <div class="col-md-6">
                   <div class="col-md-6 text-center detailbox item" data-aos="flip-up">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/insight.png"><span>
+                      <span><img src="images/insight.png"></span>
                       <h4 class="headcontent"> INSIGHT</h4>
                       <p class="white gray-content">We understand the specific cause and effect of your project.</p>
                     </div> <!-- / margin -->
                   </div> <!-- /col -->
                   <div class="col-md-6 about-line text-center detailbox item" data-aos="flip-down">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/analysis.png"><span>
+                      <span><img src="images/analysis.png"></span>
                       <h4 class="headcontent">ANALYSIS</h4>
                       <p class="white gray-content">We examine with detail the elements and structure of your company.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
                   <div class="col-md-6 text-center detailbox item" data-aos="flip-left">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/brainstorming-1.png"><span>
+                      <span><img src="images/brainstorming-1.png"></span>
                       <h4 class="headcontent">BRAINSTORMING</h4>
                       <p class="white gray-content">All our great minds are brought together for your benefit.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
                    <div class="col-md-6 text-center detailbox item" data-aos="flip-right">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/design.png"><span>
+                      <span><img src="images/design.png"></span>
                       <h4 class="headcontent"> DESIGN</h4>
                       <p class="white gray-content">After all the preparation steps the hard work begins.</p>
                     </div> <!-- / margin -->
                   </div> <!-- /col -->
                   <div class="col-md-6 about-line text-center detailbox item" data-aos="flip-up">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/development.png"><span>
+                      <span><img src="images/development.png"></span>
                       <h4 class="headcontent">DEVELOPMEMT</h4>
                       <p class="white gray-content">Our developers take charge of translating the design into interactive digits.</p>
                     </div> <!-- / margin -->
                   </div><!-- /col -->
                   <div class="col-md-6 text-center detailbox item" data-aos="flip-down">
                     <div class="margin-bottom aboutBox section-gradiant-b">
-                      <span><img src="images/testing.png"><span>
+                      <span><img src="images/testing.png"></span>
                       <h4 class="headcontent">TESTING</h4>
                       <p class="white gray-content">This is the final step before advertising. The project’s functionality is thoroughly tested.</p>
                     </div>
                   </div> <!-- / margin -->
                 </div><!-- /col -->
-              </div> <!-- /row -->
-            </div>   
-         
-         
-         
+            </div> <!-- /row -->
+          </div>     
      </div>
  </section>
  
@@ -873,7 +871,7 @@
  <div class="intro-section custom-owl-carousel" id="home-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-5 mr-auto aos-init aos-animate" data-aos="fade-up">
+          <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 mr-auto">
 
             <div class="owl-carousel slide-one-item-alt-text">  
               <div class="slide-text">
@@ -897,7 +895,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 ml-auto aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ml-auto">
                         
             <div class="owl-carousel slide-one-item-alt"> 
               <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid img-height">
@@ -1049,8 +1047,7 @@
           <div class="col-md-12">
             <div class="item" data-aos="fade-right">
               <div class="testimonial-head sectionserv text-center">
-                <h3>Our Testimonial</h3>
-               
+                <h3 class="title item">Our <span class="themecolor">Testimonial</span></h3>
             </div>
           </div>
         </div>

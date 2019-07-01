@@ -27,9 +27,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/owl.theme.css') }}">
         <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/magnific-popup.css') }}"> -->
-
-        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap-theme.min.css') }}"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}"> -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/library/bootstrap/css/bootstrap.css') }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> 
         
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/style.css') }}">
@@ -37,8 +35,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/color/rose.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/IgnitorproStyle.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/global/css/Incognito_responsive.css') }}">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
         <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/bower_components/sweetalert2/dist/sweetalert2.css') }}" rel="stylesheet">
@@ -190,8 +186,9 @@
     </script>  
     <script type="text/javascript">
         AOS.init({
-      duration: 1200,
-    })
+          duration: 1200,
+          disable: 'mobile'
+        })
     </script>
 
         <script src="{{ asset('assets/global/js/common.js') }}"></script>
