@@ -438,17 +438,17 @@ nav.nim-menu.navbar.navbar-default.headerbtm.allpageheader {
     right: 50%;
     opacity: 0;
     bottom: 5px;
-    border-bottom:2px solid #3eafe6;
+    border-bottom:2px solid #ff384b;
     transition: .3s
 }
 .nim-menu.navbar-default .navbar-nav > li > a:hover:after {
     left: 0;
     right: 0;
     opacity: 1;
-    border-bottom:2px solid #3eafe6;
+    border-bottom:2px solid #ff384b;
 }
 .nim-menu.navbar-default .navbar-nav > li > a:hover{
-  color:#3eafe6 !important;
+  color:#ff384b !important;
 }
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
@@ -2408,4 +2408,7 @@ font-size:18px;
 
 .brk-btn span{
   color: black;
+}
+.testimonial-head {
+    margin-bottom: 20px;
 }

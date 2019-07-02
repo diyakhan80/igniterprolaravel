@@ -150,6 +150,10 @@ VERSION : 1.1
 	.headerTop ul li{
 		padding-right: 0;
 	}
+	.trainingknow h3{
+		font-size: 30px;
+	}
+	
 }
 /*......................................................
 	MOBILE LAYOUT
