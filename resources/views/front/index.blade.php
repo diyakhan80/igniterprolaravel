@@ -868,7 +868,7 @@
  
  <!-- [/OUR TEAM]
  ============================================================================================================================-->
- <div class="intro-section custom-owl-carousel" id="home-section">
+ <!-- <div class="intro-section custom-owl-carousel" id="home-section">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 mr-auto">
@@ -909,7 +909,7 @@
           </div>
         </div>
       </div>
-    </div>
+ </div> -->
  
  
  

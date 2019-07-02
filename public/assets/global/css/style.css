@@ -199,11 +199,10 @@ text-align:justify;
 }
 h3.title {
   text-transform: uppercase;
-  background: linear-gradient(to right, #aa246da8 0%, #330867 100%);
+  background-color: #080808;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 55px;
-  font-family: "Poppins", sans-serif;
 }
 .subscribe{
    font-weight: 700;
@@ -569,12 +568,12 @@ p.lead {
 .main-heading-text {
   font-size: 17px;
   color: #fff;
-  /* margin-bottom: 20px; */
   max-width: 760px;
   text-align: center;
   margin: 0 auto;
 }
 .aboutBottom{
+  padding-top: 20px;
   padding-bottom: 40px;
 }
 .main-heading-title span {

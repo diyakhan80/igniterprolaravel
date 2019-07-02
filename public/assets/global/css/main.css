@@ -565,6 +565,14 @@ blockquote span {
 	opacity: 1;
 	transform: scale(1);
 }
+@media (max-width: 420px){
+	.cd-slider{
+		height: 50vh;
+	}
+	blockquote p{
+		font-size:4rem;
+	}
+}
 /* .navigation-slider
 ---------------------------------*/
 .navigation-slider div {
